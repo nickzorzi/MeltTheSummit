@@ -17,7 +17,7 @@ public class Unit : MonoBehaviour {
         StartCoroutine(RefreshPath());
     }
 
-    void Update() {
+    void FixedUpdate() {
         if (eC.isKnockback) {
             if (followPathCoroutine != null) {
                 StopCoroutine(followPathCoroutine);

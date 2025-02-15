@@ -18,9 +18,9 @@ public class EnemyController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-       
+
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
