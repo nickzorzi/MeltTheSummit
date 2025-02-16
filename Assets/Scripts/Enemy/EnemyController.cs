@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -13,14 +14,23 @@ public class EnemyController : MonoBehaviour
 
     private bool hasTakenDamageThisSwing = false;
 
+    [SerializeField] private float distance = 5f;
+    [SerializeField] private LayerMask colliders;
+    public bool hasLineOfSight = false;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        Physics2D.queriesStartInColliders = false;
+    }
+
     private void FixedUpdate()
     {
-
+        checkForPlayer();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -69,6 +79,27 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(knockbackCooldown);
 
         isKnockback = false;
+    }
+
+    private void checkForPlayer ()
+    {
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position, distance, ~colliders);
+
+        if (ray.collider != null)
+        {
+            hasLineOfSight = ray.collider.CompareTag("Player") && ray.collider.isTrigger;
+
+            if (hasLineOfSight)
+            {
+                Debug.DrawLine(transform.position, ray.point, Color.green);
+            }
+            else
+            {
+                Debug.DrawLine(transform.position, ray.point, Color.red);
+            }
+
+            Debug.Log(ray.collider.gameObject.name);
+        }
     }
 
     private void Die()

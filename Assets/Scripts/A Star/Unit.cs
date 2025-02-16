@@ -12,19 +12,32 @@ public class Unit : MonoBehaviour {
 
     Coroutine followPathCoroutine;
 
+    [SerializeField] private bool startChase = false;
+
     void Start() {
         eC = GetComponent<EnemyController>();
-        StartCoroutine(RefreshPath());
+        //StartCoroutine(RefreshPath());
     }
 
     void FixedUpdate() {
-        if (eC.isKnockback) {
-            if (followPathCoroutine != null) {
+        if (eC.hasLineOfSight && !startChase)
+        {
+            StartCoroutine(RefreshPath());
+            startChase = true;
+        }
+
+        if (eC.isKnockback)
+        {
+            if (followPathCoroutine != null)
+            {
                 StopCoroutine(followPathCoroutine);
                 followPathCoroutine = null;
             }
-        } else {
-            if (followPathCoroutine == null) {
+        }
+        else
+        {
+            if (followPathCoroutine == null)
+            {
                 followPathCoroutine = StartCoroutine(FollowPath());
             }
         }
