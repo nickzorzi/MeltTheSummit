@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -6,8 +7,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static event Action OnPlayerDamaged;
+
     [SerializeField] private float _moveSpeed = 5f;
-    [SerializeField] private float health = 100;
+    public float health = 12;
+    public float maxHealth = 12;
     [SerializeField] private float temp, maxTemp;
     [SerializeField] private int heatCost;
     [SerializeField] private int coolCost;
@@ -153,7 +157,7 @@ public class PlayerController : MonoBehaviour
     {
         _inCoroutine = true;
 
-        health = health - amount;
+        TakeDamage(amount);
 
         yield return new WaitForSeconds(1);
 
@@ -164,10 +168,16 @@ public class PlayerController : MonoBehaviour
     {
         if (hitInfo.CompareTag("Projectile"))
         {
-            health = health - 10;
+            TakeDamage(1);
         }
     }
 
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        OnPlayerDamaged?.Invoke();
+    }
+    
     private void Die()
     {
         Destroy(gameObject);
