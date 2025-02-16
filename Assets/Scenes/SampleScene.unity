@@ -4136,6 +4136,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1013955262}
+  - {fileID: 1817116058}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1117331342
@@ -4246,6 +4247,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   hasLineOfSight: 0
+  projectile: {fileID: 4181765154684222541, guid: 07f097d447b6e0642aae7b5a674e2eca, type: 3}
+  gunPivot: {fileID: 1817116058}
+  nextFireTime: 1
+  fireRate: 1
 --- !u!1 &1199074716
 GameObject:
   m_ObjectHideFlags: 0
@@ -4321,6 +4326,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430d147cbefca9f4489a4e431814e6a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1266361769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266361770}
+  m_Layer: 7
+  m_Name: GunPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1266361770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266361769}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1506996516}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1506996514
 GameObject:
   m_ObjectHideFlags: 0
@@ -4407,6 +4443,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1507096321}
+  - {fileID: 1266361770}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1506996517
@@ -4475,6 +4512,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   hasLineOfSight: 0
+  projectile: {fileID: 4181765154684222541, guid: 07f097d447b6e0642aae7b5a674e2eca, type: 3}
+  gunPivot: {fileID: 1266361770}
+  nextFireTime: 1
+  fireRate: 1
 --- !u!50 &1506996519
 Rigidbody2D:
   serializedVersion: 4
@@ -4663,6 +4704,37 @@ PolygonCollider2D:
       - {x: 0, y: -0.875}
       - {x: 0.625, y: -0.75}
   m_UseDelaunayMesh: 0
+--- !u!1 &1817116057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1817116058}
+  m_Layer: 7
+  m_Name: GunPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1817116058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817116057}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1117331340}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1992441508
 GameObject:
   m_ObjectHideFlags: 0
@@ -4952,8 +5024,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &2105209426
-BoxCollider2D:
+--- !u!60 &2105209426
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4984,7 +5056,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -4994,9 +5066,15 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.25, y: 1}
+      - {x: -0.4, y: 0.5}
+      - {x: -0.25, y: 0}
+      - {x: 0.25, y: 0}
+      - {x: 0.4, y: 0.5}
+      - {x: 0.25, y: 1}
+  m_UseDelaunayMesh: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5006,6 +5084,6 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1199074717}
   - {fileID: 2105209422}
-  - {fileID: 1506996516}
   - {fileID: 437832938}
+  - {fileID: 1506996516}
   - {fileID: 1117331340}

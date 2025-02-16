@@ -18,6 +18,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private LayerMask colliders;
     public bool hasLineOfSight = false;
 
+    public GameObject projectile;
+    [SerializeField] private Transform gunPivot;
+    [SerializeField] private float nextFireTime;
+    public float fireRate = 1f;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -92,6 +97,12 @@ public class EnemyController : MonoBehaviour
             if (hasLineOfSight)
             {
                 Debug.DrawLine(transform.position, ray.point, Color.green);
+
+                if (nextFireTime < Time.time)
+                {
+                    Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
+                    nextFireTime = Time.time + fireRate;
+                }
             }
             else
             {

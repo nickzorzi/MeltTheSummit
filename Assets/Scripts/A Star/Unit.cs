@@ -62,7 +62,7 @@ public class Unit : MonoBehaviour {
     }
 
     IEnumerator FollowPath() {
-        if (path.Length > 0) {
+        if (path != null && path.Length > 0) {
             targetIndex = 0;
             Vector2 currentWaypoint = path[0];
 

@@ -160,6 +160,14 @@ public class PlayerController : MonoBehaviour
         _inCoroutine = false;
     }
 
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        if (hitInfo.CompareTag("Projectile"))
+        {
+            health = health - 10;
+        }
+    }
+
     private void Die()
     {
         Destroy(gameObject);
