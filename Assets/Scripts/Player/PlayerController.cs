@@ -7,9 +7,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 5f;
+    [SerializeField] private float health = 100;
+    [SerializeField] private float temp, maxTemp;
+    [SerializeField] private int heatCost;
+    [SerializeField] private int coolCost;
 
-    private bool _isAttacking = false;
-    private bool _isTransformed = false;
+    [SerializeField] private bool _isAttacking = false;
+    [SerializeField] private bool _isTransformed = false;
+    [SerializeField] private bool _isBurning = false;
 
     private Vector2 _movement;
 
@@ -27,7 +32,7 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _movement.Set(InputManager.Movement.x, InputManager.Movement.y);
 
@@ -35,6 +40,8 @@ public class PlayerController : MonoBehaviour
 
         _animator.SetFloat(_horizontal, _movement.x);
         _animator.SetFloat(_vertical, _movement.y);
+
+        HandleTemp();
 
         if (!_isAttacking)
         {
@@ -49,12 +56,12 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (InputManager.isTransformTriggered && !_isTransformed)
+        if (InputManager.isTransformTriggered && !_isTransformed && !_isAttacking)
         {
             _isTransformed = true;
             StartCoroutine(Transform("In"));
         }
-        else if (InputManager.isTransformTriggered && _isTransformed)
+        else if (InputManager.isTransformTriggered && _isTransformed && !_isAttacking)
         {
             _isTransformed = false;
             StartCoroutine(Transform("Out"));
@@ -64,16 +71,16 @@ public class PlayerController : MonoBehaviour
         {
             if (!_isTransformed)
             {
-                StartCoroutine(Swing("D", 1));
+                StartCoroutine(Swing("D", 1f));
             }
             else if (_isTransformed)
             {
-                StartCoroutine(Swing("A", 1));
+                StartCoroutine(Swing("A", 0.5f));
             }
         }
     }
 
-    IEnumerator Swing(string mode, int time)
+    IEnumerator Swing(string mode, float time)
     {
         _animator.SetTrigger("Swing-" + mode);
         _isAttacking = true;
@@ -91,5 +98,42 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _isAttacking = false;
         _moveSpeed = 5f;
+    }
+
+    private void HandleHealth()
+    {
+
+    }
+
+    private void HandleTemp()
+    {
+        if (_isTransformed)
+        {
+            StartCoroutine(ChangeTemp(heatCost, 0.1f));
+
+            if (temp >= maxTemp)
+            {
+                temp = maxTemp;
+                _isBurning = true;
+            }
+        }
+        else
+        {
+            StartCoroutine(ChangeTemp(coolCost, 0.1f));
+            _isBurning = false;
+
+            if (temp <= 0)
+            {
+                temp = 0;
+            }
+        }
+    }
+
+    IEnumerator ChangeTemp(int amount, float tickSpeed)
+    {
+        yield return new WaitForSeconds(tickSpeed);
+
+        temp += amount * Time.deltaTime;
+        temp = Mathf.Clamp(temp, 0, maxTemp);
     }
 }

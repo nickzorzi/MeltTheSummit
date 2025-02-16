@@ -4224,6 +4224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2105209422}
   speed: 2
+  startChase: 0
 --- !u!114 &1117331345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4894,6 +4895,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 5
+  health: 100
+  temp: 0
+  maxTemp: 100
+  heatCost: 5
+  coolCost: -5
+  _isAttacking: 0
+  _isTransformed: 0
+  _isBurning: 0
 --- !u!50 &2105209424
 Rigidbody2D:
   serializedVersion: 4
