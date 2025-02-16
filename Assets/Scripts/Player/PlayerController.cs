@@ -11,10 +11,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float temp, maxTemp;
     [SerializeField] private int heatCost;
     [SerializeField] private int coolCost;
+    [SerializeField] private int burn;
 
     [SerializeField] private bool _isAttacking = false;
     [SerializeField] private bool _isTransformed = false;
     [SerializeField] private bool _isBurning = false;
+
+    private bool _inCoroutine = false;
 
     private Vector2 _movement;
 
@@ -42,6 +45,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetFloat(_vertical, _movement.y);
 
         HandleTemp();
+        HandleHealth();
 
         if (!_isAttacking)
         {
@@ -102,7 +106,15 @@ public class PlayerController : MonoBehaviour
 
     private void HandleHealth()
     {
-
+        if (_isBurning && !_inCoroutine)
+        {
+            StartCoroutine(Burn(burn));
+        }
+        
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 
     private void HandleTemp()
@@ -135,5 +147,21 @@ public class PlayerController : MonoBehaviour
 
         temp += amount * Time.deltaTime;
         temp = Mathf.Clamp(temp, 0, maxTemp);
+    }
+
+    IEnumerator Burn(int amount)
+    {
+        _inCoroutine = true;
+
+        health = health - amount;
+
+        yield return new WaitForSeconds(1);
+
+        _inCoroutine = false;
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }

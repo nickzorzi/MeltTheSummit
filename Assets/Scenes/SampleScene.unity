@@ -4900,6 +4900,7 @@ MonoBehaviour:
   maxTemp: 100
   heatCost: 5
   coolCost: -5
+  burn: 5
   _isAttacking: 0
   _isTransformed: 0
   _isBurning: 0
