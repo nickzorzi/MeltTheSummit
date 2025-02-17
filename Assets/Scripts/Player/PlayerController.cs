@@ -8,11 +8,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static event Action OnPlayerDamaged;
+    public static event Action OnPlayerThermo;
 
     [SerializeField] private float _moveSpeed = 5f;
     public float health = 12;
     public float maxHealth = 12;
-    [SerializeField] private float temp, maxTemp;
+    public float temp, maxTemp;
     [SerializeField] private int heatCost;
     [SerializeField] private int coolCost;
     [SerializeField] private int burn;
@@ -151,6 +152,8 @@ public class PlayerController : MonoBehaviour
 
         temp += amount * Time.deltaTime;
         temp = Mathf.Clamp(temp, 0, maxTemp);
+
+        OnPlayerThermo?.Invoke();
     }
 
     IEnumerator Burn(int amount)
