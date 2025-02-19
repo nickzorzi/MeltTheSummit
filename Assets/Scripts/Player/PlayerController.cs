@@ -80,11 +80,11 @@ public class PlayerController : MonoBehaviour
         {
             if (!_isTransformed)
             {
-                StartCoroutine(Swing("D", 1f));
+                StartCoroutine(Swing("D", 0.8f));
             }
             else if (_isTransformed)
             {
-                StartCoroutine(Swing("A", 0.5f));
+                StartCoroutine(Swing("A", 0.4f));
             }
         }
     }
