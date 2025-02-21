@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         _movement.Set(InputManager.Movement.x, InputManager.Movement.y);
 
@@ -49,9 +49,6 @@ public class PlayerController : MonoBehaviour
         _animator.SetFloat(_horizontal, _movement.x);
         _animator.SetFloat(_vertical, _movement.y);
 
-        HandleTemp();
-        HandleHealth();
-
         if (!_isAttacking)
         {
             if (_movement != Vector2.zero)
@@ -59,10 +56,6 @@ public class PlayerController : MonoBehaviour
                 _animator.SetFloat(_lastHorizontal, _movement.x);
                 _animator.SetFloat(_lastVertical, _movement.y);
             }
-        }
-        else
-        {
-
         }
 
         if (InputManager.isTransformTriggered && !_isTransformed && !_isAttacking)
@@ -87,6 +80,9 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(Swing("A", 0.4f));
             }
         }
+
+        HandleTemp();
+        HandleHealth();
     }
 
     IEnumerator Swing(string mode, float time)
