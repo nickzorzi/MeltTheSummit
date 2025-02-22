@@ -65,7 +65,10 @@ public class ItemManager : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        infoUI.SetActive(false);
+        if (infoUI != null)
+        {
+            infoUI.SetActive(false);
+        }
 
         canPurchase = false;
     }
