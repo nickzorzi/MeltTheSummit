@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -15,12 +16,16 @@ public class PlayerController : MonoBehaviour
     public float maxHealth = 12;
     public float temp, maxTemp;
     [SerializeField] private int heatCost;
-    [SerializeField] private int coolCost;
+    public int coolCost;
     [SerializeField] private int burn;
 
+    public bool _canAttack = true;
     [SerializeField] private bool _isAttacking = false;
     [SerializeField] private bool _isTransformed = false;
     [SerializeField] private bool _isBurning = false;
+
+    public int currency = 0;
+    public int flowers = 0;
 
     private bool _inCoroutine = false;
 
@@ -40,6 +45,20 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        if (PlayerData.Instance.health < 0)
+        {
+            health = PlayerData.Instance.health;
+            coolCost = PlayerData.Instance.coolCost;
+            _canAttack = PlayerData.Instance._canAttack;
+            currency = PlayerData.Instance.currency;
+            flowers = PlayerData.Instance.flowers;
+
+            OnPlayerDamaged?.Invoke();
+        }
+    }
+
     private void Update()
     {
         _movement.Set(InputManager.Movement.x, InputManager.Movement.y);
@@ -56,6 +75,14 @@ public class PlayerController : MonoBehaviour
                 _animator.SetFloat(_lastHorizontal, _movement.x);
                 _animator.SetFloat(_lastVertical, _movement.y);
             }
+        }
+
+        HandleTemp();
+        HandleHealth();
+
+        if (!_canAttack)
+        {
+            return;
         }
 
         if (InputManager.isTransformTriggered && !_isTransformed && !_isAttacking)
@@ -80,9 +107,6 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(Swing("A", 0.4f));
             }
         }
-
-        HandleTemp();
-        HandleHealth();
     }
 
     IEnumerator Swing(string mode, float time)
@@ -115,6 +139,10 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             Die();
+        }
+        else if (health >= maxHealth)
+        {
+            health = maxHealth;
         }
     }
 

@@ -9,11 +9,13 @@ public class InputManager : MonoBehaviour
 
     public static bool isSwingTriggered { get; private set; }
     public static bool isTransformTriggered { get; private set; }
+    public static bool isInteractTriggered { get; private set; }
 
     private PlayerInput _playerInput;
     private InputAction _moveAction;
     private InputAction _swingAction;
     private InputAction _transformAction;
+    private InputAction _interactAction;
 
     private void Awake()
     {
@@ -22,6 +24,7 @@ public class InputManager : MonoBehaviour
         _moveAction = _playerInput.actions["Move"];
         _swingAction = _playerInput.actions["Swing"];
         _transformAction = _playerInput.actions["Transform"];
+        _interactAction = _playerInput.actions["Interact"];
     }
 
     private void Update()
@@ -30,5 +33,6 @@ public class InputManager : MonoBehaviour
 
         isSwingTriggered = _swingAction.triggered;
         isTransformTriggered = _transformAction.triggered;
+        isInteractTriggered = _interactAction.triggered;
     }
 }

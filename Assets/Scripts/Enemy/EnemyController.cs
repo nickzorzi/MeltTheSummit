@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float knockbackForce = 5f;
 
     private bool hasTakenDamageThisSwing = false;
+    public bool typeShooter = true;
+    [SerializeField] private bool canShoot = true;
 
     [SerializeField] private float distance = 5f;
     [SerializeField] private LayerMask colliders;
@@ -78,12 +80,15 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator swingKnockback(int knockbackCooldown)
     {
+        canShoot = false;
+
         Vector2 directionToPlayer = (Vector2)(transform.position - player.position);
         Vector2 knockbackDirection = directionToPlayer.normalized;
         _rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
         yield return new WaitForSeconds(knockbackCooldown);
 
         isKnockback = false;
+        canShoot = true;
     }
 
     private void checkForPlayer ()
@@ -98,10 +103,9 @@ public class EnemyController : MonoBehaviour
             {
                 Debug.DrawLine(transform.position, ray.point, Color.green);
 
-                if (nextFireTime < Time.time)
+                if (typeShooter && canShoot)
                 {
-                    Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
-                    nextFireTime = Time.time + fireRate;
+                    HandleShooting();
                 }
             }
             else
@@ -110,6 +114,15 @@ public class EnemyController : MonoBehaviour
             }
 
             Debug.Log(ray.collider.gameObject.name);
+        }
+    }
+
+    private void HandleShooting()
+    {
+        if (nextFireTime < Time.time)
+        {
+            Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
+            nextFireTime = Time.time + fireRate;
         }
     }
 
