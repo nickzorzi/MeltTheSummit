@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class Unit : MonoBehaviour {
 
     public Transform target;
     public float speed = 20;
     private EnemyController eC;
+    private BossController bC;
 
     Vector2[] path;
     int targetIndex;
@@ -14,19 +16,28 @@ public class Unit : MonoBehaviour {
 
     [SerializeField] private bool startChase = false;
 
+    private Animator _animator;
+
+    private const string _horizontal = "Horizontal";
+    private const string _vertical = "Vertical";
+    private const string _lastHorizontal = "LastHorizontal";
+    private const string _lastVertical = "LastVertical";
+
     void Start() {
         eC = GetComponent<EnemyController>();
+        bC = GetComponent<BossController>();
+        _animator = GetComponent<Animator>();
         //StartCoroutine(RefreshPath());
     }
 
     void FixedUpdate() {
-        if (eC.hasLineOfSight && !startChase)
+        if (eC != null && eC.hasLineOfSight && !startChase || bC != null && bC.hasLineOfSight && !startChase)
         {
             StartCoroutine(RefreshPath());
             startChase = true;
         }
 
-        if (eC.isKnockback)
+        if (eC != null &&  eC.isKnockback || bC != null && bC.isKnockback)
         {
             if (followPathCoroutine != null)
             {
@@ -74,8 +85,10 @@ public class Unit : MonoBehaviour {
                     }
                 }
 
-                if (!eC.isKnockback) {
+                if (eC != null && !eC.isKnockback || bC != null && !bC.isKnockback) {
                     transform.position = Vector2.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
+
+                    SetMovementAnimation(currentWaypoint);
                 }
 
                 yield return null;
@@ -94,6 +107,20 @@ public class Unit : MonoBehaviour {
                     Gizmos.DrawLine(path[i - 1], path[i]);
                 }
             }
+        }
+    }
+
+    private void SetMovementAnimation(Vector2 targetWaypoint)
+    {
+        Vector2 movementDirection = targetWaypoint - (Vector2)transform.position;
+
+        if (movementDirection != Vector2.zero)
+        {
+            _animator.SetFloat(_horizontal, movementDirection.x);
+            _animator.SetFloat(_vertical, movementDirection.y);
+
+            _animator.SetFloat(_lastHorizontal, movementDirection.x);
+            _animator.SetFloat(_lastVertical, movementDirection.y);
         }
     }
 }

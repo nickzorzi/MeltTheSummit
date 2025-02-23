@@ -8,6 +8,7 @@ TagManager:
   - Swing-A
   - Enemy
   - Projectile
+  - Boss
   layers:
   - Default
   - TransparentFX
