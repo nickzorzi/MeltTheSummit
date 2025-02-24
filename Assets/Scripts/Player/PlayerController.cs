@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int burn;
 
     public bool _canAttack = true;
+    public bool _firstLoad = false;
     [SerializeField] private bool _isAttacking = false;
     [SerializeField] private bool _isTransformed = false;
     [SerializeField] private bool _isBurning = false;
@@ -45,18 +47,31 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        if (PlayerData.Instance.health < 0)
+        if (_firstLoad)
+        {
+            return;
+        }
+        else
         {
             health = PlayerData.Instance.health;
             coolCost = PlayerData.Instance.coolCost;
-            _canAttack = PlayerData.Instance._canAttack;
             currency = PlayerData.Instance.currency;
             flowers = PlayerData.Instance.flowers;
 
             OnPlayerDamaged?.Invoke();
+
+            _firstLoad = false;
         }
+    }
+
+    private void OnDisable()
+    {
+        PlayerData.Instance.health = health;
+        PlayerData.Instance.coolCost = coolCost;
+        PlayerData.Instance.currency = currency;
+        PlayerData.Instance.flowers = flowers;
     }
 
     private void Update()
