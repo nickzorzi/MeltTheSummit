@@ -21,9 +21,16 @@ public class BossController : MonoBehaviour
     public bool hasLineOfSight = false;
     public bool hasRange = false;
 
+    private Unit unit;
+    public bool _isAttacking = false;
+
+    [SerializeField] private HitFlash flashEffect;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        unit = GetComponent<Unit>();
+        flashEffect = GetComponent<HitFlash>();
     }
 
     private void Start()
@@ -39,6 +46,11 @@ public class BossController : MonoBehaviour
     private void Update()
     {
         HandleBattleStates();
+
+        if (hasRange && !_isAttacking)
+        {
+            StartCoroutine(SwingAttack(2f));
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -50,6 +62,8 @@ public class BossController : MonoBehaviour
         else if (collider.CompareTag("Swing-A") && !hasTakenDamageThisSwing)
         {
             HandleSwing(50, false);
+
+            flashEffect.Flash();
         }
     }
 
@@ -122,6 +136,17 @@ public class BossController : MonoBehaviour
             Debug.Log("The player is too far from the boss.");
             hasRange = false;
         }
+    }
+
+    private IEnumerator SwingAttack(float swingTime)
+    {
+        yield return new WaitForSeconds(0.5f);
+        unit._animator.SetTrigger("Swing");
+        _isAttacking = true;
+        unit.speed = 0f;
+        yield return new WaitForSeconds(swingTime);
+        _isAttacking = false;
+        unit.speed = 1f;
     }
 
     private void HandleBattleStates()

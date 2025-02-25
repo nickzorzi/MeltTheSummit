@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -12,7 +13,10 @@ public class Projectile : MonoBehaviour
     {
         projectileRB = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
-        Vector2 moveDir = (target.transform.position - transform.position).normalized * speed;
+
+        Vector2 offsetTargetPosition = new Vector2(target.transform.position.x, target.transform.position.y + 0.75f);
+
+        Vector2 moveDir = (offsetTargetPosition - (Vector2)transform.position).normalized * speed;
         projectileRB.velocity = new Vector2(moveDir.x, moveDir.y);
         Destroy(this.gameObject, 6);
     }

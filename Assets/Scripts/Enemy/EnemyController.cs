@@ -25,9 +25,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float nextFireTime;
     public float fireRate = 1f;
 
+    [SerializeField] private HitFlash flashEffect;
+
+    public GameObject silver;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        flashEffect = GetComponent<HitFlash>();
     }
 
     private void Start()
@@ -49,6 +54,8 @@ public class EnemyController : MonoBehaviour
         else if (collider.CompareTag("Swing-A") && !hasTakenDamageThisSwing)
         {
             HandleSwing(50, false);
+
+            flashEffect.Flash();
         }
     }
 
@@ -128,6 +135,8 @@ public class EnemyController : MonoBehaviour
 
     private void Die()
     {
+        Instantiate(silver, gunPivot.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
+
 }

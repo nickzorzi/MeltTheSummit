@@ -9,6 +9,9 @@ TagManager:
   - Enemy
   - Projectile
   - Boss
+  - Ice
+  - Wall
+  - Silver
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - Attacks
   - Obstacle
   - Projectile
-  - 
+  - Collect
   - 
   - 
   - 

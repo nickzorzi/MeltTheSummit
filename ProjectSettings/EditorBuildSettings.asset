@@ -6,9 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Test.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Kingdom.unity
+    guid: 5608f4017b88ab04186468ab875035af
+  - enabled: 1
+    path: Assets/Scenes/Town.unity
+    guid: c947f6041f8056042a9fb257a21896a0
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: 929f9ba2802201345926fdf9e0a7517b
+  - enabled: 1
+    path: Assets/Scenes/Snow.unity
+    guid: 47402ba5b438bf047882534ca2907fef
+  - enabled: 1
+    path: Assets/Scenes/Mountain.unity
+    guid: 34da4d362265c0e44a18e09d71e947f6
+  - enabled: 1
+    path: Assets/Scenes/Summit.unity
+    guid: 0b3821a2364ab7348a14b43f5ef6c1b4
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 683813cc07cc6734cbceccb5cfe40d61
+  - enabled: 1
+    path: Assets/Scenes/Puzzle.unity
+    guid: 0cd25381be853f24ca70c4730facc8d7
+  - enabled: 1
+    path: Assets/Scenes/Test.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}

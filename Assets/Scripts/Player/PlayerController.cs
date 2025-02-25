@@ -1,11 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     public bool _canAttack = true;
     public bool _firstLoad = false;
+    public bool _healthUpdate = false;
     [SerializeField] private bool _isAttacking = false;
     [SerializeField] private bool _isTransformed = false;
     [SerializeField] private bool _isBurning = false;
@@ -36,15 +32,27 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
 
+    public bool _canSlide = false;
+    [SerializeField] private Vector2 _slideDirection = Vector2.zero;
+    [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private Transform rayPoint;
+
+
     private const string _horizontal = "Horizontal";
     private const string _vertical = "Vertical";
     private const string _lastHorizontal = "LastHorizontal";
     private const string _lastVertical = "LastVertical";
 
+    [SerializeField] private float iFramesDuration;
+    [SerializeField] private int numberOfFlashes;
+    private SpriteRenderer spriteRend;
+    public bool isInv = false;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        spriteRend = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -59,6 +67,9 @@ public class PlayerController : MonoBehaviour
             coolCost = PlayerData.Instance.coolCost;
             currency = PlayerData.Instance.currency;
             flowers = PlayerData.Instance.flowers;
+            temp = PlayerData.Instance.temp;
+            _isTransformed = PlayerData.Instance._isTransformed;
+            _isBurning = PlayerData.Instance._isBurning;
 
             OnPlayerDamaged?.Invoke();
 
@@ -72,13 +83,48 @@ public class PlayerController : MonoBehaviour
         PlayerData.Instance.coolCost = coolCost;
         PlayerData.Instance.currency = currency;
         PlayerData.Instance.flowers = flowers;
+        PlayerData.Instance.temp = temp;
+        PlayerData.Instance._isTransformed = _isTransformed;
+        PlayerData.Instance._isBurning = _isBurning;
     }
 
     private void Update()
     {
         _movement.Set(InputManager.Movement.x, InputManager.Movement.y);
 
-        _rb.velocity = _movement * _moveSpeed;
+        if (_canSlide)
+        {
+            if (_slideDirection == Vector2.zero && _movement != Vector2.zero)
+            {
+                if (Mathf.Abs(_movement.x) > Mathf.Abs(_movement.y))
+                {
+                    _slideDirection = new Vector2(Mathf.Sign(_movement.x), 0);
+                }
+                else
+                {
+                    _slideDirection = new Vector2(0, Mathf.Sign(_movement.y));
+                }
+            }
+
+            if (_slideDirection != Vector2.zero)
+            {
+                _rb.velocity = _slideDirection * _moveSpeed;
+
+                if (IsCollidingWithWall())
+                {
+                    _rb.velocity = Vector2.zero;
+                    _slideDirection = Vector2.zero;
+
+                    _rb.velocity = _movement * _moveSpeed;
+                }
+            }
+        }
+        else
+        {
+            _rb.velocity = _movement * _moveSpeed;
+
+            _slideDirection = Vector2.zero;
+        }
 
         _animator.SetFloat(_horizontal, _movement.x);
         _animator.SetFloat(_vertical, _movement.y);
@@ -90,6 +136,11 @@ public class PlayerController : MonoBehaviour
                 _animator.SetFloat(_lastHorizontal, _movement.x);
                 _animator.SetFloat(_lastVertical, _movement.y);
             }
+        }
+
+        if (_healthUpdate)
+        {
+            OnPlayerDamaged?.Invoke();
         }
 
         HandleTemp();
@@ -122,6 +173,32 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(Swing("A", 0.4f));
             }
         }
+    }
+
+    private bool IsCollidingWithWall()
+    {
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, _slideDirection, 0.25f, wallLayer);
+        Collider2D hit = Physics2D.OverlapCircle(rayPoint.position, 0.41f, wallLayer);
+
+        if (hit != null && hit.CompareTag("Wall")) //hit.collider != null && hit.collider.CompareTag("Wall)"
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private IEnumerator Invulnerability()
+    {
+        isInv = true;
+        for (int i = 0; i < numberOfFlashes; i++)
+        {
+            spriteRend.color = new Color(1, 1, 1, 0.25f);
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+            spriteRend.color = Color.white;
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+        }
+        isInv = false;
     }
 
     IEnumerator Swing(string mode, float time)
@@ -210,7 +287,30 @@ public class PlayerController : MonoBehaviour
     {
         if (hitInfo.CompareTag("Projectile"))
         {
-            TakeDamage(1);
+            if (!isInv)
+            {
+                TakeDamage(1);
+
+                StartCoroutine(Invulnerability());
+            }
+        }
+
+        if (hitInfo.CompareTag("Ice"))
+        {
+            _canSlide = true;
+        }
+
+        if (hitInfo.CompareTag("Silver"))
+        {
+            PickUpSilver(1);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D hitInfo)
+    {
+        if (hitInfo.CompareTag("Ice"))
+        {
+            _canSlide = false;
         }
     }
 
@@ -218,6 +318,11 @@ public class PlayerController : MonoBehaviour
     {
         health -= amount;
         OnPlayerDamaged?.Invoke();
+    }
+
+    public void PickUpSilver(int amount)
+    {
+        currency += amount;
     }
     
     private void Die()

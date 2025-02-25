@@ -15,15 +15,15 @@ public class PlayerData : MonoBehaviour
     //public float _moveSpeed;
     public float health;
     //public float maxHealth;
-    //public float temp;
+    public float temp;
     //public float maxTemp;
     //public int heatCost;
     public int coolCost;
     //public int burn;
     public bool _canAttack;
     //public bool _isAttacking;
-    //public bool _isTransformed;
-    //public bool _isBurning;
+    public bool _isTransformed;
+    public bool _isBurning;
     public int currency;
     public int flowers;
 

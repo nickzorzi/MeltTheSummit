@@ -36,6 +36,7 @@ public class ItemManager : MonoBehaviour
                     {
                         playerController.health++;
                         playerController.currency = playerController.currency - price;
+                        playerController._healthUpdate = true;
                     }
                     break;
 

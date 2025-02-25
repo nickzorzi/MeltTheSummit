@@ -16,7 +16,7 @@ public class Unit : MonoBehaviour {
 
     [SerializeField] private bool startChase = false;
 
-    private Animator _animator;
+    public Animator _animator;
 
     private const string _horizontal = "Horizontal";
     private const string _vertical = "Vertical";
@@ -31,13 +31,13 @@ public class Unit : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if (eC != null && eC.hasLineOfSight && !startChase || bC != null && bC.hasLineOfSight && !startChase)
+        if ((eC != null && eC.hasLineOfSight && !startChase) || (bC != null && bC.hasLineOfSight && !startChase))
         {
             StartCoroutine(RefreshPath());
             startChase = true;
         }
 
-        if (eC != null &&  eC.isKnockback || bC != null && bC.isKnockback)
+        if ((eC != null && eC.isKnockback) || (bC != null && bC.isKnockback) || (bC != null && bC._isAttacking))
         {
             if (followPathCoroutine != null)
             {
