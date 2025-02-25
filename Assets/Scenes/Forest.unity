@@ -6480,6 +6480,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5948762412314751540, guid: c3be22882635dfd489d61f9205af4976, type: 3}
+      propertyPath: _firstLoad
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948762412314751540, guid: c3be22882635dfd489d61f9205af4976, type: 3}
       propertyPath: iFramesDuration
       value: 1
       objectReference: {fileID: 0}
@@ -6550,7 +6554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2252903473395342661, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3261179049724396820, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: m_LocalPosition.x
