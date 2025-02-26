@@ -48,11 +48,14 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRend;
     public bool isInv = false;
 
+    [SerializeField] private HitFlash flashEffect;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
+        flashEffect = GetComponent<HitFlash>();
     }
 
     private void OnEnable()
@@ -138,12 +141,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (_healthUpdate)
-        {
-            OnPlayerDamaged?.Invoke();
-        }
-
         HandleTemp();
+
         HandleHealth();
 
         if (!_canAttack)
@@ -178,7 +177,13 @@ public class PlayerController : MonoBehaviour
     private bool IsCollidingWithWall()
     {
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, _slideDirection, 0.25f, wallLayer);
-        Collider2D hit = Physics2D.OverlapCircle(rayPoint.position, 0.41f, wallLayer);
+        //Collider2D hit = Physics2D.OverlapCircle(rayPoint.position, 0.41f, wallLayer);
+
+        float boxWidth = 0.4f;
+        float boxHeight = 0.2f;
+        float offsetDistance = 0.3f;
+        Vector2 boxCenter = (Vector2)rayPoint.position + _slideDirection * offsetDistance;
+        Collider2D hit = Physics2D.OverlapBox(boxCenter, new Vector2(boxWidth, boxHeight), 0f, wallLayer);
 
         if (hit != null && hit.CompareTag("Wall")) //hit.collider != null && hit.collider.CompareTag("Wall)"
         {
@@ -277,6 +282,8 @@ public class PlayerController : MonoBehaviour
         _inCoroutine = true;
 
         TakeDamage(amount);
+
+        flashEffect.Flash();
 
         yield return new WaitForSeconds(1);
 

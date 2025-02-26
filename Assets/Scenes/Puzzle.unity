@@ -6087,7 +6087,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 111158489336217865, guid: 42f089b7b9a0aca4d99c5c45b8119158, type: 3}
       propertyPath: loadScene
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 372691266987879957, guid: 42f089b7b9a0aca4d99c5c45b8119158, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
@@ -6237,6 +6237,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 105014498390356176, guid: c3be22882635dfd489d61f9205af4976, type: 3}
     - {fileID: 6388855673138422138, guid: c3be22882635dfd489d61f9205af4976, type: 3}
+    - {fileID: 4738674501101634438, guid: c3be22882635dfd489d61f9205af4976, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8285324262649538575, guid: c3be22882635dfd489d61f9205af4976, type: 3}
@@ -6292,7 +6293,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
+  m_Offset: {x: 0, y: 0.25}
   m_Size: {x: 0.5, y: 0.2}
   m_Direction: 1
 --- !u!58 &5267018275227031521

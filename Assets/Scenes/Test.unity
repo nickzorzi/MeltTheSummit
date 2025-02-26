@@ -5994,21 +5994,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1748945788212054437, guid: c3be22882635dfd489d61f9205af4976, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 5948762412314751540, guid: c3be22882635dfd489d61f9205af4976, type: 3}
-      propertyPath: _canSlide
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5948762412314751540, guid: c3be22882635dfd489d61f9205af4976, type: 3}
       propertyPath: _firstLoad
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7389714906506868401, guid: c3be22882635dfd489d61f9205af4976, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 8285324262649538575, guid: c3be22882635dfd489d61f9205af4976, type: 3}
       propertyPath: m_LocalPosition.x

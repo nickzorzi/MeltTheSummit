@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float knockbackForce = 5f;
 
+    private bool hasHesitate = false;
     private bool hasTakenDamageThisSwing = false;
     public bool typeShooter = true;
     [SerializeField] private bool canShoot = true;
@@ -77,12 +78,24 @@ public class EnemyController : MonoBehaviour
         hasTakenDamageThisSwing = true;
 
         StartCoroutine(ResetDamageFlag());
+
+        if (!hasHesitate)
+        {
+            StartCoroutine(HesitateAfterHit());
+        }
     }
 
     private IEnumerator ResetDamageFlag()
     {
         yield return new WaitForSeconds(0.1f);
         hasTakenDamageThisSwing = false;
+    }
+
+    private IEnumerator HesitateAfterHit()
+    {
+        hasHesitate = true;
+        yield return new WaitForSeconds(0.5f);
+        hasHesitate = false;
     }
 
     private IEnumerator swingKnockback(int knockbackCooldown)

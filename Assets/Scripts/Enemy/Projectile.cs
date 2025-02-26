@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
         projectileRB = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
 
+
         Vector2 offsetTargetPosition = new Vector2(target.transform.position.x, target.transform.position.y + 0.75f);
 
         Vector2 moveDir = (offsetTargetPosition - (Vector2)transform.position).normalized * speed;
@@ -23,7 +24,12 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.CompareTag("Player"))
+        if (hitInfo.CompareTag("Player") || hitInfo.CompareTag("Swing-A"))
+        {
+            Destroy(gameObject);
+        }
+
+        if (hitInfo.CompareTag("Swing-D"))
         {
             Destroy(gameObject);
         }
