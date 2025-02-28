@@ -111,12 +111,14 @@ public class PlayerController : MonoBehaviour
 
             if (_slideDirection != Vector2.zero)
             {
+                _moveSpeed = 8;
                 _rb.velocity = _slideDirection * _moveSpeed;
 
                 if (IsCollidingWithWall())
                 {
                     _rb.velocity = Vector2.zero;
                     _slideDirection = Vector2.zero;
+                    _moveSpeed = 5;
 
                     _rb.velocity = _movement * _moveSpeed;
                 }
@@ -124,6 +126,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            _moveSpeed = 5;
+
             _rb.velocity = _movement * _moveSpeed;
 
             _slideDirection = Vector2.zero;
