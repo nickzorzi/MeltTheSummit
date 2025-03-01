@@ -29,7 +29,6 @@ public class PlayerData : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton Paradox Killer
         #region SINGLETON
         if (Instance == null)
         {
@@ -37,7 +36,6 @@ public class PlayerData : MonoBehaviour
         }
         else
         {
-            Debug.Log("Duplicate PlayerData Detected -- Deleting Duplicate...");
             Destroy(gameObject);
         }
         #endregion

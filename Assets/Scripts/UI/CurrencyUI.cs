@@ -10,7 +10,7 @@ public class CurrencyUI : MonoBehaviour
     {
         if (currencyText != null && playerController != null)
         {
-            currencyText.text = "Currency: " + playerController.currency.ToString();
+            //currencyText.text = "Currency: " + playerController.currency.ToString();
         }
     }
 }

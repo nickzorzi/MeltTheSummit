@@ -7469,11 +7469,10 @@ MonoBehaviour:
   burn: 1
   _canAttack: 0
   _firstLoad: 0
-  _healthUpdate: 0
+  _healthUpdate: 1
   _isAttacking: 0
   _isTransformed: 0
   _isBurning: 0
-  currency: 0
   flowers: 0
   _canSlide: 0
   _slideDirection: {x: 0, y: 0}
@@ -7481,9 +7480,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   rayPoint: {fileID: 0}
-  iFramesDuration: 0
-  numberOfFlashes: 0
+  iFramesDuration: 1
+  numberOfFlashes: 4
   isInv: 0
+  flashEffect: {fileID: 0}
 --- !u!50 &2105209424
 Rigidbody2D:
   serializedVersion: 4

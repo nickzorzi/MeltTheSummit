@@ -25,18 +25,34 @@ public class ItemManager : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        PlayerController.OnPlayerDamaged += HandleHealthPurchase;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerController.OnPlayerDamaged -= HandleHealthPurchase;
+    }
+
+    private void HandleHealthPurchase()
+    {
+        Debug.Log("Player bought health");
+    }
+
     private void Update()
     {
-        if (InputManager.isInteractTriggered && (playerController.currency >= price) && canPurchase)
+        if (InputManager.isInteractTriggered && (Collected.currencyValue >= price) && canPurchase)
         {
             switch (loadEffect)
             {
                 case ItemEffects.Health:
                     if (playerController.health < playerController.maxHealth)
                     {
-                        playerController.health++;
-                        playerController.currency = playerController.currency - price;
-                        playerController._healthUpdate = true;
+                        //playerController.health++;
+                        Collected.currencyValue = Collected.currencyValue - price;
+                        //playerController._healthUpdate = true;
+                        playerController.GainHealth(1);
                     }
                     break;
 
@@ -44,7 +60,7 @@ public class ItemManager : MonoBehaviour
                     if (playerController.coolCost == -1)
                     {
                         playerController.coolCost = -2;
-                        playerController.currency = playerController.currency - price;
+                        Collected.currencyValue = Collected.currencyValue - price;
                     }
                     break;
 

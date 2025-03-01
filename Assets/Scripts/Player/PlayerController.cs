@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _isTransformed = false;
     [SerializeField] private bool _isBurning = false;
 
-    public int currency = 0;
     public int flowers = 0;
 
     private bool _inCoroutine = false;
@@ -68,7 +67,6 @@ public class PlayerController : MonoBehaviour
         {
             health = PlayerData.Instance.health;
             coolCost = PlayerData.Instance.coolCost;
-            currency = PlayerData.Instance.currency;
             flowers = PlayerData.Instance.flowers;
             temp = PlayerData.Instance.temp;
             _isTransformed = PlayerData.Instance._isTransformed;
@@ -84,7 +82,6 @@ public class PlayerController : MonoBehaviour
     {
         PlayerData.Instance.health = health;
         PlayerData.Instance.coolCost = coolCost;
-        PlayerData.Instance.currency = currency;
         PlayerData.Instance.flowers = flowers;
         PlayerData.Instance.temp = temp;
         PlayerData.Instance._isTransformed = _isTransformed;
@@ -126,8 +123,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            _moveSpeed = 5;
-
             _rb.velocity = _movement * _moveSpeed;
 
             _slideDirection = Vector2.zero;
@@ -311,10 +306,6 @@ public class PlayerController : MonoBehaviour
             _canSlide = true;
         }
 
-        if (hitInfo.CompareTag("Silver"))
-        {
-            PickUpSilver(1);
-        }
     }
 
     void OnTriggerExit2D(Collider2D hitInfo)
@@ -322,6 +313,8 @@ public class PlayerController : MonoBehaviour
         if (hitInfo.CompareTag("Ice"))
         {
             _canSlide = false;
+
+            _moveSpeed = 5;
         }
     }
 
@@ -331,9 +324,10 @@ public class PlayerController : MonoBehaviour
         OnPlayerDamaged?.Invoke();
     }
 
-    public void PickUpSilver(int amount)
+    public void GainHealth(float amount)
     {
-        currency += amount;
+        health += amount;
+        OnPlayerDamaged?.Invoke();
     }
     
     private void Die()

@@ -30,6 +30,16 @@ public class EnemyController : MonoBehaviour
 
     public GameObject silver;
 
+    [SerializeField] private int enemyId;
+
+    private void OnEnable()
+    {
+        if (SpawnData.Instance != null && SpawnData.Instance.enemies.Find(e => e.id == enemyId).dead == true)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -39,6 +49,11 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         Physics2D.queriesStartInColliders = false;
+
+        if (SpawnData.Instance != null && SpawnData.Instance.enemies.Find(e => e.id == enemyId) == null)
+        {
+            SpawnData.Instance.AddEnemy(gameObject, enemyId, false);
+        }
     }
 
     private void FixedUpdate()
@@ -149,6 +164,9 @@ public class EnemyController : MonoBehaviour
     private void Die()
     {
         Instantiate(silver, gunPivot.transform.position, Quaternion.identity);
+
+        SpawnData.Instance.enemies.Find(e => e.id == enemyId).dead = true;
+
         Destroy(gameObject);
     }
 

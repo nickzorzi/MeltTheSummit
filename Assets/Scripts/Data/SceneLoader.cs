@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
     public enum SceneNames
     {
         Test,
+        Test2,
         Kingdom,
         Town,
         Forest,
