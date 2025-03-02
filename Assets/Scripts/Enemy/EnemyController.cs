@@ -5,31 +5,44 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [Header("Basics")]
+    private Rigidbody2D _rb;
+    private Unit unit;
     public int health = 100;
+    [SerializeField] private float knockbackForce;
+    [SerializeField] private Transform player;
     public bool isKnockback = false;
 
-    private Rigidbody2D _rb;
-    [SerializeField] private Transform player;
-    [SerializeField] private float knockbackForce = 5f;
-
+    [Header("Combat Checks")]
     private bool hasHesitate = false;
     private bool hasTakenDamageThisSwing = false;
-    public bool typeShooter = true;
-    [SerializeField] private bool canShoot = true;
+    [SerializeField] private bool canAttack = true;
 
-    [SerializeField] private float distance = 5f;
-    [SerializeField] private LayerMask colliders;
-    public bool hasLineOfSight = false;
-
+    [Header("Shooter")]
+    [SerializeField] private bool typeShooter = false;
     public GameObject projectile;
     [SerializeField] private Transform gunPivot;
     [SerializeField] private float nextFireTime;
-    public float fireRate = 1f;
+    public float fireRate;
 
+    [Header("Meele")]
+    [SerializeField] private bool typeMelee = false;
+    [SerializeField] private bool hasRange = false;
+    [SerializeField] private float dashForce;
+    [SerializeField] private float meleeRange;
+
+    [Header("Nav")]
+    [SerializeField] private float distance;
+    [SerializeField] private LayerMask colliders;
+    public bool hasLineOfSight = false;
+
+    [Header("HitFlash")]
     [SerializeField] private HitFlash flashEffect;
 
+    [Header("Drops")]
     public GameObject silver;
 
+    [Header("Data Track")]
     [SerializeField] private int enemyId;
 
     private void OnEnable()
@@ -44,6 +57,7 @@ public class EnemyController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         flashEffect = GetComponent<HitFlash>();
+        unit = GetComponent<Unit>();
     }
 
     private void Start()
@@ -59,6 +73,11 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         checkForPlayer();
+
+        if (hasRange && canAttack && typeMelee)
+        {
+            StartCoroutine(HandleMelee(1.5f, 2));
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -75,7 +94,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void HandleSwing(int damage, bool isKnockback)
+    private void HandleSwing(int damage, bool hasKnockback)
     {
         health -= damage;
 
@@ -84,9 +103,8 @@ public class EnemyController : MonoBehaviour
             Die();
         }
 
-        if (isKnockback)
+        if (hasKnockback)
         {
-            this.isKnockback = true;
             StartCoroutine(swingKnockback(1));
         }
 
@@ -109,25 +127,32 @@ public class EnemyController : MonoBehaviour
     private IEnumerator HesitateAfterHit()
     {
         hasHesitate = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         hasHesitate = false;
     }
 
     private IEnumerator swingKnockback(int knockbackCooldown)
     {
-        canShoot = false;
+        isKnockback = true;
+        canAttack = false;
 
         Vector2 directionToPlayer = (Vector2)(transform.position - player.position);
         Vector2 knockbackDirection = directionToPlayer.normalized;
         _rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+
         yield return new WaitForSeconds(knockbackCooldown);
 
         isKnockback = false;
-        canShoot = true;
+        canAttack = true;
     }
 
     private void checkForPlayer ()
     {
+        if (isKnockback || !canAttack)
+        {
+            return;
+        }
+
         RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position, distance, ~colliders);
 
         if (ray.collider != null)
@@ -138,7 +163,7 @@ public class EnemyController : MonoBehaviour
             {
                 Debug.DrawLine(transform.position, ray.point, Color.green);
 
-                if (typeShooter && canShoot)
+                if (typeShooter && canAttack)
                 {
                     HandleShooting();
                 }
@@ -150,6 +175,17 @@ public class EnemyController : MonoBehaviour
 
             Debug.Log(ray.collider.gameObject.name);
         }
+
+        float distanceBetween = Vector3.Distance(transform.position, player.transform.position);
+
+        if (distanceBetween <= meleeRange)
+        {
+            hasRange = true;
+        }
+        else
+        {
+            hasRange = false;
+        }
     }
 
     private void HandleShooting()
@@ -159,6 +195,32 @@ public class EnemyController : MonoBehaviour
             Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
             nextFireTime = Time.time + fireRate;
         }
+    }
+
+    IEnumerator HandleMelee(float cooldown, float speed)
+    {
+        if (!canAttack || isKnockback)
+        {
+            yield break;
+        }
+
+        canAttack = false;
+
+        unit.speed = 0f;
+
+        yield return new WaitForSeconds(0.5f);
+
+        unit._animator.SetTrigger("Swing");
+
+        Vector2 directionToPlayer = (Vector2)(transform.position - player.position);
+        Vector2 dashDirection = -directionToPlayer.normalized;
+        _rb.AddForce(dashDirection * dashForce, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(cooldown);
+
+        unit.speed = speed;
+
+        canAttack = true;
     }
 
     private void Die()

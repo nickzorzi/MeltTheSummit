@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 public class Unit : MonoBehaviour {
 
     public Transform target;
-    public float speed = 20;
+    public float speed = 2f;
     private EnemyController eC;
     private BossController bC;
 
