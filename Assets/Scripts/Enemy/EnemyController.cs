@@ -17,19 +17,18 @@ public class EnemyController : MonoBehaviour
     private bool hasHesitate = false;
     private bool hasTakenDamageThisSwing = false;
     [SerializeField] private bool canAttack = true;
+    [SerializeField] private float attackRange;
 
     [Header("Shooter")]
     [SerializeField] private bool typeShooter = false;
     public GameObject projectile;
     [SerializeField] private Transform gunPivot;
     [SerializeField] private float nextFireTime;
-    public float fireRate;
 
     [Header("Meele")]
     [SerializeField] private bool typeMelee = false;
     [SerializeField] private bool hasRange = false;
     [SerializeField] private float dashForce;
-    [SerializeField] private float meleeRange;
 
     [Header("Nav")]
     [SerializeField] private float distance;
@@ -77,6 +76,11 @@ public class EnemyController : MonoBehaviour
         if (hasRange && canAttack && typeMelee)
         {
             StartCoroutine(HandleMelee(1.5f, 2));
+        }
+
+        if (hasRange && canAttack && typeShooter)
+        {
+            StartCoroutine(HandleShooting(nextFireTime, 2));
         }
     }
 
@@ -162,11 +166,6 @@ public class EnemyController : MonoBehaviour
             if (hasLineOfSight)
             {
                 Debug.DrawLine(transform.position, ray.point, Color.green);
-
-                if (typeShooter && canAttack)
-                {
-                    HandleShooting();
-                }
             }
             else
             {
@@ -178,7 +177,7 @@ public class EnemyController : MonoBehaviour
 
         float distanceBetween = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distanceBetween <= meleeRange)
+        if (distanceBetween <= attackRange)
         {
             hasRange = true;
         }
@@ -188,13 +187,24 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void HandleShooting()
+    IEnumerator HandleShooting(float cooldown, float speed)
     {
-        if (nextFireTime < Time.time)
+        if (!canAttack || isKnockback)
         {
-            Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
-            nextFireTime = Time.time + fireRate;
+            yield break;
         }
+
+        canAttack = false;
+
+        unit.speed = 0f;
+
+        Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(cooldown);
+
+        unit.speed = speed;
+
+        canAttack = true;
     }
 
     IEnumerator HandleMelee(float cooldown, float speed)

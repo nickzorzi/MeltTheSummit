@@ -2805,7 +2805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2693692699344705249, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: m_Name
-      value: Monster
+      value: MonsterMelee
       objectReference: {fileID: 0}
     - target: {fileID: 4412258292008249993, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: target
@@ -2821,7 +2821,7 @@ PrefabInstance:
       objectReference: {fileID: 2105209422}
     - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: enemyId
-      value: 9
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: distance
@@ -2837,6 +2837,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: meleeRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: attackRange
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
@@ -2873,7 +2877,7 @@ GameObject:
   - component: {fileID: 779097535}
   m_Layer: 8
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4863,6 +4867,96 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1086149375
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 305913069102161308, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 305913069102161308, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 305913069102161308, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 305913069102161308, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 305913069102161308, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 305913069102161308, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 305913069102161308, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 305913069102161308, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 305913069102161308, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 305913069102161308, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693692699344705249, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: m_Name
+      value: MonsterShooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412258292008249993, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 2105209422}
+    - target: {fileID: 4412258292008249993, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1086149376}
+    - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2105209422}
+    - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: enemyId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: distance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: attackRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+      propertyPath: knockbackForce
+      value: 75
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+--- !u!95 &1086149376 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7599611555297692158, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+  m_PrefabInstance: {fileID: 1086149375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1170430488 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7599611555297692158, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
@@ -5375,6 +5469,7 @@ SceneRoots:
   - {fileID: 437832938}
   - {fileID: 5267018275227031515}
   - {fileID: 706577115}
+  - {fileID: 1086149375}
   - {fileID: 1003937111}
   - {fileID: 1180366135}
   - {fileID: 5210295929955341037}

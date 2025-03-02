@@ -24,12 +24,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.CompareTag("Player") || hitInfo.CompareTag("Swing-A"))
-        {
-            Destroy(gameObject);
-        }
-
-        if (hitInfo.CompareTag("Swing-D"))
+        if (hitInfo.CompareTag("Player") || hitInfo.CompareTag("Swing-A") || hitInfo.CompareTag("Swing-D") || hitInfo.CompareTag("Wall"))
         {
             Destroy(gameObject);
         }
