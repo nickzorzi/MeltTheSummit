@@ -46,8 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lastScene: 
   health: 0
+  temp: 0
   coolCost: 0
   _canAttack: 0
+  _isTransformed: 0
+  _isBurning: 0
   currency: 0
   flowers: 0
 --- !u!1 &2425249905479341317
@@ -105,7 +108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8834767962712940085}
-  - component: {fileID: 5404553406489485353}
+  - component: {fileID: 3662063159647256876}
   m_Layer: 0
   m_Name: EnemyData
   m_TagString: Untagged
@@ -128,7 +131,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2879964399991993691}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5404553406489485353
+--- !u!114 &3662063159647256876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,6 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4762683146828448682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8813cd7e83d0166488583f91e344ff99, type: 3}
+  m_Script: {fileID: 11500000, guid: 17ec2bf3399203f44a70265045a04dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies: []

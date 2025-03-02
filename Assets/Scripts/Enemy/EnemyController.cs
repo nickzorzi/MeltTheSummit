@@ -200,9 +200,11 @@ public class EnemyController : MonoBehaviour
 
         Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
 
-        yield return new WaitForSeconds(cooldown);
+        yield return new WaitForSeconds(0.2f);
 
         unit.speed = speed;
+
+        yield return new WaitForSeconds(cooldown);
 
         canAttack = true;
     }

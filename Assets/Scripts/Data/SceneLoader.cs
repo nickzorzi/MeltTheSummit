@@ -10,6 +10,7 @@ public class SceneLoader : MonoBehaviour
     {
         Test,
         Test2,
+        Tutorial,
         Kingdom,
         Town,
         Forest,
