@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: cac902ed5ff199041a2792aff2bdbcbd
+  - enabled: 1
     path: Assets/Scenes/Kingdom.unity
     guid: 5608f4017b88ab04186468ab875035af
   - enabled: 1
@@ -35,7 +38,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test2.unity
     guid: e37325eaf755bff48a626d35015558b6
-  - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: cac902ed5ff199041a2792aff2bdbcbd
   m_configObjects: {}

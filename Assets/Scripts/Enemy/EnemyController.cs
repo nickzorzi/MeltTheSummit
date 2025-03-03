@@ -18,12 +18,13 @@ public class EnemyController : MonoBehaviour
     private bool hasTakenDamageThisSwing = false;
     [SerializeField] private bool canAttack = true;
     [SerializeField] private float attackRange;
+    [SerializeField] private float nextFireTime;
+    [SerializeField] private float fireTime;
 
     [Header("Shooter")]
     [SerializeField] private bool typeShooter = false;
     public GameObject projectile;
     [SerializeField] private Transform gunPivot;
-    [SerializeField] private float nextFireTime;
 
     [Header("Meele")]
     [SerializeField] private bool typeMelee = false;
@@ -67,20 +68,48 @@ public class EnemyController : MonoBehaviour
         {
             SpawnData.Instance.AddEnemy(gameObject, enemyId, false);
         }
+
+        fireTime = nextFireTime;
     }
 
     private void FixedUpdate()
     {
         checkForPlayer();
+    }
 
-        if (hasRange && canAttack && typeMelee)
+    private void Update()
+    {
+        if (hasRange && canAttack && typeMelee && !hasHesitate)
         {
-            StartCoroutine(HandleMelee(1.5f, 2));
+            if (fireTime <= 0)
+            {
+                StartCoroutine(HandlePause(nextFireTime, 2));
+
+                unit._animator.SetTrigger("Swing");
+
+                Vector2 directionToPlayer = (Vector2)(transform.position - player.position);
+                Vector2 dashDirection = -directionToPlayer.normalized;
+                _rb.AddForce(dashDirection * dashForce, ForceMode2D.Impulse);
+
+                fireTime = nextFireTime;
+            }
+            else
+            {
+                fireTime -= Time.deltaTime;
+            }
         }
 
-        if (hasRange && canAttack && typeShooter)
+        if (hasRange && canAttack && typeShooter && !hasHesitate)
         {
-            StartCoroutine(HandleShooting(nextFireTime, 2));
+            if (fireTime <= 0)
+            {
+                Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
+                fireTime = nextFireTime;
+            }
+            else
+            {
+                fireTime -= Time.deltaTime;
+            }
         }
     }
 
@@ -189,16 +218,14 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator HandleShooting(float cooldown, float speed)
     {
-        if (!canAttack || isKnockback)
-        {
-            yield break;
-        }
-
         canAttack = false;
 
         unit.speed = 0f;
 
-        Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
+        if (!canAttack || isKnockback)
+        {
+            Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
+        }
 
         yield return new WaitForSeconds(0.2f);
 
@@ -211,28 +238,35 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator HandleMelee(float cooldown, float speed)
     {
-        if (!canAttack || isKnockback)
-        {
-            yield break;
-        }
-
         canAttack = false;
 
         unit.speed = 0f;
 
         yield return new WaitForSeconds(0.5f);
 
-        unit._animator.SetTrigger("Swing");
+        if (!canAttack || isKnockback)
+        {
+            unit._animator.SetTrigger("Swing");
 
-        Vector2 directionToPlayer = (Vector2)(transform.position - player.position);
-        Vector2 dashDirection = -directionToPlayer.normalized;
-        _rb.AddForce(dashDirection * dashForce, ForceMode2D.Impulse);
+            Vector2 directionToPlayer = (Vector2)(transform.position - player.position);
+            Vector2 dashDirection = -directionToPlayer.normalized;
+            _rb.AddForce(dashDirection * dashForce, ForceMode2D.Impulse);
+        }
 
         yield return new WaitForSeconds(cooldown);
 
         unit.speed = speed;
 
         canAttack = true;
+    }
+
+    IEnumerator HandlePause(float cooldown, float speed)
+    {
+        unit.speed = 0f;
+
+        yield return new WaitForSeconds(cooldown);
+
+        unit.speed = speed;
     }
 
     private void Die()
