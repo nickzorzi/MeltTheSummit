@@ -137,7 +137,7 @@ PrefabInstance:
     - target: {fileID: 4386630610933452135, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2105209422}
     - target: {fileID: 7105782751504017679, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8
@@ -181,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 8171851228021764757, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2105209422}
     - target: {fileID: 8171851228021764757, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: enemyId
       value: 13
@@ -3053,11 +3053,11 @@ PrefabInstance:
     - target: {fileID: 4412258292008249993, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2105209422}
     - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2105209422}
     - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: enemyId
       value: 12
@@ -3082,7 +3082,7 @@ PrefabInstance:
     - target: {fileID: 4386630610933452135, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2105209422}
     - target: {fileID: 7105782751504017679, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.5
@@ -3126,7 +3126,7 @@ PrefabInstance:
     - target: {fileID: 8171851228021764757, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2105209422}
     - target: {fileID: 8171851228021764757, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: enemyId
       value: 14
@@ -5236,11 +5236,11 @@ PrefabInstance:
     - target: {fileID: 4412258292008249993, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2105209422}
     - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2105209422}
     - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: enemyId
       value: 11
