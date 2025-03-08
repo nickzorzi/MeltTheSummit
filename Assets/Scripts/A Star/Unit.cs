@@ -14,7 +14,7 @@ public class Unit : MonoBehaviour {
 
     Coroutine followPathCoroutine;
 
-    [SerializeField] private bool startChase = false;
+    public bool startChase = false;
 
     public Animator _animator;
 
@@ -37,7 +37,7 @@ public class Unit : MonoBehaviour {
             startChase = true;
         }
 
-        if ((eC != null && eC.isKnockback) || (bC != null && bC.isKnockback) || (bC != null && bC._isAttacking))
+        if ((eC != null && eC.isKnockback) || (bC != null && bC.isKnockback))
         {
             if (followPathCoroutine != null)
             {

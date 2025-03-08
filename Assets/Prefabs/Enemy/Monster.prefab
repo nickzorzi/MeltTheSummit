@@ -218,15 +218,16 @@ MonoBehaviour:
   player: {fileID: 0}
   isKnockback: 0
   canAttack: 1
-  attackRange: 4
+  attackRange: 6
+  nextFireTime: 2
+  fireTime: 0
   typeShooter: 1
   projectile: {fileID: 4181765154684222541, guid: 07f097d447b6e0642aae7b5a674e2eca, type: 3}
   gunPivot: {fileID: 8146206597568808427}
-  nextFireTime: 2
   typeMelee: 0
   hasRange: 0
   dashForce: 0
-  distance: 6
+  distance: 8
   colliders:
     serializedVersion: 2
     m_Bits: 64

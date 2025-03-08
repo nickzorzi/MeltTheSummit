@@ -69,7 +69,7 @@ public class EnemyController : MonoBehaviour
             SpawnData.Instance.AddEnemy(gameObject, enemyId, false);
         }
 
-        fireTime = nextFireTime;
+        //fireTime = nextFireTime;
     }
 
     private void FixedUpdate()
@@ -79,7 +79,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (hasRange && canAttack && typeMelee && !hasHesitate)
+        if (hasRange && canAttack && typeMelee && !hasHesitate && unit.startChase)
         {
             if (fireTime <= 0)
             {
@@ -99,7 +99,7 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (hasRange && canAttack && typeShooter && !hasHesitate)
+        if (hasRange && canAttack && typeShooter && !hasHesitate && unit.startChase)
         {
             if (fireTime <= 0)
             {

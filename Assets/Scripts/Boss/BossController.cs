@@ -5,25 +5,34 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
+    [Header("Basics")]
     public int health;
-    public bool isKnockback = false;
-
     private Rigidbody2D _rb;
     [SerializeField] private Transform player;
     [SerializeField] private float knockbackForce;
+    public bool isKnockback = false;
 
+    [Header("Combat Checks")]
+    private bool hasHesitate = false;
     private bool hasTakenDamageThisSwing = false;
-    [SerializeField] private bool canAttack = false;
-
-    [SerializeField] private float distance;
-    [SerializeField] private float distanceRange;
-    [SerializeField] private LayerMask colliders;
+    [SerializeField] private bool canAttack = true;
     public bool hasLineOfSight = false;
     public bool hasRange = false;
 
-    private Unit unit;
-    public bool _isAttacking = false;
+    [Header("Firing")]
+    [SerializeField] private float nextFireTime;
+    [SerializeField] private float fireTime;
 
+    [Header("Phases")]
+    [SerializeField] private bool isPhaseMelee;
+
+    [Header("Nav")]
+    [SerializeField] private LayerMask colliders;
+    [SerializeField] private float distance;
+    [SerializeField] private float distanceRange;
+    private Unit unit;
+
+    [Header("HitFlash")]
     [SerializeField] private HitFlash flashEffect;
 
     private void Awake()
@@ -36,6 +45,8 @@ public class BossController : MonoBehaviour
     private void Start()
     {
         Physics2D.queriesStartInColliders = false;
+
+        //fireTime = nextFireTime;
     }
 
     private void FixedUpdate()
@@ -47,9 +58,20 @@ public class BossController : MonoBehaviour
     {
         HandleBattleStates();
 
-        if (hasRange && !_isAttacking)
+        if (hasRange && canAttack && !hasHesitate)
         {
-            StartCoroutine(SwingAttack(2f));
+            if (fireTime <= 0)
+            {
+                StartCoroutine(HandlePause(nextFireTime, 1));
+
+                unit._animator.SetTrigger("Swing");
+
+                fireTime = nextFireTime;
+            }
+            else
+            {
+                fireTime -= Time.deltaTime;
+            }
         }
     }
 
@@ -78,13 +100,17 @@ public class BossController : MonoBehaviour
 
         if (isKnockback)
         {
-            this.isKnockback = true;
             StartCoroutine(swingKnockback(1));
         }
 
         hasTakenDamageThisSwing = true;
 
         StartCoroutine(ResetDamageFlag());
+
+        if (!hasHesitate)
+        {
+            StartCoroutine(HesitateAfterHit());
+        }
     }
 
     private IEnumerator ResetDamageFlag()
@@ -93,8 +119,16 @@ public class BossController : MonoBehaviour
         hasTakenDamageThisSwing = false;
     }
 
+    private IEnumerator HesitateAfterHit()
+    {
+        hasHesitate = true;
+        yield return new WaitForSeconds(1f);
+        hasHesitate = false;
+    }
+
     private IEnumerator swingKnockback(int knockbackCooldown)
     {
+        isKnockback = true;
         canAttack = false;
 
         Vector2 directionToPlayer = (Vector2)(transform.position - player.position);
@@ -128,25 +162,21 @@ public class BossController : MonoBehaviour
 
         if (distanceBetween <= distanceRange)
         {
-            Debug.Log("The player is close to the boss!");
             hasRange = true;
         }
         else
         {
-            Debug.Log("The player is too far from the boss.");
             hasRange = false;
         }
     }
 
-    private IEnumerator SwingAttack(float swingTime)
+    IEnumerator HandlePause(float cooldown, float speed)
     {
-        yield return new WaitForSeconds(0.5f);
-        unit._animator.SetTrigger("Swing");
-        _isAttacking = true;
         unit.speed = 0f;
-        yield return new WaitForSeconds(swingTime);
-        _isAttacking = false;
-        unit.speed = 1f;
+
+        yield return new WaitForSeconds(cooldown);
+
+        unit.speed = speed;
     }
 
     private void HandleBattleStates()

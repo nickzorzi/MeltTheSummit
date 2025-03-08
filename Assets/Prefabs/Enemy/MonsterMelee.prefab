@@ -287,7 +287,7 @@ MonoBehaviour:
   player: {fileID: 0}
   isKnockback: 0
   canAttack: 1
-  attackRange: 4
+  attackRange: 6
   nextFireTime: 2
   fireTime: 0
   typeShooter: 0
@@ -296,8 +296,7 @@ MonoBehaviour:
   typeMelee: 1
   hasRange: 0
   dashForce: 100
-  pauseTime: 3
-  distance: 6
+  distance: 8
   colliders:
     serializedVersion: 2
     m_Bits: 64

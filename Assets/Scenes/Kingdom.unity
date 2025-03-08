@@ -5162,11 +5162,11 @@ PrefabInstance:
       objectReference: {fileID: 2105209422}
     - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: distance
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: attackRange
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: knockbackForce
