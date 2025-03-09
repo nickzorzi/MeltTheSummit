@@ -22,8 +22,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _isTransformed = false;
     [SerializeField] private bool _isBurning = false;
 
-    public int flowers = 0;
-
     private bool _inCoroutine = false;
 
     private Vector2 _movement;
@@ -67,7 +65,6 @@ public class PlayerController : MonoBehaviour
         {
             health = PlayerData.Instance.health;
             coolCost = PlayerData.Instance.coolCost;
-            flowers = PlayerData.Instance.flowers;
             temp = PlayerData.Instance.temp;
             _isTransformed = PlayerData.Instance._isTransformed;
             _isBurning = PlayerData.Instance._isBurning;
@@ -82,7 +79,6 @@ public class PlayerController : MonoBehaviour
     {
         PlayerData.Instance.health = health;
         PlayerData.Instance.coolCost = coolCost;
-        PlayerData.Instance.flowers = flowers;
         PlayerData.Instance.temp = temp;
         PlayerData.Instance._isTransformed = _isTransformed;
         PlayerData.Instance._isBurning = _isBurning;

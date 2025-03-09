@@ -1,23 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class TurretProjectile : MonoBehaviour
 {
     GameObject target;
-    public float speed;
+    public float speedY;
+    public float speedX;
     Rigidbody2D projectileRB;
 
     void Start()
     {
         projectileRB = GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Player");
 
-        Vector2 offsetTargetPosition = new Vector2(target.transform.position.x, target.transform.position.y + 0.75f);
+        projectileRB.velocity = new Vector2(speedX, speedY);
 
-        Vector2 moveDir = (offsetTargetPosition - (Vector2)transform.position).normalized * speed;
-        projectileRB.velocity = new Vector2(moveDir.x, moveDir.y);
         Destroy(this.gameObject, 6);
     }
 
@@ -29,4 +26,3 @@ public class Projectile : MonoBehaviour
         }
     }
 }
-

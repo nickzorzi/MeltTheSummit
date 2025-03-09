@@ -12,6 +12,10 @@ TagManager:
   - Ice
   - Wall
   - Silver
+  - Flower
+  - ReturnProjectile
+  - MageProjectile
+  - Puddle
   layers:
   - Default
   - TransparentFX

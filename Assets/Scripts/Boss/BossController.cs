@@ -20,11 +20,37 @@ public class BossController : MonoBehaviour
     public bool hasRange = false;
 
     [Header("Firing")]
+    [SerializeField] private Transform gunPivot;
+
+    [Header("Swinging")]
+    [SerializeField] private float nextMeleeTime;
+    [SerializeField] private float meleeTime;
+
+    [Header("Phases")]
+    [SerializeField] private bool isPhaseMelee = false;
+    [SerializeField] private bool isPhaseBoomerang = true;
+    [SerializeField] private bool isPhaseHands = false;
+    [SerializeField] private bool isPhaseShock = false;
+    [SerializeField] private bool isPhaseFreeze = false;
+
+    [Header("Boomerang")]
+    [SerializeField] private GameObject projectile;
     [SerializeField] private float nextFireTime;
     [SerializeField] private float fireTime;
 
-    [Header("Phases")]
-    [SerializeField] private bool isPhaseMelee;
+    [Header("Freeze Orb")]
+    [SerializeField] private GameObject freezeOrb;
+    [SerializeField] private float nextDropTime;
+    [SerializeField] private float dropTime;
+
+    [Header("Shock")]
+    [SerializeField] private List<GameObject> puddles = new List<GameObject>();
+    [SerializeField] private GameObject shock;
+    [SerializeField] private bool canFireShock = true;
+
+    [Header("Ice Hand")]
+    [SerializeField] private GameObject hand;
+    [SerializeField] private bool canFireHands = true;
 
     [Header("Nav")]
     [SerializeField] private LayerMask colliders;
@@ -52,25 +78,65 @@ public class BossController : MonoBehaviour
     private void FixedUpdate()
     {
         checkForPlayer();
+
+        FindPuddles();
     }
 
     private void Update()
     {
         HandleBattleStates();
 
-        if (hasRange && canAttack && !hasHesitate)
+        if (canAttack && !hasHesitate && isPhaseFreeze)
+        {
+            if (dropTime <= 0)
+            {
+                Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
+
+                dropTime = nextDropTime;
+            }
+            else
+            {
+                dropTime -= Time.deltaTime;
+            }
+        }
+
+        if (canAttack && isPhaseShock && canFireShock)
+        {
+            StartCoroutine(FireShock(shock, 5));
+        }
+
+        if (canAttack && isPhaseHands && canFireHands)
+        {
+            StartCoroutine(FireHands(hand, 5, 4));
+        }
+
+        if (canAttack && !hasHesitate && isPhaseBoomerang)
         {
             if (fireTime <= 0)
             {
-                StartCoroutine(HandlePause(nextFireTime, 1));
-
-                unit._animator.SetTrigger("Swing");
+                Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
 
                 fireTime = nextFireTime;
             }
             else
             {
                 fireTime -= Time.deltaTime;
+            }
+        }
+
+        if (hasRange && canAttack && !hasHesitate && isPhaseMelee)
+        {
+            if (meleeTime <= 0)
+            {
+                StartCoroutine(HandlePause(nextMeleeTime, 1));
+
+                unit._animator.SetTrigger("Swing");
+
+                meleeTime = nextMeleeTime;
+            }
+            else
+            {
+                meleeTime -= Time.deltaTime;
             }
         }
     }
@@ -87,6 +153,43 @@ public class BossController : MonoBehaviour
 
             flashEffect.Flash();
         }
+    }
+
+    void FindPuddles()
+    {
+        puddles.Clear();
+
+        GameObject[] puddleObjects = GameObject.FindGameObjectsWithTag("Puddle");
+
+        puddles.AddRange(puddleObjects);
+    }
+
+    public IEnumerator FireShock(GameObject prefab, int delay)
+    {
+        if (puddles.Count > 0)
+        {
+            int randomIndex = Random.Range(0, puddles.Count);
+            Transform puddleTransform = puddles[randomIndex].transform;
+
+            Instantiate(prefab, puddleTransform.position, Quaternion.identity);
+        }
+
+        yield return new WaitForSeconds(delay);
+    }
+
+    private IEnumerator FireHands(GameObject prefab, int handCount, float firingCoolDown)
+    {
+        canFireHands = false;
+
+        for (int i = 0; i < handCount; i++)
+        {
+            yield return new WaitForSeconds(2f);
+            GameObject temp = Instantiate(prefab, new Vector2(0, player.transform.position.y), Quaternion.identity);
+        }
+
+        yield return new WaitForSeconds(firingCoolDown);
+
+        canFireHands = true;
     }
 
     private void HandleSwing(int damage, bool isKnockback)
@@ -181,17 +284,22 @@ public class BossController : MonoBehaviour
 
     private void HandleBattleStates()
     {
-        if (health == 750)
+        if (health <= 250)
         {
-
+            isPhaseShock = false;
+            isPhaseHands = true;
         }
-        else if (health == 500)
+        else if (health <= 500)
         {
+            isPhaseShock = true;
+            isPhaseFreeze = false;
 
+            isPhaseBoomerang = false;
+            isPhaseMelee = true;
         }
-        else if (health == 250)
+        else if (health <= 750)
         {
-
+            isPhaseFreeze = true;
         }
     }
 

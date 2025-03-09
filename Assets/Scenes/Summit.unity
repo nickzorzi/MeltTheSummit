@@ -2539,6 +2539,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &225565997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 225565998}
+  m_Layer: 7
+  m_Name: GunPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &225565998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225565997}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 652137405}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &269194347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3120,8 +3151,25 @@ MonoBehaviour:
   canAttack: 1
   hasLineOfSight: 0
   hasRange: 0
-  nextFireTime: 2
+  gunPivot: {fileID: 225565998}
+  nextMeleeTime: 2
+  meleeTime: 0
+  isPhaseMelee: 0
+  isPhaseBoomerang: 1
+  isPhaseHands: 0
+  isPhaseShock: 0
+  isPhaseFreeze: 0
+  projectile: {fileID: 9024654125266564819, guid: d2abb0b0ea5396540a17c00605e4b2f0, type: 3}
+  nextFireTime: 6
   fireTime: 0
+  freezeOrb: {fileID: 4092695702622982674, guid: 170b33eef1b1ee841897a49151eae610, type: 3}
+  nextDropTime: 4
+  dropTime: 0
+  puddles: []
+  shock: {fileID: 0}
+  canFireShock: 1
+  hand: {fileID: 5678631020787778032, guid: 999b2f138639237488bde527525bf948, type: 3}
+  canFireHands: 1
   colliders:
     serializedVersion: 2
     m_Bits: 64
@@ -3282,6 +3330,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1510621544}
+  - {fileID: 225565998}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &652137406
@@ -3333,7 +3382,7 @@ GameObject:
   - component: {fileID: 779097535}
   m_Layer: 8
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5342,7 +5391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5948762412314751540, guid: c3be22882635dfd489d61f9205af4976, type: 3}
       propertyPath: _firstLoad
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5948762412314751540, guid: c3be22882635dfd489d61f9205af4976, type: 3}
       propertyPath: iFramesDuration

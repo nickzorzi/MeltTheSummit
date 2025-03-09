@@ -125,6 +125,13 @@ public class EnemyController : MonoBehaviour
 
             flashEffect.Flash();
         }
+
+        if (collider.CompareTag("ReturnProjectile") && !hasTakenDamageThisSwing)
+        {
+            HandleSwing(50, false);
+
+            flashEffect.Flash();
+        }
     }
 
     private void HandleSwing(int damage, bool hasKnockback)

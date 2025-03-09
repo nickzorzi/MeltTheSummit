@@ -4438,14 +4438,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1392289465663571910, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 2105209423}
-    - target: {fileID: 3475548922454712679, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4825500614235154939, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
       propertyPath: m_Name
       value: Canvas
