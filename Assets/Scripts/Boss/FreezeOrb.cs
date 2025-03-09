@@ -28,6 +28,8 @@ public class FreezeOrb : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
         //Destroy(this.gameObject, 10);
+
+        StartCoroutine(Melt(10));
     }
 
     private void Update()

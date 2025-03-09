@@ -90,7 +90,7 @@ public class BossController : MonoBehaviour
         {
             if (dropTime <= 0)
             {
-                Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
+                Instantiate(freezeOrb, gunPivot.transform.position, Quaternion.identity);
 
                 dropTime = nextDropTime;
             }
@@ -102,7 +102,7 @@ public class BossController : MonoBehaviour
 
         if (canAttack && isPhaseShock && canFireShock)
         {
-            StartCoroutine(FireShock(shock, 5));
+            StartCoroutine(FireShock(shock, 3));
         }
 
         if (canAttack && isPhaseHands && canFireHands)
@@ -166,6 +166,8 @@ public class BossController : MonoBehaviour
 
     public IEnumerator FireShock(GameObject prefab, int delay)
     {
+        canFireShock = false;
+
         if (puddles.Count > 0)
         {
             int randomIndex = Random.Range(0, puddles.Count);
@@ -175,6 +177,8 @@ public class BossController : MonoBehaviour
         }
 
         yield return new WaitForSeconds(delay);
+
+        canFireShock = true;
     }
 
     private IEnumerator FireHands(GameObject prefab, int handCount, float firingCoolDown)

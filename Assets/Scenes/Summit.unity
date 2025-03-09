@@ -3166,7 +3166,7 @@ MonoBehaviour:
   nextDropTime: 4
   dropTime: 0
   puddles: []
-  shock: {fileID: 0}
+  shock: {fileID: 1732277487877874748, guid: c68f4d227f4494b4a95489beb91afef5, type: 3}
   canFireShock: 1
   hand: {fileID: 5678631020787778032, guid: 999b2f138639237488bde527525bf948, type: 3}
   canFireHands: 1
