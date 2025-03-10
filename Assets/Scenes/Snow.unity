@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 2105209422}
     - target: {fileID: 8171851228021764757, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: enemyId
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3142,13 +3142,74 @@ PrefabInstance:
       objectReference: {fileID: 2105209422}
     - target: {fileID: 5516864400570686521, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
       propertyPath: enemyId
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3beb6a793d70bc04384873d8b4827af4, type: 3}
+--- !u!1001 &680359133
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3144738535914952658, guid: 4c3890efb31ef9643915968e3ded8954, type: 3}
+      propertyPath: m_Name
+      value: FlowerBush
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861016906893389569, guid: 4c3890efb31ef9643915968e3ded8954, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861016906893389569, guid: 4c3890efb31ef9643915968e3ded8954, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861016906893389569, guid: 4c3890efb31ef9643915968e3ded8954, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861016906893389569, guid: 4c3890efb31ef9643915968e3ded8954, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861016906893389569, guid: 4c3890efb31ef9643915968e3ded8954, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861016906893389569, guid: 4c3890efb31ef9643915968e3ded8954, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861016906893389569, guid: 4c3890efb31ef9643915968e3ded8954, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861016906893389569, guid: 4c3890efb31ef9643915968e3ded8954, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861016906893389569, guid: 4c3890efb31ef9643915968e3ded8954, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861016906893389569, guid: 4c3890efb31ef9643915968e3ded8954, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879210744225914334, guid: 4c3890efb31ef9643915968e3ded8954, type: 3}
+      propertyPath: enemyId
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4c3890efb31ef9643915968e3ded8954, type: 3}
 --- !u!1 &779097531
 GameObject:
   m_ObjectHideFlags: 0
@@ -5154,7 +5215,7 @@ PrefabInstance:
       objectReference: {fileID: 2105209422}
     - target: {fileID: 8171851228021764757, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: enemyId
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5815,6 +5876,7 @@ SceneRoots:
   - {fileID: 679596055}
   - {fileID: 54891747}
   - {fileID: 1143517872}
+  - {fileID: 680359133}
   - {fileID: 648056185}
   - {fileID: 1180366135}
   - {fileID: 5210295929955341037}

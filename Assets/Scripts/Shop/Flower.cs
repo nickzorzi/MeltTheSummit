@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
-public class Silver : MonoBehaviour
+public class Flower : MonoBehaviour
 {
     private bool hasCollected = false;
 
@@ -15,12 +13,7 @@ public class Silver : MonoBehaviour
             hasCollected = true;
             Destroy(gameObject);
 
-            Collected.currencyValue += 1;
-        }
-
-        if (hitInfo.CompareTag("Shock"))
-        {
-            Destroy(gameObject);
+            Collected.flowerValue += 1;
         }
     }
 

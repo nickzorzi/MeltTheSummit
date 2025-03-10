@@ -110,7 +110,7 @@ public class BossController : MonoBehaviour
             StartCoroutine(FireHands(hand, 5, 4));
         }
 
-        if (canAttack && !hasHesitate && isPhaseBoomerang)
+        if (canAttack && isPhaseBoomerang)
         {
             if (fireTime <= 0)
             {
@@ -290,13 +290,13 @@ public class BossController : MonoBehaviour
     {
         if (health <= 250)
         {
-            isPhaseShock = false;
+            //isPhaseShock = false;
             isPhaseHands = true;
         }
         else if (health <= 500)
         {
             isPhaseShock = true;
-            isPhaseFreeze = false;
+            //isPhaseFreeze = false;
 
             isPhaseBoomerang = false;
             isPhaseMelee = true;

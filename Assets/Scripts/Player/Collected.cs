@@ -15,6 +15,16 @@ public class Collected : MonoBehaviour
 
     private void Update()
     {
+        if (currencyValue <=0)
+        {
+            currencyValue = 0;
+        }
+
+        if (flowerValue <=0)
+        {
+            flowerValue = 0;
+        }
+
         if (currencyText != null)
         {
             currencyText.text = "Silver: " + currencyValue.ToString();

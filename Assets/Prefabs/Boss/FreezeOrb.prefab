@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5942324512569297082}
   - component: {fileID: 7257791403098486521}
   - component: {fileID: 759683416485180985}
-  - component: {fileID: 8581186892947441254}
+  - component: {fileID: -792070980679512457}
   m_Layer: 7
   m_Name: FreezeOrb
   m_TagString: Enemy
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.13333334, g: 0.58431375, b: 0.80392164, a: 1}
+  m_Color: {r: 0.078431375, g: 0.20392157, b: 0.39215687, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -168,8 +168,9 @@ MonoBehaviour:
   player: {fileID: 0}
   isKnockback: 0
   puddle: {fileID: 6832351220798545434, guid: 928f39aebd7927f46a28990a5d1c977f, type: 3}
-  flashEffect: {fileID: 8581186892947441254}
---- !u!114 &8581186892947441254
+  silver: {fileID: 3612579728821869229, guid: 7f21e7e8b9c3e864da3de8ea78cfdcb5, type: 3}
+  flashEffect: {fileID: -792070980679512457}
+--- !u!114 &-792070980679512457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

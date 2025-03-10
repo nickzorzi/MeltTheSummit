@@ -16,6 +16,7 @@ TagManager:
   - ReturnProjectile
   - MageProjectile
   - Puddle
+  - Shock
   layers:
   - Default
   - TransparentFX

@@ -47,9 +47,13 @@ public class EnemyController : MonoBehaviour
 
     private void OnEnable()
     {
-        if (SpawnData.Instance != null && SpawnData.Instance.enemies.Find(e => e.id == enemyId).dead == true)
+        if (SpawnData.Instance != null && SpawnData.Instance.enemies != null)
         {
-            Destroy(gameObject);
+            var enemy = SpawnData.Instance.enemies.Find(e => e.id == enemyId);
+            if (enemy != null && enemy.dead == true)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

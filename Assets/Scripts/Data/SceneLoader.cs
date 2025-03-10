@@ -18,7 +18,8 @@ public class SceneLoader : MonoBehaviour
         Mountain,
         Summit,
         Puzzle,
-        Shop
+        Shop,
+        Cave
     }
 
     [SerializeField] private SceneNames loadScene;

@@ -12,11 +12,9 @@ public class FreezeOrb : MonoBehaviour
     [SerializeField] private GameObject player;
     public bool isKnockback = false;
 
-    [Header("Combat Checks")]
-    private bool hasTakenDamageThisSwing = false;
-
-    [Header("Puddle")]
+    [Header("Melt Drop")]
     [SerializeField] private GameObject puddle;
+    [SerializeField] private GameObject silver;
 
     [Header("HitFlash")]
     [SerializeField] private HitFlash flashEffect;
@@ -51,15 +49,12 @@ public class FreezeOrb : MonoBehaviour
             StartCoroutine(swingKnockback(1));
         }
 
-        hasTakenDamageThisSwing = true;
-
         StartCoroutine(ResetDamageFlag());
     }
 
     private IEnumerator ResetDamageFlag()
     {
         yield return new WaitForSeconds(0.1f);
-        hasTakenDamageThisSwing = false;
     }
 
     private IEnumerator swingKnockback(int knockbackCooldown)
@@ -95,7 +90,8 @@ public class FreezeOrb : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         Instantiate(puddle, transform.position, Quaternion.identity);
-        
+        Instantiate(silver, transform.position, Quaternion.identity);
+
         Destroy(gameObject);
     }
 }

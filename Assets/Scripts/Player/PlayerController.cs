@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerThermo;
 
+    [Header ("Basics")]
     [SerializeField] private float _moveSpeed = 5f;
     public float health = 12;
     public float maxHealth = 12;
@@ -15,12 +18,14 @@ public class PlayerController : MonoBehaviour
     public int coolCost;
     [SerializeField] private int burn;
 
+    [Header ("Checks")]
     public bool _canAttack = true;
     public bool _firstLoad = false;
     public bool _healthUpdate = false;
     [SerializeField] private bool _isAttacking = false;
     [SerializeField] private bool _isTransformed = false;
     [SerializeField] private bool _isBurning = false;
+    [SerializeField] private bool _died = false;
 
     private bool _inCoroutine = false;
 
@@ -29,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
 
+    [Header("Ice Puzzle")]
     public bool _canSlide = false;
     [SerializeField] private Vector2 _slideDirection = Vector2.zero;
     [SerializeField] private LayerMask wallLayer;
@@ -40,12 +46,17 @@ public class PlayerController : MonoBehaviour
     private const string _lastHorizontal = "LastHorizontal";
     private const string _lastVertical = "LastVertical";
 
+    [Header("I-Frames")]
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
     public bool isInv = false;
 
+    [Header("Burn Flash")]
     [SerializeField] private HitFlash flashEffect;
+
+    private CheckpointData checkpointData;
+    private SpawnData spawnData;
 
     private void Awake()
     {
@@ -53,6 +64,9 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
         flashEffect = GetComponent<HitFlash>();
+
+        checkpointData = CheckpointData.Instance;
+        spawnData = SpawnData.Instance;
     }
 
     private void OnEnable()
@@ -63,6 +77,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            _died = false;
+
             health = PlayerData.Instance.health;
             coolCost = PlayerData.Instance.coolCost;
             temp = PlayerData.Instance.temp;
@@ -77,11 +93,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
+        if (_died)
+        {
+            RevertEnemies();
+            return;
+        }
+
         PlayerData.Instance.health = health;
         PlayerData.Instance.coolCost = coolCost;
         PlayerData.Instance.temp = temp;
         PlayerData.Instance._isTransformed = _isTransformed;
         PlayerData.Instance._isBurning = _isBurning;
+    }
+
+    private void Start()
+    {
+        BackUpEnemies();
     }
 
     private void Update()
@@ -287,7 +314,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.CompareTag("Projectile"))
+        if (hitInfo.CompareTag("Projectile") || hitInfo.CompareTag("Shock") || hitInfo.CompareTag("MageProjectile"))
         {
             if (!isInv)
             {
@@ -329,5 +356,41 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+
+        //SceneManager.LoadScene("Tutorial");
+
+        if (Collected.flowerValue > 0)
+        {
+            Collected.flowerValue--;
+
+            _died = true;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
+    private void BackUpEnemies()
+    {
+        if (spawnData == null || checkpointData.checkpointEnemies == null || spawnData == null)
+        {
+            return;
+        }
+
+        checkpointData.checkpointEnemies.Clear();
+
+        foreach (var spawnEnemy in spawnData.GetEnemies())
+        {
+            checkpointData.AddEnemy(spawnEnemy.enemy, spawnEnemy.id, spawnEnemy.dead);
+        }
+    }
+
+    private void RevertEnemies()
+    {
+        spawnData.enemies.Clear();
+
+        foreach (var checkpointEnemy in checkpointData.GetEnemies())
+        {
+            spawnData.AddEnemy(checkpointEnemy.enemy, checkpointEnemy.id, checkpointEnemy.dead);
+        }
     }
 }
