@@ -48,8 +48,11 @@ public class Collected : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerData.Instance.currency = currencyValue;
+        if (PlayerData.Instance != null)
+        {
+            PlayerData.Instance.currency = currencyValue;
 
-        PlayerData.Instance.flowers = flowerValue;
+            PlayerData.Instance.flowers = flowerValue;
+        }
     }
 }

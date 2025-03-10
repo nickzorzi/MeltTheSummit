@@ -355,13 +355,15 @@ public class PlayerController : MonoBehaviour
     
     private void Die()
     {
-        Destroy(gameObject);
-
         //SceneManager.LoadScene("Tutorial");
 
-        if (Collected.flowerValue > 0)
+        if (Collected.flowerValue <= 0)
         {
-            Collected.flowerValue--;
+            Destroy(gameObject);
+        }
+        else
+        {
+            Collected.flowerValue = Collected.flowerValue - 1;
 
             _died = true;
 

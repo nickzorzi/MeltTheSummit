@@ -8,14 +8,14 @@ public class DropFlower : MonoBehaviour
     [SerializeField] private GameObject flower;
 
     [Header("Data Track")]
-    [SerializeField] private int enemyId;
+    [SerializeField] private int itemId;
 
     private void OnEnable()
     {
-        if (SpawnData.Instance != null && SpawnData.Instance.enemies != null)
+        if (SpawnData.Instance != null && SpawnData.Instance.items != null)
         {
-            var enemy = SpawnData.Instance.enemies.Find(e => e.id == enemyId);
-            if (enemy != null && enemy.dead == true)
+            var item = SpawnData.Instance.items.Find(e => e.id == itemId);
+            if (item != null && item.dead == true)
             {
                 Destroy(gameObject);
             }
@@ -24,9 +24,9 @@ public class DropFlower : MonoBehaviour
 
     void Start()
     {
-        if (SpawnData.Instance != null && SpawnData.Instance.enemies.Find(e => e.id == enemyId) == null)
+        if (SpawnData.Instance != null && SpawnData.Instance.items.Find(e => e.id == itemId) == null)
         {
-            SpawnData.Instance.AddEnemy(gameObject, enemyId, false);
+            SpawnData.Instance.AddItem(gameObject, itemId, false);
         }
     }
 
@@ -40,17 +40,17 @@ public class DropFlower : MonoBehaviour
         if (hitInfo.CompareTag("Swing-D"))
         {
             Instantiate(flower, transform.position, Quaternion.identity);
+
+            SpawnData.Instance.items.Find(e => e.id == itemId).dead = true;
+
             Destroy(gameObject);
         }
 
         if (hitInfo.CompareTag("Swing-A"))
         {
+            SpawnData.Instance.items.Find(e => e.id == itemId).dead = true;
+
             Destroy(gameObject);
         }
-    }
-
-    private void OnDestroy()
-    {
-        SpawnData.Instance.enemies.Find(e => e.id == enemyId).dead = true;
     }
 }
