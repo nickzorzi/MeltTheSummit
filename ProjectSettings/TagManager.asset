@@ -17,6 +17,8 @@ TagManager:
   - MageProjectile
   - Puddle
   - Shock
+  - IceBlock
+  - NPC
   layers:
   - Default
   - TransparentFX
