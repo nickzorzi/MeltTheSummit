@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     private Unit unit;
     public int health = 100;
     [SerializeField] private float knockbackForce;
-    [SerializeField] private Transform player;
+    [SerializeField] private GameObject player;
     public bool isKnockback = false;
 
     [Header("Combat Checks")]
@@ -59,6 +59,7 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         _rb = GetComponent<Rigidbody2D>();
         flashEffect = GetComponent<HitFlash>();
         unit = GetComponent<Unit>();
@@ -91,7 +92,7 @@ public class EnemyController : MonoBehaviour
 
                 unit._animator.SetTrigger("Swing");
 
-                Vector2 directionToPlayer = (Vector2)(transform.position - player.position);
+                Vector2 directionToPlayer = (Vector2)(transform.position - player.transform.position);
                 Vector2 dashDirection = -directionToPlayer.normalized;
                 _rb.AddForce(dashDirection * dashForce, ForceMode2D.Impulse);
 
@@ -180,7 +181,7 @@ public class EnemyController : MonoBehaviour
         isKnockback = true;
         canAttack = false;
 
-        Vector2 directionToPlayer = (Vector2)(transform.position - player.position);
+        Vector2 directionToPlayer = (Vector2)(transform.position - player.transform.position);
         Vector2 knockbackDirection = directionToPlayer.normalized;
         _rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
 
@@ -259,7 +260,7 @@ public class EnemyController : MonoBehaviour
         {
             unit._animator.SetTrigger("Swing");
 
-            Vector2 directionToPlayer = (Vector2)(transform.position - player.position);
+            Vector2 directionToPlayer = (Vector2)(transform.position - player.transform.position);
             Vector2 dashDirection = -directionToPlayer.normalized;
             _rb.AddForce(dashDirection * dashForce, ForceMode2D.Impulse);
         }

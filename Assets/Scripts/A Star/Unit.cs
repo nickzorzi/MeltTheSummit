@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 
 public class Unit : MonoBehaviour {
 
-    public Transform target;
+    public GameObject target;
     public float speed = 2f;
     private EnemyController eC;
     private BossController bC;
@@ -24,6 +24,7 @@ public class Unit : MonoBehaviour {
     private const string _lastVertical = "LastVertical";
 
     void Start() {
+        target = GameObject.FindGameObjectWithTag("Player");
         eC = GetComponent<EnemyController>();
         bC = GetComponent<BossController>();
         _animator = GetComponent<Animator>();
@@ -55,13 +56,13 @@ public class Unit : MonoBehaviour {
     }
 
     IEnumerator RefreshPath() {
-        Vector2 targetPositionOld = (Vector2)target.position + Vector2.up; // ensure != to target.position initially
+        Vector2 targetPositionOld = (Vector2)target.transform.position + Vector2.up; // ensure != to target.position initially
         
         while (true) {
-            if (targetPositionOld != (Vector2)target.position) {
-                targetPositionOld = (Vector2)target.position;
+            if (targetPositionOld != (Vector2)target.transform.position) {
+                targetPositionOld = (Vector2)target.transform.position;
 
-                path = Pathfinder.RequestPath(transform.position, target.position);
+                path = Pathfinder.RequestPath(transform.position, target.transform.position);
                 if (followPathCoroutine != null) {
                     StopCoroutine(followPathCoroutine);
                 }
