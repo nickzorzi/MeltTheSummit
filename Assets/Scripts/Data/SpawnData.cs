@@ -12,6 +12,9 @@ public class SpawnData : MonoBehaviour
     [Header("Spawn List")]
     public List<ItemData> items;
 
+    [Header("NPC List")]
+    public List<NPCData> npcs;
+
     private void Awake()
     {
         #region SINGLETON
@@ -93,6 +96,41 @@ public class SpawnData : MonoBehaviour
             this.item = item;
             this.id = id;
             this.dead = dead;
+        }
+    }
+
+    public void AddNPC(GameObject npc, int id, bool spokenTo)
+    {
+        NPCData newNPCData = new NPCData(npc, id, spokenTo);
+        npcs.Add(newNPCData);
+    }
+
+    public void RemoveNPC(int id)
+    {
+        NPCData npcToRemove = npcs.Find(e => e.id == id);
+        if (npcToRemove != null)
+        {
+            npcs.Remove(npcToRemove);
+        }
+    }
+
+    public List<NPCData> GetNPCs()
+    {
+        return npcs;
+    }
+
+    [System.Serializable]
+    public class NPCData
+    {
+        public GameObject npc;
+        public int id;
+        public bool spokenTo;
+
+        public NPCData(GameObject npc, int id, bool spokenTo)
+        {
+            this.npc = npc;
+            this.id = id;
+            this.spokenTo = spokenTo;
         }
     }
 }
