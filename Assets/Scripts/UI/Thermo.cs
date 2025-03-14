@@ -5,12 +5,21 @@ using UnityEngine.UI;
 
 public class Thermo : MonoBehaviour
 {
+    [SerializeField] private RectTransform rectTransform;
+
     public Sprite fullThermo, threeForthsThermo, halfThermo, oneForthsThermo, emptyThermo;
     Image thermoImage;
 
     private void Awake()
     {
         thermoImage = GetComponent<Image>();
+
+        rectTransform = GetComponent<RectTransform>();
+    }
+
+    private void Start()
+    {
+        rectTransform.localScale = new Vector3(1, 1, 1);
     }
 
     public void SetThermoImage(ThermoStatus status)

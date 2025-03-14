@@ -7,6 +7,7 @@ public class InteractNPC : MonoBehaviour
 {
     [Header("Basics")]
     [SerializeField] private bool hasSpoken = false;
+    [SerializeField] private bool inRange = false;
     [SerializeField] private GameObject noti;
     [SerializeField] private GameObject dialogue;
 
@@ -20,7 +21,7 @@ public class InteractNPC : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.isInteractTriggered && !hasSpoken)
+        if (InputManager.isInteractTriggered && !hasSpoken && inRange)
         {
             dialogue.SetActive(true);
 
@@ -36,6 +37,8 @@ public class InteractNPC : MonoBehaviour
         {
             if (!hasSpoken)
             {
+                inRange = true;
+
                 noti.SetActive(true);
             }
         }
@@ -46,6 +49,8 @@ public class InteractNPC : MonoBehaviour
         if (hitInfo.CompareTag("Player"))
         {
             noti.SetActive(false);
+
+            inRange = false;
         }
     }
 }

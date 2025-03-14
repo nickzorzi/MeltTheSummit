@@ -296,7 +296,14 @@ public class PlayerController : MonoBehaviour
         temp += amount * Time.deltaTime;
         temp = Mathf.Clamp(temp, 0, maxTemp);
 
-        OnPlayerThermo?.Invoke();
+        if (temp == 0)
+        {
+            yield return null;
+        }
+        else
+        {
+            OnPlayerThermo?.Invoke();
+        }
     }
 
     IEnumerator Burn(int amount)
