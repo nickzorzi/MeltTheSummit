@@ -5507,6 +5507,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5238081890482805806, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: m_text
+      value: 'You spoke to me?!
+
+        Heres 4 Silver...
+
+        Q to Close'
+      objectReference: {fileID: 0}
     - target: {fileID: 8291250391155618099, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_Name
       value: DialogueTest

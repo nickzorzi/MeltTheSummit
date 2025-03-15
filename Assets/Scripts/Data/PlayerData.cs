@@ -14,9 +14,7 @@ public class PlayerData : MonoBehaviour
     [Header("Player Info")]
     //public float _moveSpeed;
     public float health;
-    //public float maxHealth;
     public float temp;
-    //public float maxTemp;
     //public int heatCost;
     public int coolCost;
     //public int burn;
@@ -26,6 +24,8 @@ public class PlayerData : MonoBehaviour
     public bool _isBurning;
     public int currency;
     public int flowers;
+    public bool _canAbility;
+    public float abilityCooldown;
 
     private void Awake()
     {

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerThermo;
+    public static event Action OnPlayerAbility;
 
     [Header ("Basics")]
     [SerializeField] private float _moveSpeed = 5f;
@@ -40,6 +41,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private Transform rayPoint;
 
+    [Header("Ability")]
+    public bool _canAbility = false;
+    [SerializeField] private float abilityCooldown;
+    [SerializeField] private float abilityMaxCooldown;
+    //[SerializeField] private GameObject abilityUI;
 
     private const string _horizontal = "Horizontal";
     private const string _vertical = "Vertical";
@@ -54,6 +60,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Burn Flash")]
     [SerializeField] private HitFlash flashEffect;
+
+    [Header("Cool Flash")]
+    [SerializeField] private HitFlash coolEffect;
 
     private CheckpointData checkpointData;
     private SpawnData spawnData;
@@ -84,6 +93,8 @@ public class PlayerController : MonoBehaviour
             temp = PlayerData.Instance.temp;
             _isTransformed = PlayerData.Instance._isTransformed;
             _isBurning = PlayerData.Instance._isBurning;
+            _canAbility = PlayerData.Instance._canAbility;
+            abilityCooldown = PlayerData.Instance.abilityCooldown;
 
             OnPlayerDamaged?.Invoke();
 
@@ -104,6 +115,8 @@ public class PlayerController : MonoBehaviour
         PlayerData.Instance.temp = temp;
         PlayerData.Instance._isTransformed = _isTransformed;
         PlayerData.Instance._isBurning = _isBurning;
+        PlayerData.Instance._canAbility = _canAbility;
+        PlayerData.Instance.abilityCooldown = abilityCooldown;
     }
 
     private void Start()
@@ -167,9 +180,17 @@ public class PlayerController : MonoBehaviour
 
         HandleHealth();
 
+        HandleAbility();
+
         if (!_canAttack)
         {
             return;
+        }
+
+        if (InputManager.isComboTriggered && !_isAttacking && _isTransformed)
+        {
+            _isTransformed = false;
+            StartCoroutine(Swing("S", 0.6f));
         }
 
         if (InputManager.isTransformTriggered && !_isTransformed && !_isAttacking)
@@ -193,6 +214,19 @@ public class PlayerController : MonoBehaviour
             {
                 StartCoroutine(Swing("A", 0.4f));
             }
+        }
+
+        if (InputManager.isAbilityTriggered && !_isAttacking && _canAbility)
+        {
+            abilityCooldown = 0;
+
+            coolEffect.Flash();
+
+            abilityCooldown = abilityMaxCooldown;
+
+            temp = 0;
+
+            _canAbility = false;
         }
     }
 
@@ -287,6 +321,20 @@ public class PlayerController : MonoBehaviour
                 temp = 0;
             }
         }
+    }
+
+    private void HandleAbility()
+    {
+        if (abilityCooldown <= 0)
+        {
+            _canAbility = true;
+        }
+        else
+        {
+            abilityCooldown -= Time.deltaTime;
+        }
+
+        //OnPlayerAbility?.Invoke();
     }
 
     IEnumerator ChangeTemp(int amount, float tickSpeed)
