@@ -24,7 +24,7 @@ public class PlayerData : MonoBehaviour
     public bool _isBurning;
     public int currency;
     public int flowers;
-    public bool _canAbility;
+    public bool _hasAbility;
     public float abilityCooldown;
 
     private void Awake()

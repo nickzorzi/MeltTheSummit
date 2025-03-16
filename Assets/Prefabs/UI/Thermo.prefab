@@ -109,8 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3691436157fa36b439f4c3e734f7d056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullThermo: {fileID: 1424466014, guid: 5f7e6f88934ae1c4e99b42c0ce56f687, type: 3}
-  threeForthsThermo: {fileID: 938275684, guid: 5f7e6f88934ae1c4e99b42c0ce56f687, type: 3}
-  halfThermo: {fileID: -1281345297, guid: 5f7e6f88934ae1c4e99b42c0ce56f687, type: 3}
-  oneForthsThermo: {fileID: 70756941, guid: 5f7e6f88934ae1c4e99b42c0ce56f687, type: 3}
-  emptyThermo: {fileID: -1401491740, guid: 5f7e6f88934ae1c4e99b42c0ce56f687, type: 3}
+  rectTransform: {fileID: 0}
+  fullThermo: {fileID: -721539601, guid: fcc86e6f25900654e836d2fb15e3125c, type: 3}
+  threeForthsThermo: {fileID: -1475311060, guid: fcc86e6f25900654e836d2fb15e3125c, type: 3}
+  halfThermo: {fileID: -243178539, guid: fcc86e6f25900654e836d2fb15e3125c, type: 3}
+  oneForthsThermo: {fileID: -268417826, guid: fcc86e6f25900654e836d2fb15e3125c, type: 3}
+  emptyThermo: {fileID: 1188970278, guid: fcc86e6f25900654e836d2fb15e3125c, type: 3}

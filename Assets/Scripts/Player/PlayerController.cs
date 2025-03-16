@@ -42,9 +42,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform rayPoint;
 
     [Header("Ability")]
+    public bool _hasAbility = false;
     public bool _canAbility = false;
-    [SerializeField] private float abilityCooldown;
-    [SerializeField] private float abilityMaxCooldown;
+    public float abilityCooldown;
+    public float abilityMaxCooldown;
     //[SerializeField] private GameObject abilityUI;
 
     private const string _horizontal = "Horizontal";
@@ -93,7 +94,7 @@ public class PlayerController : MonoBehaviour
             temp = PlayerData.Instance.temp;
             _isTransformed = PlayerData.Instance._isTransformed;
             _isBurning = PlayerData.Instance._isBurning;
-            _canAbility = PlayerData.Instance._canAbility;
+            _hasAbility = PlayerData.Instance._hasAbility;
             abilityCooldown = PlayerData.Instance.abilityCooldown;
 
             OnPlayerDamaged?.Invoke();
@@ -115,7 +116,7 @@ public class PlayerController : MonoBehaviour
         PlayerData.Instance.temp = temp;
         PlayerData.Instance._isTransformed = _isTransformed;
         PlayerData.Instance._isBurning = _isBurning;
-        PlayerData.Instance._canAbility = _canAbility;
+        PlayerData.Instance._hasAbility = _hasAbility;
         PlayerData.Instance.abilityCooldown = abilityCooldown;
     }
 
@@ -180,7 +181,10 @@ public class PlayerController : MonoBehaviour
 
         HandleHealth();
 
-        HandleAbility();
+        if (_hasAbility)
+        {
+            HandleAbility();
+        }
 
         if (!_canAttack)
         {
@@ -216,17 +220,15 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (InputManager.isAbilityTriggered && !_isAttacking && _canAbility)
+        if (InputManager.isAbilityTriggered && !_isAttacking && _canAbility && _hasAbility)
         {
-            abilityCooldown = 0;
-
-            coolEffect.Flash();
-
-            abilityCooldown = abilityMaxCooldown;
-
             temp = 0;
 
             _canAbility = false;
+
+            abilityCooldown = 0;
+
+            coolEffect.Flash();
         }
     }
 
@@ -325,16 +327,22 @@ public class PlayerController : MonoBehaviour
 
     private void HandleAbility()
     {
-        if (abilityCooldown <= 0)
+        if (_hasAbility)
         {
-            _canAbility = true;
-        }
-        else
-        {
-            abilityCooldown -= Time.deltaTime;
-        }
+            if (abilityCooldown >= 16)
+            {
+                _canAbility = true;
 
-        //OnPlayerAbility?.Invoke();
+                abilityCooldown = abilityMaxCooldown;
+            }
+
+            if (!_canAbility)
+            {
+                abilityCooldown += Time.deltaTime;
+            }
+
+            OnPlayerAbility?.Invoke();
+        }
     }
 
     IEnumerator ChangeTemp(int amount, float tickSpeed)

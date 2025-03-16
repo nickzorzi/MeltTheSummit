@@ -14,11 +14,13 @@ public class DialogueCloser : MonoBehaviour
     [SerializeField] private int dropAmount;
 
     [Header("Player Check")]
-    public PlayerController player;
+    public PlayerController playerController;
 
     void Start()
     {
         Time.timeScale = 0;
+
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     void Update()
@@ -39,9 +41,9 @@ public class DialogueCloser : MonoBehaviour
                 Collected.flowerValue = Collected.flowerValue + dropAmount;
             }
 
-            if (!isAbility)
+            if (isAbility)
             {
-                player._canAbility = true;
+                playerController._hasAbility = true;
             }
         }
     }

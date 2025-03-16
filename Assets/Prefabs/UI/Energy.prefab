@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7735892695946952277
+--- !u!1 &3469534650167372783
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,28 +8,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3431348343667472057}
-  - component: {fileID: 4921477262505628148}
-  - component: {fileID: 1928560366876077040}
-  - component: {fileID: 3146983245268639974}
-  - component: {fileID: 1650900649164656738}
+  - component: {fileID: 5107087317242846985}
+  - component: {fileID: 5122529594334332760}
+  - component: {fileID: 5996912240343733073}
+  - component: {fileID: 3029659598884143812}
+  - component: {fileID: 7820718017005971586}
   m_Layer: 5
-  m_Name: Heart
+  m_Name: Energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &3431348343667472057
+--- !u!224 &5107087317242846985
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735892695946952277}
+  m_GameObject: {fileID: 3469534650167372783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,21 +39,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4921477262505628148
+--- !u!222 &5122529594334332760
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735892695946952277}
+  m_GameObject: {fileID: 3469534650167372783}
   m_CullTransparentMesh: 1
---- !u!114 &1928560366876077040
+--- !u!114 &5996912240343733073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735892695946952277}
+  m_GameObject: {fileID: 3469534650167372783}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 277889711, guid: 5f7e6f88934ae1c4e99b42c0ce56f687, type: 3}
+  m_Sprite: {fileID: -663858772, guid: fcc86e6f25900654e836d2fb15e3125c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -77,13 +77,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3146983245268639974
+--- !u!114 &3029659598884143812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735892695946952277}
+  m_GameObject: {fileID: 3469534650167372783}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
@@ -96,22 +96,19 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
-  m_LayoutPriority: 2
---- !u!114 &1650900649164656738
+  m_LayoutPriority: 1
+--- !u!114 &7820718017005971586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735892695946952277}
+  m_GameObject: {fileID: 3469534650167372783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac48db61542a5834c81f4a3abc1559be, type: 3}
+  m_Script: {fileID: 11500000, guid: 4363228b109a6ac40aab6da681ba8fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectTransform: {fileID: 0}
-  fullHeart: {fileID: -1945643340, guid: fcc86e6f25900654e836d2fb15e3125c, type: 3}
-  threeForthsHeart: {fileID: 257844454, guid: fcc86e6f25900654e836d2fb15e3125c, type: 3}
-  halfHeart: {fileID: 1786345541, guid: fcc86e6f25900654e836d2fb15e3125c, type: 3}
-  oneForthsHeart: {fileID: -1283980422, guid: fcc86e6f25900654e836d2fb15e3125c, type: 3}
-  emptyHeart: {fileID: -104832320, guid: fcc86e6f25900654e836d2fb15e3125c, type: 3}
+  rectTransform: {fileID: 5107087317242846985}
+  fullEnergy: {fileID: -663858772, guid: fcc86e6f25900654e836d2fb15e3125c, type: 3}
+  emptyEnergy: {fileID: 664684899, guid: fcc86e6f25900654e836d2fb15e3125c, type: 3}
