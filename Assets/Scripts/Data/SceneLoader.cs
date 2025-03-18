@@ -19,7 +19,32 @@ public class SceneLoader : MonoBehaviour
         Summit,
         Puzzle,
         Shop,
-        Cave
+        Cave,
+        Tutorial2,
+        Tutorial3,
+        Tutorial4,
+        Kingdom1,
+        Kingdom2,
+        Town1,
+        Town2,
+        Town3,
+        Town4,
+        Town5,
+        Town6,
+        House1,
+        House2,
+        House3,
+        Forest1,
+        Forest2,
+        Forest3,
+        Forest4,
+        Forest5,
+        Forest6,
+        Forest7,
+        Forest8,
+        Snow1,
+        Snow2,
+        Snow3
     }
 
     [SerializeField] private SceneNames loadScene;

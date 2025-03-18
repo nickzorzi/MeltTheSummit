@@ -172,6 +172,61 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "Controller D-Pad",
+                    "id": "46bc7e71-15df-4ebd-a5ab-5d8c920d0e4f",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "a86a382f-fca5-458e-a462-68c67a95a173",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "63b27aca-dffc-4cd4-9b48-5f0000b2ac08",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "a02928ac-f781-4f80-8726-978fe4847da3",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "f5a110f1-d014-4e31-a631-69eb06996f49",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "98b5017f-ab4e-4200-8c50-96570f8736ed",
                     "path": "<Mouse>/leftButton",
@@ -197,6 +252,17 @@
                     "name": "",
                     "id": "d21a630f-ade1-48f7-9681-a5d1f90cda9a",
                     "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Swing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2b66454-152d-4136-8a20-ea2e6103bc6f",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -239,6 +305,17 @@
                 },
                 {
                     "name": "",
+                    "id": "ebf10100-4aa9-4fed-94bf-ad491f727bc4",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Transform",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "de37f1bf-4718-4771-bb61-618ebc37f1ef",
                     "path": "<Keyboard>/q",
                     "interactions": "",
@@ -272,6 +349,17 @@
                 },
                 {
                     "name": "",
+                    "id": "0efb0293-a6e8-413e-9197-3db372d32ea9",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c72c8220-0e7b-4a6c-a34b-c587131c76db",
                     "path": "<Keyboard>/r",
                     "interactions": "",
@@ -296,6 +384,17 @@
                     "name": "",
                     "id": "93046b4f-7e4b-429a-ba63-d77d4fdecea9",
                     "path": "<Keyboard>/comma",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "770a969e-d3ff-4bdb-a36a-dc9e836718d0",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -395,6 +494,39 @@
                     "name": "binding",
                     "id": "496fdac5-cbc5-4846-89d6-97a792d53286",
                     "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Combo",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Gamepad",
+                    "id": "f16d1cec-a9dc-44bc-a2a8-d68e4608bf6e",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Combo",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "33b1e2c4-240c-40e1-b724-3f7cccffea6a",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Combo",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "148f0f25-291e-4fe5-8b04-29d8ed531e33",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

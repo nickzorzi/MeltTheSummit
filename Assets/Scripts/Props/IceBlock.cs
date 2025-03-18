@@ -6,6 +6,7 @@ public class IceBlock : MonoBehaviour
 {
     [Header ("Basics")]
     public int health = 150;
+    private Transform pos;
 
     [Header("Data Track")]
     [SerializeField] private int itemId;
@@ -28,6 +29,8 @@ public class IceBlock : MonoBehaviour
     void Start()
     {
         flashEffect = GetComponent<HitFlash>();
+
+        pos = transform;
 
         if (SpawnData.Instance != null && SpawnData.Instance.items.Find(e => e.id == itemId) == null)
         {
@@ -59,6 +62,31 @@ public class IceBlock : MonoBehaviour
             HandleSwing(50);
 
             flashEffect.Flash();
+
+            StartCoroutine(ShakeOnHit());
         }
+
+        if (hitInfo.CompareTag("Swing-D"))
+        {
+            StartCoroutine(ShakeOnHit());
+        }
+    }
+
+    private IEnumerator ShakeOnHit()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (i % 2 == 0)
+            {
+                transform.Translate(new Vector2(-0.05f, 0));
+            }
+            else
+            {
+                transform.Translate(new Vector2(0.05f, 0));
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        transform.position = pos.position;
     }
 }
