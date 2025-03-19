@@ -30,7 +30,7 @@ public class ReturnProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.CompareTag("Enemy") || hitInfo.CompareTag("Boss"))
+        if (hitInfo.CompareTag("Enemy") || hitInfo.CompareTag("Boss") || hitInfo.CompareTag("Wall"))
         {
             Destroy(gameObject);
         }

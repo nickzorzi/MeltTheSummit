@@ -7268,7 +7268,7 @@ PrefabInstance:
       objectReference: {fileID: 56274732}
     - target: {fileID: 6483228444272246004, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: positions.Array.data[0].comingFrom
-      value: Foster4
+      value: Forest4
       objectReference: {fileID: 0}
     - target: {fileID: 6483228444272246004, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: positions.Array.data[1].comingFrom

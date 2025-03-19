@@ -3419,9 +3419,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0062500006
-    width: 1.16875
-    height: 0.25
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -6733,7 +6733,7 @@ PrefabInstance:
       objectReference: {fileID: 1980623715}
     - target: {fileID: 6483228444272246004, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: positions.Array.data[0].comingFrom
-      value: Kingdom2
+      value: Town1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

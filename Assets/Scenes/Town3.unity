@@ -6966,7 +6966,7 @@ PrefabInstance:
       objectReference: {fileID: 2105209422}
     - target: {fileID: 6483228444272246004, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: positions.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6483228444272246004, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: positions.Array.data[0].position

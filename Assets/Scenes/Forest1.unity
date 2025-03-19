@@ -6756,7 +6756,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 111158489336217865, guid: 42f089b7b9a0aca4d99c5c45b8119158, type: 3}
       propertyPath: loadScene
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 372691266987879957, guid: 42f089b7b9a0aca4d99c5c45b8119158, type: 3}
       propertyPath: m_Size.x
