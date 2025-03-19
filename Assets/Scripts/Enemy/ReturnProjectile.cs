@@ -16,9 +16,16 @@ public class ReturnProjectile : MonoBehaviour
 
     private void Update()
     {
-        Vector2 offsetTargetPosition = new Vector2(target.transform.position.x, target.transform.position.y + 0.75f);
+        if (target != null)
+        {
+            Vector2 offsetTargetPosition = new Vector2(target.transform.position.x, target.transform.position.y + 0.75f);
 
-        transform.position = Vector2.MoveTowards(transform.position, offsetTargetPosition, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, offsetTargetPosition, speed * Time.deltaTime);
+        }
+        else
+        {
+            target = GameObject.FindGameObjectWithTag("Enemy");
+        }
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo)

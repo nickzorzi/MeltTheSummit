@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private float nextFireTime;
     [SerializeField] private float fireTime;
+    [SerializeField] private bool isBossSpawn = false;
 
     [Header("Shooter")]
     [SerializeField] private bool typeShooter = false;
@@ -47,7 +48,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnEnable()
     {
-        if (SpawnData.Instance != null && SpawnData.Instance.enemies != null)
+        if (SpawnData.Instance != null && SpawnData.Instance.enemies != null && !isBossSpawn)
         {
             var enemy = SpawnData.Instance.enemies.Find(e => e.id == enemyId);
             if (enemy != null && enemy.dead == true)
@@ -69,7 +70,7 @@ public class EnemyController : MonoBehaviour
     {
         Physics2D.queriesStartInColliders = false;
 
-        if (SpawnData.Instance != null && SpawnData.Instance.enemies.Find(e => e.id == enemyId) == null)
+        if (SpawnData.Instance != null && SpawnData.Instance.enemies.Find(e => e.id == enemyId) == null && !isBossSpawn)
         {
             SpawnData.Instance.AddEnemy(gameObject, enemyId, false);
         }
@@ -285,7 +286,10 @@ public class EnemyController : MonoBehaviour
     {
         Instantiate(silver, gunPivot.transform.position, Quaternion.identity);
 
-        SpawnData.Instance.enemies.Find(e => e.id == enemyId).dead = true;
+        if (!isBossSpawn)
+        {
+            SpawnData.Instance.enemies.Find(e => e.id == enemyId).dead = true;
+        }
 
         Destroy(gameObject);
     }

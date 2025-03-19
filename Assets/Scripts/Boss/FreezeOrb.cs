@@ -72,7 +72,7 @@ public class FreezeOrb : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.CompareTag("Swing-A"))
+        if (hitInfo.CompareTag("Swing-A") || hitInfo.CompareTag("ReturnProjectile"))
         {
             HandleSwing(50, false);
 

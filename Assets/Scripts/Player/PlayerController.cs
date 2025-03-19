@@ -223,6 +223,7 @@ public class PlayerController : MonoBehaviour
         if (InputManager.isAbilityTriggered && !_isAttacking && _canAbility && _hasAbility)
         {
             temp = 0;
+            _isBurning = false;
 
             _canAbility = false;
 

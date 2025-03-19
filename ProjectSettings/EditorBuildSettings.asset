@@ -107,4 +107,64 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/House3.unity
     guid: 2fc1c9177bb006b4697192157f588d87
+  - enabled: 1
+    path: Assets/Scenes/Snow1.unity
+    guid: 0c511d5ae0b2f1648a16faee87a31fac
+  - enabled: 1
+    path: Assets/Scenes/Snow2.unity
+    guid: 7786878d575edb142bedf04f9ac32ad4
+  - enabled: 1
+    path: Assets/Scenes/Snow3.unity
+    guid: 73cbfb7c36013834d90ad746977ca348
+  - enabled: 1
+    path: Assets/Scenes/ShopLodge.unity
+    guid: f4ed1003a7b11e94ab075e248148c674
+  - enabled: 1
+    path: Assets/Scenes/Mountain1.unity
+    guid: bd067e6902a69af4383975ca233fb38e
+  - enabled: 1
+    path: Assets/Scenes/Mountain2.unity
+    guid: 5b8353893105b9847bad813a24e19d16
+  - enabled: 1
+    path: Assets/Scenes/Mountain3.unity
+    guid: da01bc73612df74499cba4cbcd31a9b3
+  - enabled: 1
+    path: Assets/Scenes/Mountain4.unity
+    guid: 1c5c1a71c83da6f40ad07687af297a04
+  - enabled: 1
+    path: Assets/Scenes/Mountain5.unity
+    guid: f5eb215448c06b641a654fc3c33b195a
+  - enabled: 1
+    path: Assets/Scenes/Mountain6.unity
+    guid: d3797c39aa2b5c141bb7a3416b7444fa
+  - enabled: 1
+    path: Assets/Scenes/Mountain7.unity
+    guid: e334f89257400014f850f59d4f6c9707
+  - enabled: 1
+    path: Assets/Scenes/Mountain8.unity
+    guid: 59ab8e071d5d1664b8f98b2d076688c1
+  - enabled: 1
+    path: Assets/Scenes/Puzzle1.unity
+    guid: 9c831125ddcf7d343bc50350da7c197f
+  - enabled: 1
+    path: Assets/Scenes/Puzzle2.unity
+    guid: 09a9912582e824641bd4f93f83648a71
+  - enabled: 1
+    path: Assets/Scenes/Puzzle3.unity
+    guid: 2cee7c38a10d1ff4cb909ec799c9665c
+  - enabled: 1
+    path: Assets/Scenes/Cave1.unity
+    guid: add27269698cefb41832f5122a2fda0b
+  - enabled: 1
+    path: Assets/Scenes/Cave2.unity
+    guid: c7d73e242f499ed4e81f2eaf08cb36a7
+  - enabled: 1
+    path: Assets/Scenes/Cave3.unity
+    guid: eb0d398b60e2dfb4c9e8e262c3993727
+  - enabled: 1
+    path: Assets/Scenes/Hike.unity
+    guid: f7048e0b55c75dc4aa54130d44f988b6
+  - enabled: 1
+    path: Assets/Scenes/SummitRuins.unity
+    guid: 754eaa7dae384b64381d6f1e1d78c7e0
   m_configObjects: {}

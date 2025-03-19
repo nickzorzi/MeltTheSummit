@@ -44,7 +44,24 @@ public class SceneLoader : MonoBehaviour
         Forest8,
         Snow1,
         Snow2,
-        Snow3
+        Snow3,
+        ShopLodge,
+        Mountain1,
+        Mountain2,
+        Mountain3,
+        Mountain4,
+        Mountain5,
+        Mountain6,
+        Mountain7,
+        Mountain8,
+        Puzzle1,
+        Puzzle2,
+        Puzzle3,
+        Cave1,
+        Cave2,
+        Cave3,
+        Hike,
+        SummitRuins
     }
 
     [SerializeField] private SceneNames loadScene;
