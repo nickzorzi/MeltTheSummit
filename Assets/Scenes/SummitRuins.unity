@@ -3582,9 +3582,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0062500006
-    width: 1.16875
-    height: 0.25
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -5809,7 +5809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
-  player: {fileID: 2105209422}
+  player: {fileID: 2120342094}
   knockbackForce: 20
   isKnockback: 0
   canAttack: 1
@@ -5834,6 +5834,10 @@ MonoBehaviour:
   canFireShock: 1
   hand: {fileID: 5678631020787778032, guid: 999b2f138639237488bde527525bf948, type: 3}
   canFireHands: 1
+  canThrow: 0
+  throwForce: 15
+  nextThrowTime: 5
+  throwTime: 0
   colliders:
     serializedVersion: 2
     m_Bits: 64
@@ -6558,12 +6562,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5948762412314751540, guid: c3be22882635dfd489d61f9205af4976, type: 3}
   m_PrefabInstance: {fileID: 5267018275227031515}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2120342094}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4acb7cab756bfdf4fa4ebe8d99796833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2120342094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1848036292710758, guid: c3be22882635dfd489d61f9205af4976, type: 3}
+  m_PrefabInstance: {fileID: 5267018275227031515}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5267018275227031515
 PrefabInstance:
   m_ObjectHideFlags: 0

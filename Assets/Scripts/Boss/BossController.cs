@@ -8,7 +8,7 @@ public class BossController : MonoBehaviour
     [Header("Basics")]
     public int health;
     private Rigidbody2D _rb;
-    [SerializeField] private Transform player;
+    [SerializeField] private GameObject player;
     [SerializeField] private float knockbackForce;
     public bool isKnockback = false;
 
@@ -52,6 +52,12 @@ public class BossController : MonoBehaviour
     [SerializeField] private GameObject hand;
     [SerializeField] private bool canFireHands = true;
 
+    [Header("Player Throw")]
+    [SerializeField] private bool canThrow = false;
+    [SerializeField] private float throwForce;
+    [SerializeField] private float nextThrowTime;
+    [SerializeField] private float throwTime;
+
     [Header("Nav")]
     [SerializeField] private LayerMask colliders;
     [SerializeField] private float distance;
@@ -80,11 +86,26 @@ public class BossController : MonoBehaviour
         checkForPlayer();
 
         FindPuddles();
+
     }
 
     private void Update()
     {
         HandleBattleStates();
+
+        if (canThrow)
+        {
+            if (throwTime <= 0)
+            {
+                throwTime = 0;
+
+                canThrow = false;
+            }
+            else
+            {
+                throwTime -= Time.deltaTime;
+            }
+        }
 
         if (canAttack && !hasHesitate && isPhaseFreeze)
         {
@@ -151,6 +172,10 @@ public class BossController : MonoBehaviour
         {
             HandleSwing(50, false);
 
+            canThrow = true;
+
+            throwTime = nextThrowTime;
+
             flashEffect.Flash();
         }
     }
@@ -162,6 +187,20 @@ public class BossController : MonoBehaviour
         GameObject[] puddleObjects = GameObject.FindGameObjectsWithTag("Puddle");
 
         puddles.AddRange(puddleObjects);
+    }
+
+    public IEnumerator PlayerThrow()
+    {
+        Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
+
+        yield return new WaitForSeconds(1);
+
+        Vector2 directionToPlayer = (Vector2)(transform.position - player.transform.position);
+        Vector2 dashDirection = -directionToPlayer.normalized;
+        playerRb.AddForce(dashDirection * throwForce, ForceMode2D.Impulse);
+
+        canThrow = false;
+        throwTime = 0;
     }
 
     public IEnumerator FireShock(GameObject prefab, int delay)
@@ -238,7 +277,7 @@ public class BossController : MonoBehaviour
         isKnockback = true;
         canAttack = false;
 
-        Vector2 directionToPlayer = (Vector2)(transform.position - player.position);
+        Vector2 directionToPlayer = (Vector2)(transform.position - player.transform.position);
         Vector2 knockbackDirection = directionToPlayer.normalized;
         _rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
         yield return new WaitForSeconds(knockbackCooldown);
@@ -288,6 +327,14 @@ public class BossController : MonoBehaviour
 
     private void HandleBattleStates()
     {
+        if (canThrow)
+        {
+            if (health % 150 == 0)
+            {
+                StartCoroutine(PlayerThrow());
+            }
+        }
+
         if (health <= 250)
         {
             //isPhaseShock = false;

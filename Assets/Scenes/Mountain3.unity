@@ -3496,9 +3496,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.0062500006
+    width: 1.16875
+    height: 0.25
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -6834,7 +6834,7 @@ PrefabInstance:
     - target: {fileID: 9153155095605828636, guid: 7b5fdf363f089214ab10a663bf4c77f1, type: 3}
       propertyPath: turretProjectile
       value: 
-      objectReference: {fileID: 9119008177448474471, guid: 8741f9b575960014a82a9540a7ce042f, type: 3}
+      objectReference: {fileID: 9119008177448474471, guid: 985efd829d525654cb195e2d6f80b611, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
