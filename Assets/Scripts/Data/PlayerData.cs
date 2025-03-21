@@ -12,6 +12,7 @@ public class PlayerData : MonoBehaviour
     public string lastScene;
 
     [Header("Player Info")]
+    public bool _firstLoad;
     //public float _moveSpeed;
     public float health;
     public float temp;

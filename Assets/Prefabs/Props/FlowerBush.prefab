@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 5879210744225914334}
   m_Layer: 7
   m_Name: FlowerBush
-  m_TagString: Enemy
+  m_TagString: Flower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -364,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flower: {fileID: 2427290016181961434, guid: 5eb93d388f8b85844a229df82f8df73b, type: 3}
+  itemId: 0
 --- !u!1 &3358420848753517605
 GameObject:
   m_ObjectHideFlags: 0

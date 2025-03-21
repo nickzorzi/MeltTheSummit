@@ -11,7 +11,6 @@ public class InputManager : MonoBehaviour
     public static bool isTransformTriggered { get; private set; }
     public static bool isInteractTriggered { get; private set; }
     public static bool isAbilityTriggered { get; private set; }
-    public static bool isComboTriggered { get; private set; }
 
     private PlayerInput _playerInput;
     private InputAction _moveAction;
@@ -19,7 +18,6 @@ public class InputManager : MonoBehaviour
     private InputAction _transformAction;
     private InputAction _interactAction;
     private InputAction _abilityAction;
-    private InputAction _comboAction;
 
     private void Awake()
     {
@@ -30,7 +28,6 @@ public class InputManager : MonoBehaviour
         _transformAction = _playerInput.actions["Transform"];
         _interactAction = _playerInput.actions["Interact"];
         _abilityAction = _playerInput.actions["Ability"];
-        _comboAction = _playerInput.actions["Combo"];
     }
 
     private void Update()
@@ -41,6 +38,5 @@ public class InputManager : MonoBehaviour
         isTransformTriggered = _transformAction.triggered;
         isInteractTriggered = _interactAction.triggered;
         isAbilityTriggered = _abilityAction.triggered;
-        isComboTriggered = _comboAction.triggered;
     }
 }

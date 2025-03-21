@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_firstLoad)
         {
+            _firstLoad = false;
             return;
         }
         else
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour
             _isBurning = PlayerData.Instance._isBurning;
             _hasAbility = PlayerData.Instance._hasAbility;
             abilityCooldown = PlayerData.Instance.abilityCooldown;
+            _firstLoad = PlayerData.Instance._firstLoad;
 
             OnPlayerDamaged?.Invoke();
 
@@ -118,6 +120,7 @@ public class PlayerController : MonoBehaviour
         PlayerData.Instance._isBurning = _isBurning;
         PlayerData.Instance._hasAbility = _hasAbility;
         PlayerData.Instance.abilityCooldown = abilityCooldown;
+        PlayerData.Instance._firstLoad = _firstLoad;
     }
 
     private void Start()
@@ -189,12 +192,6 @@ public class PlayerController : MonoBehaviour
         if (!_canAttack)
         {
             return;
-        }
-
-        if (InputManager.isComboTriggered && !_isAttacking && _isTransformed)
-        {
-            _isTransformed = false;
-            StartCoroutine(Swing("S", 0.6f));
         }
 
         if (InputManager.isTransformTriggered && !_isTransformed && !_isAttacking)
@@ -408,6 +405,9 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
+
+        CinemachineShake.Instance.ShakeCamera(3f, .1f);
+
         OnPlayerDamaged?.Invoke();
     }
 
