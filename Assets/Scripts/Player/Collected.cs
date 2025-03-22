@@ -27,12 +27,12 @@ public class Collected : MonoBehaviour
 
         if (currencyText != null)
         {
-            currencyText.text = "Silver: " + currencyValue.ToString();
+            currencyText.text = "x" + currencyValue.ToString();
         }
 
         if (flowerText != null)
         {
-            flowerText.text = "Flower: " + flowerValue.ToString();
+            flowerText.text = "x" + flowerValue.ToString();
         }
     }
 
