@@ -16,6 +16,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject creditsMenuFirst;
     [SerializeField] private GameObject pauseMenuFirst;
 
+    [Header("Menu")]
+    [SerializeField] private GameObject pauseMenu;
+
+    [Header("PlayerScript")]
+    [SerializeField] private GameObject playerController;
+
+
     private void Start()
     {
         if (inMainMenu)
@@ -36,7 +43,37 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if (InputManager.isPauseTriggered)
+        {
+            if (!inPauseMenu)
+            {
+                OpenPause();
+            }
+            else
+            {
+                ClosePause();
+            }
+        }
+    }
+
+    public void OpenPause()
+    {
+        inPauseMenu = true;
+
+        Time.timeScale = 0;
+        playerController.SetActive(false);
+
+        pauseMenu.SetActive(true);
+    }
+
+    public void ClosePause()
+    {
+        inPauseMenu = false;
+
+        Time.timeScale = 1;
+        playerController.SetActive(true);
+
+        pauseMenu.SetActive(false);
     }
 
     public void PlayGame()
