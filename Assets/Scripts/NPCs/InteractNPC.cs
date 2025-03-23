@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class InteractNPC : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class InteractNPC : MonoBehaviour
 
     [Header("Data Track")]
     [SerializeField] private int npcId;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip interactFX;
 
     private void OnEnable()
     {
@@ -39,6 +43,8 @@ public class InteractNPC : MonoBehaviour
         if (InputManager.isInteractTriggered && !hasSpoken && inRange)
         {
             dialogue.SetActive(true);
+
+            SoundFXManager.instance.PlaySoundClip(interactFX, transform, 1f);
 
             noti.SetActive(false);
 

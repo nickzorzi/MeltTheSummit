@@ -65,6 +65,15 @@ public class PlayerController : MonoBehaviour
     [Header("Cool Flash")]
     [SerializeField] private HitFlash coolEffect;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip dSwing;
+    [SerializeField] private AudioClip aSwing;
+    [SerializeField] private AudioClip transformFX;
+    [SerializeField] private AudioClip hitDMG;
+    [SerializeField] private AudioClip burnDMG;
+    [SerializeField] private AudioClip abilityFX;
+    [SerializeField] private AudioClip deathFX;
+
     private CheckpointData checkpointData;
     private SpawnData spawnData;
 
@@ -198,11 +207,13 @@ public class PlayerController : MonoBehaviour
         {
             _isTransformed = true;
             StartCoroutine(Transform("In"));
+            SoundFXManager.instance.PlaySoundClip(transformFX, transform, 1f);
         }
         else if (InputManager.isTransformTriggered && _isTransformed && !_isAttacking)
         {
             _isTransformed = false;
             StartCoroutine(Transform("Out"));
+            SoundFXManager.instance.PlaySoundClip(transformFX, transform, 1f);
         }
 
         if (InputManager.isSwingTriggered && !_isAttacking)
@@ -210,10 +221,12 @@ public class PlayerController : MonoBehaviour
             if (!_isTransformed)
             {
                 StartCoroutine(Swing("D", 0.8f));
+                SoundFXManager.instance.PlaySoundClip(dSwing, transform, 1f);
             }
             else if (_isTransformed)
             {
                 StartCoroutine(Swing("A", 0.4f));
+                SoundFXManager.instance.PlaySoundClip(aSwing, transform, 1f);
             }
         }
 
@@ -221,10 +234,11 @@ public class PlayerController : MonoBehaviour
         {
             temp = 0;
             _isBurning = false;
-
             _canAbility = false;
 
             abilityCooldown = 0;
+
+            SoundFXManager.instance.PlaySoundClip(abilityFX, transform, 1f);
 
             coolEffect.Flash();
         }
@@ -366,6 +380,8 @@ public class PlayerController : MonoBehaviour
 
         TakeDamage(amount);
 
+        SoundFXManager.instance.PlaySoundClip(burnDMG, transform, 1f);
+
         flashEffect.Flash();
 
         yield return new WaitForSeconds(1);
@@ -380,6 +396,8 @@ public class PlayerController : MonoBehaviour
             if (!isInv)
             {
                 TakeDamage(1);
+
+                SoundFXManager.instance.PlaySoundClip(hitDMG, transform, 1f);
 
                 StartCoroutine(Invulnerability());
             }
@@ -424,6 +442,8 @@ public class PlayerController : MonoBehaviour
         if (Collected.flowerValue <= 0)
         {
             Destroy(gameObject);
+
+            SoundFXManager.instance.PlaySoundClip(deathFX, transform, 1f);
         }
         else
         {

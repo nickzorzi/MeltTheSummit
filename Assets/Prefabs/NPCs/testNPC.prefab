@@ -404,3 +404,4 @@ MonoBehaviour:
   noti: {fileID: 1338417529567318591}
   dialogue: {fileID: 0}
   npcId: 0
+  interactFX: {fileID: 8300000, guid: 490bfbc72255342408984f60044487de, type: 3}

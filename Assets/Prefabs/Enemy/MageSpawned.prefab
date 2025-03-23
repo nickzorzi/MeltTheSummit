@@ -419,6 +419,12 @@ MonoBehaviour:
   flashEffect: {fileID: 2076735054547474841}
   silver: {fileID: 3612579728821869229, guid: 7f21e7e8b9c3e864da3de8ea78cfdcb5, type: 3}
   enemyId: 0
+  hitDMG: {fileID: 8300000, guid: 8b23b175a78d6b5458322e3a6c9905d0, type: 3}
+  knockbackFX: {fileID: 8300000, guid: c458b6714dab015479d507b21fd2cead, type: 3}
+  deathFX: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+  shootFX: {fileID: 8300000, guid: e1e2d06fe0d78194b9c7c8cc88414d0d, type: 3}
+  dashFX: {fileID: 8300000, guid: 78ad99fd0a0a5144280b07bbdba84815, type: 3}
+  swingFX: {fileID: 8300000, guid: f11db4559b3ffff45b62e9327fc5535d, type: 3}
 --- !u!114 &2076735054547474841
 MonoBehaviour:
   m_ObjectHideFlags: 0

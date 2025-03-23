@@ -16,6 +16,9 @@ public class DialogueCloser : MonoBehaviour
     [Header("Player Check")]
     public PlayerController playerController;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip closeFX;
+
     void Start()
     {
         Time.timeScale = 0;
@@ -28,6 +31,8 @@ public class DialogueCloser : MonoBehaviour
         if (InputManager.isInteractTriggered)
         {
             Time.timeScale = 1;
+
+            SoundFXManager.instance.PlaySoundClip(closeFX, transform, 1f);
 
             dialogue.SetActive(false);
 

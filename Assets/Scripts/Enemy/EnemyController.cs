@@ -46,6 +46,13 @@ public class EnemyController : MonoBehaviour
     [Header("Data Track")]
     [SerializeField] private int enemyId;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip hitDMG;
+    [SerializeField] private AudioClip knockbackFX;
+    [SerializeField] private AudioClip deathFX;
+    [SerializeField] private AudioClip shootFX;
+    [SerializeField] private AudioClip swingFX;
+
     private void OnEnable()
     {
         if (SpawnData.Instance != null && SpawnData.Instance.enemies != null && !isBossSpawn)
@@ -92,6 +99,7 @@ public class EnemyController : MonoBehaviour
                 StartCoroutine(HandlePause(nextFireTime, 2));
 
                 unit._animator.SetTrigger("Swing");
+                SoundFXManager.instance.PlaySoundClip(swingFX, transform, 1f);
 
                 Vector2 directionToPlayer = (Vector2)(transform.position - player.transform.position);
                 Vector2 dashDirection = -directionToPlayer.normalized;
@@ -110,6 +118,9 @@ public class EnemyController : MonoBehaviour
             if (fireTime <= 0)
             {
                 Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
+
+                SoundFXManager.instance.PlaySoundClip(shootFX, transform, 1f);
+
                 fireTime = nextFireTime;
             }
             else
@@ -124,10 +135,14 @@ public class EnemyController : MonoBehaviour
         if (collider.CompareTag("Swing-D") && !hasTakenDamageThisSwing)
         {
             HandleSwing(0, true);
+
+            SoundFXManager.instance.PlaySoundClip(knockbackFX, transform, 1f);
         }
         else if (collider.CompareTag("Swing-A") && !hasTakenDamageThisSwing)
         {
             HandleSwing(50, false);
+
+            SoundFXManager.instance.PlaySoundClip(hitDMG, transform, 1f);
 
             flashEffect.Flash();
         }
@@ -135,6 +150,8 @@ public class EnemyController : MonoBehaviour
         if (collider.CompareTag("ReturnProjectile") && !hasTakenDamageThisSwing)
         {
             HandleSwing(50, false);
+
+            SoundFXManager.instance.PlaySoundClip(hitDMG, transform, 1f);
 
             flashEffect.Flash();
         }
@@ -290,6 +307,8 @@ public class EnemyController : MonoBehaviour
         {
             SpawnData.Instance.enemies.Find(e => e.id == enemyId).dead = true;
         }
+
+        SoundFXManager.instance.PlaySoundClip(deathFX, transform, 1f);
 
         Destroy(gameObject);
     }

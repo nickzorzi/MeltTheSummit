@@ -223,14 +223,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   rayPoint: {fileID: 0}
+  _hasAbility: 0
   _canAbility: 0
-  abilityCooldown: 0
-  abilityMaxCooldown: 20
+  abilityCooldown: 16
+  abilityMaxCooldown: 16
   iFramesDuration: 1
   numberOfFlashes: 4
   isInv: 0
   flashEffect: {fileID: 7220795281320469375}
   coolEffect: {fileID: 3273915048266713033}
+  dSwing: {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
+  aSwing: {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
+  transformFX: {fileID: 8300000, guid: b7b5a6156961bac44a67504d42ce6fcf, type: 3}
+  hitDMG: {fileID: 8300000, guid: fd25a15f9797641458336cccfb445343, type: 3}
+  burnDMG: {fileID: 8300000, guid: eaae8fe8d600e1f459f34aa5757fa3b8, type: 3}
+  abilityFX: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
+  deathFX: {fileID: 8300000, guid: 8ff2a2d7e79f81c40ac447512f879374, type: 3}
 --- !u!114 &7220795281320469375
 MonoBehaviour:
   m_ObjectHideFlags: 0
