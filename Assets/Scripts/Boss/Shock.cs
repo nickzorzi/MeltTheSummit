@@ -6,9 +6,12 @@ public class Shock : MonoBehaviour
 {
     [SerializeField] private GameObject enemy;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip shockFX;
+
     void Start()
     {
-        
+        SoundFXManager.instance.PlaySoundClip(shockFX, transform, 1f);
     }
 
     void Update()
@@ -21,6 +24,8 @@ public class Shock : MonoBehaviour
         if (hitInfo.CompareTag("Silver"))
         {
             Instantiate(enemy, transform.position, Quaternion.identity);
+
+            //SoundFXManager.instance.PlaySoundClip(shockFX, transform, 1f);
         }
     }
 }

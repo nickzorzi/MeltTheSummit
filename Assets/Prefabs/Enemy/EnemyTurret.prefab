@@ -179,3 +179,4 @@ MonoBehaviour:
   gunPivot: {fileID: 6782909611266039614}
   nextFireTime: 2
   fireTime: 0
+  shootFX: {fileID: 8300000, guid: e1e2d06fe0d78194b9c7c8cc88414d0d, type: 3}

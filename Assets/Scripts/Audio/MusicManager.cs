@@ -32,5 +32,7 @@ public class MusicManager : MonoBehaviour
     public void SetMusicTrack(int trackNumber)
     {
         musicTrack.clip = musicClips[trackNumber];
+
+        musicTrack.Play();
     }
 }

@@ -46,7 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicTrack: {fileID: 0}
-  musicClips: []
+  musicClips:
+  - {fileID: 8300000, guid: 6cf9c85b5a3b88c468b21b9d21250adf, type: 3}
+  - {fileID: 8300000, guid: aa967a280457c054bb646d57611f5bd0, type: 3}
+  - {fileID: 8300000, guid: 7a9de5c4d998126449cf964a6b27a8b0, type: 3}
+  - {fileID: 8300000, guid: d654174ef194bd7479bf4b8d8f753318, type: 3}
+  - {fileID: 8300000, guid: acbcb75601b0082458fda8807f67c813, type: 3}
 --- !u!82 &7314647133624505832
 AudioSource:
   m_ObjectHideFlags: 0
@@ -57,8 +62,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2157788569193538167, guid: 4806d070f46cfe6409f489ec4de9f474, type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 6cf9c85b5a3b88c468b21b9d21250adf, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

@@ -73,7 +73,7 @@ public class SceneLoader : MonoBehaviour
         {
             PlayerData.Instance.lastScene = SceneManager.GetActiveScene().name;
 
-            //TrackChange();
+            TrackChange();
 
             SceneManager.LoadScene(loadScene.ToString());
         }

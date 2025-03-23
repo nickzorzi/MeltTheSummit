@@ -19,6 +19,9 @@ public class FreezeOrb : MonoBehaviour
     [Header("HitFlash")]
     [SerializeField] private HitFlash flashEffect;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip meltFX;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -91,6 +94,8 @@ public class FreezeOrb : MonoBehaviour
 
         Instantiate(puddle, transform.position, Quaternion.identity);
         Instantiate(silver, transform.position, Quaternion.identity);
+
+        SoundFXManager.instance.PlaySoundClip(meltFX, transform, 1f);
 
         Destroy(gameObject);
     }

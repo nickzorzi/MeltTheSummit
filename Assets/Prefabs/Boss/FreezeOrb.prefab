@@ -170,6 +170,7 @@ MonoBehaviour:
   puddle: {fileID: 6832351220798545434, guid: 928f39aebd7927f46a28990a5d1c977f, type: 3}
   silver: {fileID: 3612579728821869229, guid: 7f21e7e8b9c3e864da3de8ea78cfdcb5, type: 3}
   flashEffect: {fileID: -792070980679512457}
+  meltFX: {fileID: 8300000, guid: 60f9efe3d97bc8f47bea1af7f7093d41, type: 3}
 --- !u!114 &-792070980679512457
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -471,3 +471,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 8645214166426450886, guid: 5429d57887085374583b01319efaf9b6, type: 3}
+  shockFX: {fileID: 8300000, guid: c91fcf414acc0344cb03b13996f1bf3b, type: 3}

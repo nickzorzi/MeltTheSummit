@@ -67,6 +67,14 @@ public class BossController : MonoBehaviour
     [Header("HitFlash")]
     [SerializeField] private HitFlash flashEffect;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip hitDMG;
+    [SerializeField] private AudioClip knockbackFX;
+    [SerializeField] private AudioClip deathFX;
+    [SerializeField] private AudioClip shootFX;
+    [SerializeField] private AudioClip swingFX;
+    [SerializeField] private AudioClip dropFX;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -113,6 +121,8 @@ public class BossController : MonoBehaviour
             {
                 Instantiate(freezeOrb, gunPivot.transform.position, Quaternion.identity);
 
+                SoundFXManager.instance.PlaySoundClip(dropFX, transform, 1f);
+
                 dropTime = nextDropTime;
             }
             else
@@ -137,6 +147,8 @@ public class BossController : MonoBehaviour
             {
                 Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
 
+                SoundFXManager.instance.PlaySoundClip(shootFX, transform, 1f);
+
                 fireTime = nextFireTime;
             }
             else
@@ -150,6 +162,8 @@ public class BossController : MonoBehaviour
             if (meleeTime <= 0)
             {
                 StartCoroutine(HandlePause(nextMeleeTime, 1));
+
+                SoundFXManager.instance.PlaySoundClip(swingFX, transform, 1f);
 
                 unit._animator.SetTrigger("Swing");
 
@@ -167,10 +181,14 @@ public class BossController : MonoBehaviour
         if (collider.CompareTag("Swing-D") && !hasTakenDamageThisSwing)
         {
             HandleSwing(0, true);
+
+            SoundFXManager.instance.PlaySoundClip(knockbackFX, transform, 1f);
         }
         else if (collider.CompareTag("Swing-A") && !hasTakenDamageThisSwing)
         {
             HandleSwing(50, false);
+
+            SoundFXManager.instance.PlaySoundClip(hitDMG, transform, 1f);
 
             canThrow = true;
 
@@ -357,5 +375,7 @@ public class BossController : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+
+        SoundFXManager.instance.PlaySoundClip(deathFX, transform, 1f);
     }
 }

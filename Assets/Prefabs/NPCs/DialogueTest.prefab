@@ -157,6 +157,7 @@ MonoBehaviour:
   isAbility: 0
   dropAmount: 4
   playerController: {fileID: 0}
+  closeFX: {fileID: 8300000, guid: 78ad99fd0a0a5144280b07bbdba84815, type: 3}
 --- !u!1 &8291250391155618099
 GameObject:
   m_ObjectHideFlags: 0

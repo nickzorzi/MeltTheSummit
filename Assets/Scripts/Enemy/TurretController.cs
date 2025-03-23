@@ -12,6 +12,9 @@ public class TurretController : MonoBehaviour
     [SerializeField] private float nextFireTime;
     [SerializeField] private float fireTime;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip shootFX;
+
     void Start()
     {
         //fireTime = nextFireTime;
@@ -22,6 +25,9 @@ public class TurretController : MonoBehaviour
         if (fireTime <= 0)
         {
             Instantiate(turretProjectile, gunPivot.transform.position, Quaternion.identity);
+
+            SoundFXManager.instance.PlaySoundClip(shootFX, transform, 1f);
+
             fireTime = nextFireTime;
         }
         else
