@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip burnDMG;
     [SerializeField] private AudioClip abilityFX;
     [SerializeField] private AudioClip deathFX;
+    [SerializeField] private AudioClip reviveFX;
 
     private CheckpointData checkpointData;
     private SpawnData spawnData;
@@ -441,15 +442,17 @@ public class PlayerController : MonoBehaviour
 
         if (Collected.flowerValue <= 0)
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene("MainMenu");
 
-            SoundFXManager.instance.PlaySoundClip(deathFX, transform, 1f);
+            //SoundFXManager.instance.PlaySoundClip(deathFX, transform, 1f);
         }
         else
         {
             Collected.flowerValue = Collected.flowerValue - 1;
 
             _died = true;
+
+            SoundFXManager.instance.PlaySoundClip(reviveFX, transform, 1f);
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

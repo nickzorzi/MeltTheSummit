@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class MenuManager : MonoBehaviour
 {
@@ -19,25 +21,40 @@ public class MenuManager : MonoBehaviour
     [Header("Menu")]
     [SerializeField] private GameObject pauseMenu;
 
-    [Header("PlayerScript")]
+    [Header("GameObject Finder")]
     [SerializeField] private GameObject playerController;
 
+    [Header("Volume Sliders")]
+    [SerializeField] private Slider masterSlider;
+    [SerializeField] private Slider sfxSlider;
+    [SerializeField] private Slider musicSlider;
 
     private void Start()
     {
+        if (!inMainMenu)
+        {
+            playerController = GameObject.FindGameObjectWithTag("Player");
+
+            masterSlider.value = VolumeData.instance.masterLevel;
+            sfxSlider.value = VolumeData.instance.sfxLevel;
+            musicSlider.value = VolumeData.instance.musicLevel;
+        }
+
         if (inMainMenu)
         {
             EventSystem.current.SetSelectedGameObject(mainMenuFirst);
+
+            Destroy(GameObject.Find("DontDestroy"));
         }
 
         if (inCreditsMenu)
         {
-            EventSystem.current.SetSelectedGameObject(mainMenuFirst);
+            EventSystem.current.SetSelectedGameObject(creditsMenuFirst);
         }
 
         if (inPauseMenu)
         {
-            EventSystem.current.SetSelectedGameObject(mainMenuFirst);
+            EventSystem.current.SetSelectedGameObject(pauseMenuFirst);
         }
     }
 
@@ -62,6 +79,7 @@ public class MenuManager : MonoBehaviour
 
         Time.timeScale = 0;
         playerController.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(pauseMenuFirst);
 
         pauseMenu.SetActive(true);
     }
@@ -72,6 +90,7 @@ public class MenuManager : MonoBehaviour
 
         Time.timeScale = 1;
         playerController.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
 
         pauseMenu.SetActive(false);
     }
@@ -79,6 +98,7 @@ public class MenuManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene("Tutorial");
+        Time.timeScale = 1;
     }
 
     public void LoadCredits()

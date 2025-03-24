@@ -239,6 +239,7 @@ MonoBehaviour:
   burnDMG: {fileID: 8300000, guid: eaae8fe8d600e1f459f34aa5757fa3b8, type: 3}
   abilityFX: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
   deathFX: {fileID: 8300000, guid: 8ff2a2d7e79f81c40ac447512f879374, type: 3}
+  reviveFX: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
 --- !u!114 &7220795281320469375
 MonoBehaviour:
   m_ObjectHideFlags: 0

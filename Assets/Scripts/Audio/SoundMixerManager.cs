@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,9 @@ using UnityEngine.Audio;
 public class SoundMixerManager : MonoBehaviour
 {
     public static SoundMixerManager instance;
-    
+
     [SerializeField] private AudioMixer audioMixer;
+
 
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class SoundMixerManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -23,11 +26,29 @@ public class SoundMixerManager : MonoBehaviour
         #endregion
     }
 
+    private void Start()
+    {
+        if (VolumeData.instance.masterLevel == 0)
+        {
+            SetMasterVolume(1);
+            SetSoundFXVolume(1);
+            SetMusicVolume(1);
+        }
+        else
+        {
+            SetMasterVolume(VolumeData.instance.masterLevel);
+            SetSoundFXVolume(VolumeData.instance.sfxLevel);
+            SetMusicVolume(VolumeData.instance.musicLevel);
+        }
+    }
+
     public void SetMasterVolume(float level)
     {
         //audioMixer.SetFloat("masterVolume", level);
 
         audioMixer.SetFloat("masterVolume", Mathf.Log10(level) * 20);
+
+        VolumeData.instance.masterLevel = level;
     }
 
     public void SetSoundFXVolume(float level)
@@ -35,6 +56,8 @@ public class SoundMixerManager : MonoBehaviour
         //audioMixer.SetFloat("soundFXVolume", level);
 
         audioMixer.SetFloat("soundFXVolume", Mathf.Log10(level) * 20);
+
+        VolumeData.instance.sfxLevel = level;
     }
 
     public void SetMusicVolume(float level)
@@ -42,5 +65,7 @@ public class SoundMixerManager : MonoBehaviour
         //audioMixer.SetFloat("musicVolume", level);
 
         audioMixer.SetFloat("musicVolume", Mathf.Log10(level) * 20);
+
+        VolumeData.instance.musicLevel = level;
     }
 }
