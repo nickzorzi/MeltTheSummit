@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BossController : MonoBehaviour
 {
+    public static event Action OnBossDamaged;
+
     [Header("Basics")]
     public int health;
+    public int maxHealth;
     private Rigidbody2D _rb;
     [SerializeField] private GameObject player;
     [SerializeField] private float knockbackForce;
@@ -53,10 +57,8 @@ public class BossController : MonoBehaviour
     [SerializeField] private bool canFireHands = true;
 
     [Header("Player Throw")]
-    [SerializeField] private bool canThrow = false;
+    [SerializeField] private bool canThrow = true;
     [SerializeField] private float throwForce;
-    [SerializeField] private float nextThrowTime;
-    [SerializeField] private float throwTime;
 
     [Header("Nav")]
     [SerializeField] private LayerMask colliders;
@@ -82,6 +84,11 @@ public class BossController : MonoBehaviour
         flashEffect = GetComponent<HitFlash>();
     }
 
+    private void OnEnable()
+    {
+        OnBossDamaged?.Invoke();
+    }
+
     private void Start()
     {
         Physics2D.queriesStartInColliders = false;
@@ -100,20 +107,6 @@ public class BossController : MonoBehaviour
     private void Update()
     {
         HandleBattleStates();
-
-        if (canThrow)
-        {
-            if (throwTime <= 0)
-            {
-                throwTime = 0;
-
-                canThrow = false;
-            }
-            else
-            {
-                throwTime -= Time.deltaTime;
-            }
-        }
 
         if (canAttack && !hasHesitate && isPhaseFreeze)
         {
@@ -186,13 +179,9 @@ public class BossController : MonoBehaviour
         }
         else if (collider.CompareTag("Swing-A") && !hasTakenDamageThisSwing)
         {
-            HandleSwing(50, false);
+            HandleSwing(1, false);
 
             SoundFXManager.instance.PlaySoundClip(hitDMG, transform, 1f);
-
-            canThrow = true;
-
-            throwTime = nextThrowTime;
 
             flashEffect.Flash();
         }
@@ -211,14 +200,15 @@ public class BossController : MonoBehaviour
     {
         Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
 
+        canThrow = false;
+
         yield return new WaitForSeconds(1);
 
         Vector2 directionToPlayer = (Vector2)(transform.position - player.transform.position);
         Vector2 dashDirection = -directionToPlayer.normalized;
         playerRb.AddForce(dashDirection * throwForce, ForceMode2D.Impulse);
 
-        canThrow = false;
-        throwTime = 0;
+        canThrow = true;
     }
 
     public IEnumerator FireShock(GameObject prefab, int delay)
@@ -256,6 +246,8 @@ public class BossController : MonoBehaviour
     private void HandleSwing(int damage, bool isKnockback)
     {
         health -= damage;
+
+        OnBossDamaged?.Invoke();
 
         if (health <= 0)
         {
@@ -345,20 +337,12 @@ public class BossController : MonoBehaviour
 
     private void HandleBattleStates()
     {
-        if (canThrow)
-        {
-            if (health % 150 == 0)
-            {
-                StartCoroutine(PlayerThrow());
-            }
-        }
-
-        if (health <= 250)
+        if (health <= 5)
         {
             //isPhaseShock = false;
             isPhaseHands = true;
         }
-        else if (health <= 500)
+        else if (health <= 10)
         {
             isPhaseShock = true;
             //isPhaseFreeze = false;
@@ -366,7 +350,7 @@ public class BossController : MonoBehaviour
             isPhaseBoomerang = false;
             isPhaseMelee = true;
         }
-        else if (health <= 750)
+        else if (health <= 15)
         {
             isPhaseFreeze = true;
         }

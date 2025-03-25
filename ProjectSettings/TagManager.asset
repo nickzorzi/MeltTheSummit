@@ -19,6 +19,8 @@ TagManager:
   - Shock
   - IceBlock
   - NPC
+  - BossProjectile
+  - FreezeOrb
   layers:
   - Default
   - TransparentFX

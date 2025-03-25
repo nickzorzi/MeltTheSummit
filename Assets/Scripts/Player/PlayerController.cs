@@ -65,6 +65,10 @@ public class PlayerController : MonoBehaviour
     [Header("Cool Flash")]
     [SerializeField] private HitFlash coolEffect;
 
+    [Header("Handle Boss")]
+    [SerializeField] private GameObject boss;
+    [SerializeField] private float knockForce;
+
     [Header("Audio")]
     [SerializeField] private AudioClip dSwing;
     [SerializeField] private AudioClip aSwing;
@@ -84,6 +88,7 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
         flashEffect = GetComponent<HitFlash>();
+        boss = GameObject.FindGameObjectWithTag("Boss");
 
         checkpointData = CheckpointData.Instance;
         spawnData = SpawnData.Instance;
@@ -392,7 +397,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.CompareTag("Projectile") || hitInfo.CompareTag("Shock") || hitInfo.CompareTag("MageProjectile"))
+        if (hitInfo.CompareTag("Projectile") || hitInfo.CompareTag("MageProjectile"))
         {
             if (!isInv)
             {
@@ -407,6 +412,18 @@ public class PlayerController : MonoBehaviour
         if (hitInfo.CompareTag("Ice"))
         {
             _canSlide = true;
+        }
+
+        if (hitInfo.CompareTag("BossProjectile") || hitInfo.CompareTag("Shock"))
+        {
+            if (!isInv)
+            {
+                TakeDamage(2);
+
+                SoundFXManager.instance.PlaySoundClip(hitDMG, transform, 1f);
+
+                StartCoroutine(Invulnerability());
+            }
         }
 
     }

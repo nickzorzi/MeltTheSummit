@@ -55,7 +55,7 @@ public class Boomerang : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.CompareTag("Swing-A") || hitInfo.CompareTag("Swing-D") || hitInfo.CompareTag("Wall") || returning && hitInfo.CompareTag("Boss"))
+        if (hitInfo.CompareTag("Swing-D") || hitInfo.CompareTag("Wall") || returning && hitInfo.CompareTag("Boss"))
         {
             //Destroy(gameObject);
             timeElapsed = 1.5f;

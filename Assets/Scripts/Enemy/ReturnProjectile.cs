@@ -16,14 +16,14 @@ public class ReturnProjectile : MonoBehaviour
 
     private void Update()
     {
-        if (target != null)
+        if (target != null && target.activeInHierarchy)
         {
             Vector2 offsetTargetPosition = new Vector2(target.transform.position.x, target.transform.position.y + 0.75f);
-
             transform.position = Vector2.MoveTowards(transform.position, offsetTargetPosition, speed * Time.deltaTime);
         }
         else
         {
+            target = null;
             target = GameObject.FindGameObjectWithTag("Enemy");
         }
     }
