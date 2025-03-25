@@ -1985,7 +1985,7 @@ PrefabInstance:
     - target: {fileID: 4763975197434526615, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1652638483}
     - target: {fileID: 4825500614235154939, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2105,7 +2105,7 @@ PrefabInstance:
     - target: {fileID: 8313534760243894652, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1652638483}
     - target: {fileID: 8859185161359041017, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
       propertyPath: playerController
       value: 

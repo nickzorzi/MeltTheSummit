@@ -7384,6 +7384,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4061623488836492875, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: musicClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 03f29e4a865762a4597808c570ba716b, type: 3}
+    - target: {fileID: 4061623488836492875, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: musicClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 639758ec4bd57a848b8ce9f5df95cc1b, type: 3}
+    - target: {fileID: 4061623488836492875, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: musicClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c436d55f5c9fcb49ba3656f9df781c3, type: 3}
+    - target: {fileID: 4061623488836492875, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: musicClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: fc3044563feb5a140a1f2b895798d00b, type: 3}
+    - target: {fileID: 4061623488836492875, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: musicClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 45005d31859569f429d6f051ff582c70, type: 3}
+    - target: {fileID: 7314647133624505832, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 639758ec4bd57a848b8ce9f5df95cc1b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

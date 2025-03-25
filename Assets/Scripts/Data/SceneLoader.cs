@@ -83,27 +83,27 @@ public class SceneLoader : MonoBehaviour
     {
         if (PlayerData.Instance.lastScene == "Tutorial4" && loadScene == SceneNames.Kingdom1)
         {
-            MusicManager.instance.SetMusicTrack(1);
+            MusicManager.instance.SetMusicTrack(0);
         }
 
         if (PlayerData.Instance.lastScene == "Forest4" && loadScene == SceneNames.Snow1)
         {
-            MusicManager.instance.SetMusicTrack(2);
+            MusicManager.instance.SetMusicTrack(1);
         }
 
         if (PlayerData.Instance.lastScene == "Snow3" && loadScene == SceneNames.Mountain1 || PlayerData.Instance.lastScene == "Cave1" && loadScene == SceneNames.Mountain2 || PlayerData.Instance.lastScene == "Cave2" && loadScene == SceneNames.Mountain4 || PlayerData.Instance.lastScene == "Cave3" && loadScene == SceneNames.Mountain6)
         {
-            MusicManager.instance.SetMusicTrack(3);
+            MusicManager.instance.SetMusicTrack(2);
         }
 
         if (PlayerData.Instance.lastScene == "Mountain2" && loadScene == SceneNames.Puzzle1 || PlayerData.Instance.lastScene == "Mountain4" && loadScene == SceneNames.Puzzle2 || PlayerData.Instance.lastScene == "Mountain6" && loadScene == SceneNames.Puzzle3)
         {
-            MusicManager.instance.SetMusicTrack(4);
+            MusicManager.instance.SetMusicTrack(3);
         }
 
         if (PlayerData.Instance.lastScene == "Hike" && loadScene == SceneNames.SummitRuins)
         {
-            MusicManager.instance.SetMusicTrack(5);
+            MusicManager.instance.SetMusicTrack(4);
         }
     }
 }
