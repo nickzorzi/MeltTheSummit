@@ -31,7 +31,7 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-        if (!inMainMenu)
+        if (!inMainMenu && !inCreditsMenu)
         {
             playerController = GameObject.FindGameObjectWithTag("Player");
 
