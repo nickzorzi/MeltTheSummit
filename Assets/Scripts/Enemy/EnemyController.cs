@@ -117,6 +117,8 @@ public class EnemyController : MonoBehaviour
         {
             if (fireTime <= 0)
             {
+                unit._animator.SetTrigger("Attack");
+
                 Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
 
                 SoundFXManager.instance.PlaySoundClip(shootFX, transform, 1f);

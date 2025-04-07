@@ -150,7 +150,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 869098539, guid: 579eb78176d68a84fac3faca289fb08a, type: 3}
+  m_Sprite: {fileID: -736119974, guid: d4257fca61f550245b098fb77618c649, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -171,7 +171,7 @@ Animator:
   m_GameObject: {fileID: 3047600349541315357}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b3309dd97aa340f46a848e289ab2f4d6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 18886213106742c47bb50ce6fc19cd8f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -217,15 +217,15 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.75}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.5, y: 1.5}
+    pivot: {x: 0.5, y: 0.2}
+    oldSize: {x: 2.5, y: 2.5}
     newSize: {x: 1.5, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.5}
+  m_Size: {x: 1.25, y: 1.5}
   m_EdgeRadius: 0
 --- !u!50 &1639105881857188359
 Rigidbody2D:
@@ -287,7 +287,7 @@ MonoBehaviour:
   player: {fileID: 0}
   isKnockback: 0
   canAttack: 1
-  attackRange: 6
+  attackRange: 4
   nextFireTime: 2
   fireTime: 0
   isBossSpawn: 0
@@ -304,12 +304,11 @@ MonoBehaviour:
   hasLineOfSight: 0
   flashEffect: {fileID: 8991086713818520432}
   silver: {fileID: 3612579728821869229, guid: 7f21e7e8b9c3e864da3de8ea78cfdcb5, type: 3}
-  enemyId: 7
+  enemyId: 1
   hitDMG: {fileID: 8300000, guid: 8b23b175a78d6b5458322e3a6c9905d0, type: 3}
   knockbackFX: {fileID: 8300000, guid: c458b6714dab015479d507b21fd2cead, type: 3}
   deathFX: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
   shootFX: {fileID: 8300000, guid: e1e2d06fe0d78194b9c7c8cc88414d0d, type: 3}
-  dashFX: {fileID: 8300000, guid: 78ad99fd0a0a5144280b07bbdba84815, type: 3}
   swingFX: {fileID: 8300000, guid: f11db4559b3ffff45b62e9327fc5535d, type: 3}
 --- !u!114 &8991086713818520432
 MonoBehaviour:
@@ -353,7 +352,7 @@ Transform:
   m_GameObject: {fileID: 5427223208665547184}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -401,7 +400,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -489,7 +488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5273805172564250817
 Transform:
   m_ObjectHideFlags: 0

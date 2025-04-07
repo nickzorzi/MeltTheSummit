@@ -3304,10 +3304,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonsterMelee
       objectReference: {fileID: 0}
-    - target: {fileID: 3047600349541315357, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7105782751504017679, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -3347,14 +3343,6 @@ PrefabInstance:
     - target: {fileID: 7105782751504017679, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8171851228021764757, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
-      propertyPath: enemyId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8171851228021764757, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
-      propertyPath: attackRange
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7289,18 +7277,6 @@ PrefabInstance:
     - target: {fileID: 4444598473901150412, guid: 036512d32ed805d47af8d92ec117b9b3, type: 3}
       propertyPath: m_Name
       value: Mage
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444598473901150412, guid: 036512d32ed805d47af8d92ec117b9b3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617856820777237855, guid: 036512d32ed805d47af8d92ec117b9b3, type: 3}
-      propertyPath: enemyId
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617856820777237855, guid: 036512d32ed805d47af8d92ec117b9b3, type: 3}
-      propertyPath: fireTime
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6815812546714660703, guid: 036512d32ed805d47af8d92ec117b9b3, type: 3}
       propertyPath: m_LocalPosition.x

@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 869098539, guid: 579eb78176d68a84fac3faca289fb08a, type: 3}
+  m_Sprite: {fileID: 306762965, guid: e5310d1bd58ab1943835514ec9dd0c20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ Animator:
   m_GameObject: {fileID: 2693692699344705249}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b3309dd97aa340f46a848e289ab2f4d6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 77515de4ee9e1b744818a92a7d57e5f2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -156,7 +156,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.5}
+  m_Size: {x: 1.3, y: 1.5}
   m_EdgeRadius: 0
 --- !u!50 &6282628121791210780
 Rigidbody2D:
@@ -235,12 +235,11 @@ MonoBehaviour:
   hasLineOfSight: 0
   flashEffect: {fileID: 3472957417052004595}
   silver: {fileID: 3612579728821869229, guid: 7f21e7e8b9c3e864da3de8ea78cfdcb5, type: 3}
-  enemyId: 1
+  enemyId: 0
   hitDMG: {fileID: 8300000, guid: 8b23b175a78d6b5458322e3a6c9905d0, type: 3}
   knockbackFX: {fileID: 8300000, guid: c458b6714dab015479d507b21fd2cead, type: 3}
   deathFX: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
   shootFX: {fileID: 8300000, guid: e1e2d06fe0d78194b9c7c8cc88414d0d, type: 3}
-  dashFX: {fileID: 8300000, guid: 78ad99fd0a0a5144280b07bbdba84815, type: 3}
   swingFX: {fileID: 8300000, guid: f11db4559b3ffff45b62e9327fc5535d, type: 3}
 --- !u!114 &3472957417052004595
 MonoBehaviour:
@@ -352,5 +351,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.15}
-  m_Size: {x: 0.6, y: 0.3}
+  m_Size: {x: 1, y: 0.3}
   m_Direction: 1
