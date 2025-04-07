@@ -3581,9 +3581,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.0020833334
+    width: 1.1671876
+    height: 0.25
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -6514,6 +6514,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2975948930957884502, guid: 7b5fdf363f089214ab10a663bf4c77f1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1987946648, guid: 599a1fbc8da63734eb353ce53406a2c8, type: 3}
     - target: {fileID: 3204324349945308087, guid: 7b5fdf363f089214ab10a663bf4c77f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
@@ -6553,6 +6557,10 @@ PrefabInstance:
     - target: {fileID: 3204324349945308087, guid: 7b5fdf363f089214ab10a663bf4c77f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782909611266039614, guid: 7b5fdf363f089214ab10a663bf4c77f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7278490866201779386, guid: 7b5fdf363f089214ab10a663bf4c77f1, type: 3}
       propertyPath: m_Name
