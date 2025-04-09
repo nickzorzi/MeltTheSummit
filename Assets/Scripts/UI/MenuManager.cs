@@ -97,6 +97,8 @@ public class MenuManager : MonoBehaviour
 
     public void PlayGame()
     {
+        PlayerData.Instance.currency = 0;
+        PlayerData.Instance.flowers = 0;
         SceneManager.LoadScene("Tutorial");
         Time.timeScale = 1;
     }

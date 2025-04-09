@@ -32,7 +32,7 @@ public class SoundMixerManager : MonoBehaviour
         {
             SetMasterVolume(1);
             SetSoundFXVolume(1);
-            SetMusicVolume(1);
+            SetMusicVolume(0.2f);
         }
         else
         {
