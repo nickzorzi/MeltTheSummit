@@ -112,6 +112,8 @@ public class BossController : MonoBehaviour
         {
             if (dropTime <= 0)
             {
+                //unit._animator.SetTrigger("Throw");
+
                 Instantiate(freezeOrb, gunPivot.transform.position, Quaternion.identity);
 
                 SoundFXManager.instance.PlaySoundClip(dropFX, transform, 1f);
@@ -138,6 +140,8 @@ public class BossController : MonoBehaviour
         {
             if (fireTime <= 0)
             {
+                unit._animator.SetTrigger("Throw");
+
                 Instantiate(projectile, gunPivot.transform.position, Quaternion.identity);
 
                 SoundFXManager.instance.PlaySoundClip(shootFX, transform, 1f);
