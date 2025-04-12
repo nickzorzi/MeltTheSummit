@@ -900,6 +900,11 @@ MonoBehaviour:
   mainMenuFirst: {fileID: 301710066}
   creditsMenuFirst: {fileID: 0}
   pauseMenuFirst: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  playerController: {fileID: 0}
+  masterSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
 --- !u!1 &1153998452
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,10 +56,6 @@ public class BossController : MonoBehaviour
     [SerializeField] private GameObject hand;
     [SerializeField] private bool canFireHands = true;
 
-    [Header("Player Throw")]
-    [SerializeField] private bool canThrow = true;
-    [SerializeField] private float throwForce;
-
     [Header("Nav")]
     [SerializeField] private LayerMask colliders;
     [SerializeField] private float distance;
@@ -198,21 +194,6 @@ public class BossController : MonoBehaviour
         GameObject[] puddleObjects = GameObject.FindGameObjectsWithTag("Puddle");
 
         puddles.AddRange(puddleObjects);
-    }
-
-    public IEnumerator PlayerThrow()
-    {
-        Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
-
-        canThrow = false;
-
-        yield return new WaitForSeconds(1);
-
-        Vector2 directionToPlayer = (Vector2)(transform.position - player.transform.position);
-        Vector2 dashDirection = -directionToPlayer.normalized;
-        playerRb.AddForce(dashDirection * throwForce, ForceMode2D.Impulse);
-
-        canThrow = true;
     }
 
     public IEnumerator FireShock(GameObject prefab, int delay)

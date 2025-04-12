@@ -71,6 +71,11 @@ public class MenuManager : MonoBehaviour
                 ClosePause();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad1) && Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            Application.Quit();
+        }
     }
 
     public void OpenPause()
@@ -99,6 +104,9 @@ public class MenuManager : MonoBehaviour
     {
         PlayerData.Instance.currency = 0;
         PlayerData.Instance.flowers = 0;
+        SpawnData.Instance.enemies.Clear();
+        SpawnData.Instance.items.Clear();
+        SpawnData.Instance.npcs.Clear();
         SceneManager.LoadScene("Tutorial");
         Time.timeScale = 1;
     }

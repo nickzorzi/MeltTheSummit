@@ -34,6 +34,7 @@ public class EnemyController : MonoBehaviour
 
     [Header("Nav")]
     [SerializeField] private float distance;
+    [SerializeField] private float distanceNear;
     [SerializeField] private LayerMask colliders;
     public bool hasLineOfSight = false;
 
@@ -219,10 +220,20 @@ public class EnemyController : MonoBehaviour
         }
 
         RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position, distance, ~colliders);
+        RaycastHit2D rayNear = Physics2D.Raycast(transform.position, player.transform.position - transform.position, distanceNear, ~colliders);
 
         if (ray.collider != null)
         {
             hasLineOfSight = ray.collider.CompareTag("Player") && ray.collider.isTrigger;
+
+            if (rayNear.collider.CompareTag("Player") && rayNear.collider.isTrigger)
+            {
+                hasLineOfSight = false;
+                unit.enabled = false;
+            } else
+            {
+                unit.enabled = true;
+            }
 
             if (hasLineOfSight)
             {

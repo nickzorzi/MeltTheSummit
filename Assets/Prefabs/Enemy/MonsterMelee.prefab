@@ -298,6 +298,7 @@ MonoBehaviour:
   hasRange: 0
   dashForce: 100
   distance: 8
+  distanceNear: 1
   colliders:
     serializedVersion: 2
     m_Bits: 64

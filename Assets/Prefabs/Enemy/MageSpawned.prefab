@@ -114,7 +114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3916959342753102213
 Transform:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 869098539, guid: 579eb78176d68a84fac3faca289fb08a, type: 3}
+  m_Sprite: {fileID: -604526260, guid: 2374ee8c3fca62d4eaaa6ff3950aecec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -285,7 +285,7 @@ Animator:
   m_GameObject: {fileID: 8645214166426450886}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b3309dd97aa340f46a848e289ab2f4d6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6ce9e20cc4e2d0c41b9064de1a1f747b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -412,6 +412,7 @@ MonoBehaviour:
   hasRange: 0
   dashForce: 0
   distance: 10
+  distanceNear: 3
   colliders:
     serializedVersion: 2
     m_Bits: 64
@@ -423,7 +424,6 @@ MonoBehaviour:
   knockbackFX: {fileID: 8300000, guid: c458b6714dab015479d507b21fd2cead, type: 3}
   deathFX: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
   shootFX: {fileID: 8300000, guid: e1e2d06fe0d78194b9c7c8cc88414d0d, type: 3}
-  dashFX: {fileID: 8300000, guid: 78ad99fd0a0a5144280b07bbdba84815, type: 3}
   swingFX: {fileID: 8300000, guid: f11db4559b3ffff45b62e9327fc5535d, type: 3}
 --- !u!114 &2076735054547474841
 MonoBehaviour:
