@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static Cinemachine.DocumentationSortingAttribute;
 
 public class MenuManager : MonoBehaviour
 {
@@ -72,7 +71,7 @@ public class MenuManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad1) && Input.GetKeyDown(KeyCode.Keypad2))
+        if (Input.GetKey(KeyCode.Alpha1) && Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Keypad1) && Input.GetKey(KeyCode.Keypad2))
         {
             Application.Quit();
         }
@@ -102,8 +101,8 @@ public class MenuManager : MonoBehaviour
 
     public void PlayGame()
     {
-        PlayerData.Instance.currency = 0;
-        PlayerData.Instance.flowers = 0;
+        Collected.currencyValue = 0;
+        Collected.flowerValue = 0;
         SpawnData.Instance.enemies.Clear();
         SpawnData.Instance.items.Clear();
         SpawnData.Instance.npcs.Clear();

@@ -6,6 +6,7 @@ public class DialogueCloser : MonoBehaviour
 {
     [Header ("Basics")]
     [SerializeField] private GameObject dialogue;
+    [SerializeField] private GameObject abilityTut;
 
     [Header("Drops")]
     [SerializeField] private bool isSilver = false;
@@ -49,6 +50,7 @@ public class DialogueCloser : MonoBehaviour
             if (isAbility)
             {
                 playerController._hasAbility = true;
+                abilityTut.SetActive(true);
             }
         }
     }

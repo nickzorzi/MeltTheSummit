@@ -8,7 +8,8 @@ public class ItemManager : MonoBehaviour
     public enum ItemEffects
     {
         Health,
-        CoolCost
+        CoolCost,
+        HeatResistance
     }
 
     public int price;
@@ -60,6 +61,14 @@ public class ItemManager : MonoBehaviour
                     if (playerController.coolCost == -1)
                     {
                         playerController.coolCost = -2;
+                        Collected.currencyValue = Collected.currencyValue - price;
+                    }
+                    break;
+
+                case ItemEffects.HeatResistance:
+                    if (playerController.heatCost == 1)
+                    {
+                        playerController.heatCost = 0.5f;
                         Collected.currencyValue = Collected.currencyValue - price;
                     }
                     break;

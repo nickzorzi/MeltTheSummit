@@ -16,7 +16,7 @@ public class PlayerData : MonoBehaviour
     //public float _moveSpeed;
     public float health;
     public float temp;
-    //public int heatCost;
+    public float heatCost;
     public int coolCost;
     //public int burn;
     public bool _canAttack;

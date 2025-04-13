@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public float health = 12;
     public float maxHealth = 12;
     public float temp, maxTemp;
-    [SerializeField] private int heatCost;
+    public float heatCost;
     public int coolCost;
     [SerializeField] private int burn;
 
@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
 
             health = PlayerData.Instance.health;
             coolCost = PlayerData.Instance.coolCost;
+            heatCost = PlayerData.Instance.heatCost;
             temp = PlayerData.Instance.temp;
             _isTransformed = PlayerData.Instance._isTransformed;
             _isBurning = PlayerData.Instance._isBurning;
@@ -130,6 +131,7 @@ public class PlayerController : MonoBehaviour
 
         PlayerData.Instance.health = health;
         PlayerData.Instance.coolCost = coolCost;
+        PlayerData.Instance.heatCost = heatCost;
         PlayerData.Instance.temp = temp;
         PlayerData.Instance._isTransformed = _isTransformed;
         PlayerData.Instance._isBurning = _isBurning;
@@ -363,7 +365,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator ChangeTemp(int amount, float tickSpeed)
+    IEnumerator ChangeTemp(float amount, float tickSpeed)
     {
         yield return new WaitForSeconds(tickSpeed);
 
@@ -426,6 +428,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (hitInfo.CompareTag("Shock"))
+        {
+            _isTransformed = true;
+            temp = maxTemp;
+            OnPlayerThermo?.Invoke();
+        }
     }
 
     void OnTriggerExit2D(Collider2D hitInfo)
@@ -459,6 +467,12 @@ public class PlayerController : MonoBehaviour
 
         if (Collected.flowerValue <= 0)
         {
+            Collected.currencyValue = 0;
+            Collected.flowerValue = 0;
+            SpawnData.Instance.enemies.Clear();
+            SpawnData.Instance.items.Clear();
+            SpawnData.Instance.npcs.Clear();
+
             SceneManager.LoadScene("MainMenu");
 
             //SoundFXManager.instance.PlaySoundClip(deathFX, transform, 1f);

@@ -6523,8 +6523,6 @@ MonoBehaviour:
   canFireShock: 1
   hand: {fileID: 5678631020787778032, guid: 999b2f138639237488bde527525bf948, type: 3}
   canFireHands: 1
-  canThrow: 1
-  throwForce: 50
   colliders:
     serializedVersion: 2
     m_Bits: 64
