@@ -9,6 +9,9 @@ public class TypewriterEffect : MonoBehaviour
     [SerializeField] private TMP_Text textElement;
     [SerializeField] private float speed;
 
+    [SerializeField] private bool isDropping;
+    [SerializeField] private GameObject dropVisual;
+
     private void Start()
     {
         Run(dialogueToSay, textElement);
@@ -36,5 +39,10 @@ public class TypewriterEffect : MonoBehaviour
         }
 
         textLabel.text = textToType;
+
+        if (isDropping)
+        {
+            dropVisual.SetActive(true);
+        }
     }
 }

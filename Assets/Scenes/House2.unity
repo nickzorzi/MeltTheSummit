@@ -3554,9 +3554,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0020833334
-    width: 1.1671876
-    height: 0.25
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -7276,7 +7276,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 415054788999914448, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: dialogueToSay
-      value: You spoke to me?! Heres 10 Silver...
+      value: Be careful out there! Theres a lot of them the closer you get to the
+        mountain... Take these with you, I dont need them
       objectReference: {fileID: 0}
     - target: {fileID: 702456598127889649, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: dropAmount
@@ -7362,14 +7363,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5116698750772353366, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: m_text
+      value: x10
+      objectReference: {fileID: 0}
     - target: {fileID: 5238081890482805806, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_text
-      value: 'You spoke to me?!
-
-        Heres 10 Silver...
-
-        Q to Close'
+      value: Be careful out there! Theres a lot of them the closer you get to the
+        mountain... Take these with you, I dont need them
       objectReference: {fileID: 0}
+    - target: {fileID: 7485812191645311794, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1395719357, guid: 720521c1a32bc1245afa7f0d857f0351, type: 3}
     - target: {fileID: 7918786243622858225, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -7381,6 +7387,10 @@ PrefabInstance:
     - target: {fileID: 8373434438897369733, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722596776527496523, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: m_text
+      value: "Zuan\xEA"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

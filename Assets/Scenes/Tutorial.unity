@@ -3451,9 +3451,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: -0.25
-    width: 0
-    height: 0.5
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -7558,8 +7558,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 415054788999914448, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: isDropping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 415054788999914448, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: dialogueToSay
-      value: You spoke to me?! Heres 4 Silver...
+      value: Save the kingdom! Make sure you learn how to use that sword properly...
+        Take some silver for your journey!
+      objectReference: {fileID: 0}
+    - target: {fileID: 702456598127889649, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: isSilver
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2237010771030992494, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_Pivot.x
@@ -7641,17 +7650,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5116698750772353366, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: m_text
+      value: x04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7485812191645311794, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1395719357, guid: 720521c1a32bc1245afa7f0d857f0351, type: 3}
     - target: {fileID: 8291250391155618099, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_Name
       value: DialogueTest
-      objectReference: {fileID: 0}
-    - target: {fileID: 8373434438897369733, guid: 262848847bb908947adddeb690eddb38, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722596776527496523, guid: 262848847bb908947adddeb690eddb38, type: 3}
-      propertyPath: m_text
-      value: KING
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
