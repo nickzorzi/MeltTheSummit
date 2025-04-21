@@ -3592,9 +3592,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0020833334
-    width: 1.1671876
-    height: 0.25
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -7650,8 +7650,13 @@ PrefabInstance:
       value: -160
       objectReference: {fileID: 0}
     - target: {fileID: 415054788999914448, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: isDropping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415054788999914448, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: dialogueToSay
-      value: I will lend you my powers!
+      value: I will lend you my powers! You can now instantly cooldown when you start
+        to overheat... Restore the balance in nature!
       objectReference: {fileID: 0}
     - target: {fileID: 702456598127889649, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: isFlower
@@ -7772,6 +7777,10 @@ PrefabInstance:
     - target: {fileID: 8373434438897369733, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722596776527496523, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: m_text
+      value: MOUNTAIN SPIRIT
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -6974,7 +6974,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 415054788999914448, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: dialogueToSay
-      value: You spoke to me?! Heres 1 Flower...
+      value: You plan on going up the mountains? There are rare Eldelweiss flowers
+        up there... Here's one... I think it could help!
       objectReference: {fileID: 0}
     - target: {fileID: 702456598127889649, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: isFlower
@@ -7068,14 +7069,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5116698750772353366, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: m_text
+      value: x01
+      objectReference: {fileID: 0}
     - target: {fileID: 5238081890482805806, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_text
       value: 'You spoke to me?!
 
-        Heres 1 Flower
-
-        Q to Close'
+        Heres 1 Flower'
       objectReference: {fileID: 0}
+    - target: {fileID: 7485812191645311794, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1874800730, guid: 720521c1a32bc1245afa7f0d857f0351, type: 3}
     - target: {fileID: 7918786243622858225, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -7087,6 +7094,10 @@ PrefabInstance:
     - target: {fileID: 8373434438897369733, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722596776527496523, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: m_text
+      value: PIERI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

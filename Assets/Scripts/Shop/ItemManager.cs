@@ -18,6 +18,8 @@ public class ItemManager : MonoBehaviour
     [SerializeField] private GameObject infoUI;
     [SerializeField] private bool canPurchase = false;
 
+    [SerializeField] private GameObject item;
+
     PlayerController playerController;
 
     private void Awake()
@@ -62,14 +64,16 @@ public class ItemManager : MonoBehaviour
                     {
                         playerController.coolCost = -2;
                         Collected.currencyValue = Collected.currencyValue - price;
+                        Destroy(item);
                     }
                     break;
 
                 case ItemEffects.HeatResistance:
                     if (playerController.heatCost == 1)
                     {
-                        playerController.heatCost = 0.5f;
+                        playerController.heatCost = 0.75f;
                         Collected.currencyValue = Collected.currencyValue - price;
+                        Destroy(item);
                     }
                     break;
 
