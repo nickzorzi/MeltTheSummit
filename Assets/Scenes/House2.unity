@@ -7277,7 +7277,7 @@ PrefabInstance:
     - target: {fileID: 415054788999914448, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: dialogueToSay
       value: Be careful out there! Theres a lot of them the closer you get to the
-        mountain... Take these with you, I dont need them!
+        mountains... Take these with you, I dont need them!
       objectReference: {fileID: 0}
     - target: {fileID: 702456598127889649, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: dropAmount
