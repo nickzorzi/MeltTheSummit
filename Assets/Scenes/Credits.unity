@@ -521,7 +521,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 275573706, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
+    m_HighlightedSprite: {fileID: 162093312, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
     m_PressedSprite: {fileID: 162093312, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
     m_SelectedSprite: {fileID: 162093312, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
     m_DisabledSprite: {fileID: 162093312, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
@@ -907,6 +907,11 @@ MonoBehaviour:
   mainMenuFirst: {fileID: 0}
   creditsMenuFirst: {fileID: 301710066}
   pauseMenuFirst: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  playerController: {fileID: 0}
+  masterSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
 --- !u!1 &1153998452
 GameObject:
   m_ObjectHideFlags: 0
