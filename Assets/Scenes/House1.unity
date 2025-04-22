@@ -7408,7 +7408,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722596776527496523, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_text
-      value: Vigjute
+      value: VIGJUTE
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722596776527496523, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: m_fontStyle
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
