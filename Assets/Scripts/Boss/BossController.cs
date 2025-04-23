@@ -362,5 +362,7 @@ public class BossController : MonoBehaviour
         Destroy(gameObject);
 
         SoundFXManager.instance.PlaySoundClip(deathFX, transform, 1f);
+
+        SceneManager.LoadScene("Victory");
     }
 }

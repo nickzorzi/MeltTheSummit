@@ -11,11 +11,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private bool inMainMenu;
     [SerializeField] private bool inCreditsMenu;
     [SerializeField] private bool inPauseMenu;
+    [SerializeField] private bool inOtherMenu;
 
     [Header("First Selected Options")]
     [SerializeField] private GameObject mainMenuFirst;
     [SerializeField] private GameObject creditsMenuFirst;
     [SerializeField] private GameObject pauseMenuFirst;
+    [SerializeField] private GameObject otherMenuFirst;
 
     [Header("Menu")]
     [SerializeField] private GameObject pauseMenu;
@@ -30,7 +32,7 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-        if (!inMainMenu && !inCreditsMenu)
+        if (!inMainMenu && !inCreditsMenu && !inOtherMenu)
         {
             playerController = GameObject.FindGameObjectWithTag("Player");
 
@@ -54,6 +56,11 @@ public class MenuManager : MonoBehaviour
         if (inPauseMenu)
         {
             EventSystem.current.SetSelectedGameObject(pauseMenuFirst);
+        }
+
+        if (inOtherMenu)
+        {
+            EventSystem.current.SetSelectedGameObject(otherMenuFirst);
         }
     }
 
@@ -101,11 +108,14 @@ public class MenuManager : MonoBehaviour
 
     public void PlayGame()
     {
+        if (SpawnData.Instance != null)
+        {
+            SpawnData.Instance.enemies.Clear();
+            SpawnData.Instance.items.Clear();
+            SpawnData.Instance.npcs.Clear();
+        }
         Collected.currencyValue = 0;
         Collected.flowerValue = 0;
-        SpawnData.Instance.enemies.Clear();
-        SpawnData.Instance.items.Clear();
-        SpawnData.Instance.npcs.Clear();
         SceneManager.LoadScene("Tutorial");
         Time.timeScale = 1;
     }

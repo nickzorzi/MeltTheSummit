@@ -173,4 +173,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SummitRuins.unity
     guid: 754eaa7dae384b64381d6f1e1d78c7e0
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 05caa41cbfc996b428240c97b932f4d8
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 6901a5da58072464483d7dd2d63e122a
   m_configObjects: {}

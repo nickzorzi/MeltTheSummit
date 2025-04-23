@@ -473,7 +473,7 @@ public class PlayerController : MonoBehaviour
             SpawnData.Instance.items.Clear();
             SpawnData.Instance.npcs.Clear();
 
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("GameOver");
 
             //SoundFXManager.instance.PlaySoundClip(deathFX, transform, 1f);
         }
