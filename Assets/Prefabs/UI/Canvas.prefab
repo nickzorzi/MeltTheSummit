@@ -2342,9 +2342,11 @@ MonoBehaviour:
   inMainMenu: 0
   inCreditsMenu: 0
   inPauseMenu: 0
+  inOtherMenu: 0
   mainMenuFirst: {fileID: 0}
   creditsMenuFirst: {fileID: 0}
   pauseMenuFirst: {fileID: 3008672498238330154}
+  otherMenuFirst: {fileID: 0}
   pauseMenu: {fileID: 2058433417895574075}
   playerController: {fileID: 0}
   masterSlider: {fileID: 8655417162990700615}

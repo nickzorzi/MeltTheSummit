@@ -123,10 +123,12 @@ public class MenuManager : MonoBehaviour
     public void LoadCredits()
     {
         SceneManager.LoadScene("Credits");
+        Time.timeScale = 1;
     }
 
     public void ReturnToMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
     }
 }
