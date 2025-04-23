@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
+using static UnityEngine.UI.CanvasScaler;
 
 public class Unit : MonoBehaviour {
 
@@ -32,6 +33,11 @@ public class Unit : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Boss_Entrance") || _animator.GetCurrentAnimatorStateInfo(0).IsName("Boss_Statue"))
+        {
+            return;
+        }
+
         if ((eC != null && eC.hasLineOfSight && !startChase) || (bC != null && bC.hasLineOfSight && !startChase))
         {
             StartCoroutine(RefreshPath());

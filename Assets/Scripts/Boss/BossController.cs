@@ -66,6 +66,10 @@ public class BossController : MonoBehaviour
     [Header("HitFlash")]
     [SerializeField] private HitFlash flashEffect;
 
+    [Header("Dialogue")]
+    [SerializeField] private bool isPreFight;
+    [SerializeField] private GameObject preFightDialogue;
+
     [Header("Audio")]
     [SerializeField] private AudioClip hitDMG;
     [SerializeField] private AudioClip knockbackFX;
@@ -103,6 +107,17 @@ public class BossController : MonoBehaviour
 
     private void Update()
     {
+        if (unit._animator.GetCurrentAnimatorStateInfo(0).IsName("Boss_Entrance") || unit._animator.GetCurrentAnimatorStateInfo(0).IsName("Boss_Statue"))
+        {
+            return;
+        }
+
+        if (isPreFight)
+        {
+            preFightDialogue.SetActive(true);
+            isPreFight = false;
+        }
+
         HandleBattleStates();
 
         if (canAttack && !hasHesitate && isPhaseFreeze)

@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public static event Action OnPlayerAbility;
 
     [Header ("Basics")]
-    [SerializeField] private float _moveSpeed = 5f;
+    public float _moveSpeed = 5f;
     public float health = 12;
     public float maxHealth = 12;
     public float temp, maxTemp;

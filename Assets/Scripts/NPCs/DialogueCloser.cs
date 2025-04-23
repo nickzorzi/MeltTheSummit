@@ -14,6 +14,12 @@ public class DialogueCloser : MonoBehaviour
     [SerializeField] private bool isAbility = false;
     [SerializeField] private int dropAmount;
 
+    [Header("Boss")]
+    [SerializeField] private bool isBossEntrance = false;
+    public Unit unit;
+    [SerializeField] private GameObject bossHPBar;
+    [SerializeField] private bool isBossPreFight = false;
+
     [Header("Player Check")]
     public PlayerController playerController;
 
@@ -25,6 +31,7 @@ public class DialogueCloser : MonoBehaviour
         Time.timeScale = 0;
 
         playerController = FindObjectOfType<PlayerController>();
+        unit = FindObjectOfType<Unit>();
     }
 
     void Update()
@@ -51,6 +58,19 @@ public class DialogueCloser : MonoBehaviour
             {
                 playerController._hasAbility = true;
                 abilityTut.SetActive(true);
+            }
+
+            if (isBossEntrance)
+            {
+                unit._animator.SetTrigger("Entrance");
+                bossHPBar.SetActive(true);
+
+                playerController._moveSpeed = 1f;
+            }
+
+            if (isBossPreFight)
+            {
+                playerController._moveSpeed = 5f;
             }
         }
     }
