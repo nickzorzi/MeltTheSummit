@@ -190,7 +190,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 162093312, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
+    m_HighlightedSprite: {fileID: -95044011, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
     m_PressedSprite: {fileID: 162093312, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
     m_SelectedSprite: {fileID: 162093312, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
     m_DisabledSprite: {fileID: 162093312, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
@@ -948,9 +948,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0020833334
-    width: 1.1671876
-    height: 0.25
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1246,7 +1246,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 162093312, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
+    m_HighlightedSprite: {fileID: -95044011, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
     m_PressedSprite: {fileID: 162093312, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
     m_SelectedSprite: {fileID: 162093312, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}
     m_DisabledSprite: {fileID: 162093312, guid: 61f6b775351808b4f8e584b6566cc4ad, type: 3}

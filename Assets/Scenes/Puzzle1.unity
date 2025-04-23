@@ -2492,7 +2492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5948762412314751540, guid: c3be22882635dfd489d61f9205af4976, type: 3}
       propertyPath: _canAttack
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5948762412314751540, guid: c3be22882635dfd489d61f9205af4976, type: 3}
       propertyPath: _firstLoad
