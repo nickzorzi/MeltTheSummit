@@ -77,6 +77,9 @@ public class BossController : MonoBehaviour
     [SerializeField] private AudioClip shootFX;
     [SerializeField] private AudioClip swingFX;
     [SerializeField] private AudioClip dropFX;
+    [SerializeField] private AudioClip transformFX;
+
+    private bool isEntranceSFX = false;
 
     private void Awake()
     {
@@ -109,6 +112,11 @@ public class BossController : MonoBehaviour
     {
         if (unit._animator.GetCurrentAnimatorStateInfo(0).IsName("Boss_Entrance") || unit._animator.GetCurrentAnimatorStateInfo(0).IsName("Boss_Statue"))
         {
+            if (unit._animator.GetCurrentAnimatorStateInfo(0).IsName("Boss_Entrance") && !isEntranceSFX)
+            {
+                StartCoroutine(EntranceSFX());
+                isEntranceSFX = true;
+            }
             return;
         }
 
@@ -183,6 +191,20 @@ public class BossController : MonoBehaviour
                 meleeTime -= Time.deltaTime;
             }
         }
+    }
+
+    public IEnumerator EntranceSFX()
+    {
+        yield return new WaitForSeconds(0.3f);
+        SoundFXManager.instance.PlaySoundClip(transformFX, transform, 1f);
+        yield return new WaitForSeconds(0.9f);
+        SoundFXManager.instance.PlaySoundClip(swingFX, transform, 1f);
+        CinemachineShake.Instance.ShakeCamera(3f, .5f);
+        yield return new WaitForSeconds(0.5f);
+        SoundFXManager.instance.PlaySoundClip(hitDMG, transform, 1f);
+        yield return new WaitForSeconds(0.5f);
+        SoundFXManager.instance.PlaySoundClip(deathFX, transform, 1f);
+        yield return null;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

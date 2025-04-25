@@ -349,9 +349,9 @@ MonoBehaviour:
   inCreditsMenu: 0
   inPauseMenu: 0
   inOtherMenu: 1
-  mainMenuFirst: {fileID: 0}
-  creditsMenuFirst: {fileID: 0}
-  pauseMenuFirst: {fileID: 0}
+  mainMenuFirst: {fileID: 80209673}
+  creditsMenuFirst: {fileID: 80209673}
+  pauseMenuFirst: {fileID: 80209673}
   otherMenuFirst: {fileID: 80209673}
   pauseMenu: {fileID: 0}
   playerController: {fileID: 0}

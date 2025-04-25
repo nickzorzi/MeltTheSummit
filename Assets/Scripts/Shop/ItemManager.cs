@@ -22,6 +22,8 @@ public class ItemManager : MonoBehaviour
 
     PlayerController playerController;
 
+    [SerializeField] private AudioClip purchase;
+
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
@@ -80,6 +82,8 @@ public class ItemManager : MonoBehaviour
                 default:
                     break;
             }
+
+            SoundFXManager.instance.PlaySoundClip(purchase, transform, 1f);
         }
     }
 

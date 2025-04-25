@@ -117,6 +117,7 @@ public class MenuManager : MonoBehaviour
         Collected.currencyValue = 0;
         Collected.flowerValue = 0;
         SceneManager.LoadScene("Tutorial");
+        MusicManager.instance.SetMusicTrack(1);
         Time.timeScale = 1;
     }
 

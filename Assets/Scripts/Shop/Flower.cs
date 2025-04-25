@@ -5,6 +5,7 @@ using UnityEngine;
 public class Flower : MonoBehaviour
 {
     private bool hasCollected = false;
+    [SerializeField] private AudioClip pickup;
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
@@ -12,6 +13,8 @@ public class Flower : MonoBehaviour
         {
             hasCollected = true;
             Destroy(gameObject);
+
+            SoundFXManager.instance.PlaySoundClip(pickup, transform, 1f);
 
             Collected.flowerValue += 1;
         }

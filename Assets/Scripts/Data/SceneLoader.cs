@@ -81,12 +81,17 @@ public class SceneLoader : MonoBehaviour
 
     public void TrackChange()
     {
-        if (PlayerData.Instance.lastScene == "Tutorial4" && loadScene == SceneNames.Kingdom1)
+        if (PlayerData.Instance.lastScene == "Kingdom1" && loadScene == SceneNames.Tutorial4)
+        {
+            MusicManager.instance.SetMusicTrack(1);
+        }
+
+        if (PlayerData.Instance.lastScene == "Tutorial4" && loadScene == SceneNames.Kingdom1 || PlayerData.Instance.lastScene == "Snow1" && loadScene == SceneNames.Forest4)
         {
             MusicManager.instance.SetMusicTrack(0);
         }
 
-        if (PlayerData.Instance.lastScene == "Forest4" && loadScene == SceneNames.Snow1)
+        if (PlayerData.Instance.lastScene == "Forest4" && loadScene == SceneNames.Snow1 || PlayerData.Instance.lastScene == "Mountain1" && loadScene == SceneNames.Snow3)
         {
             MusicManager.instance.SetMusicTrack(1);
         }

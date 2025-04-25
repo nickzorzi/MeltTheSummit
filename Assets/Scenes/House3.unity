@@ -3497,9 +3497,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0020833334
-    width: 1.1671876
-    height: 0.25
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -6989,6 +6989,10 @@ PrefabInstance:
       propertyPath: dropAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2217359680902953708, guid: 262848847bb908947adddeb690eddb38, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1651648979, guid: c47b964ea6ce49742b6d9623ec94025f, type: 3}
     - target: {fileID: 2237010771030992494, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_Pivot.x
       value: 0

@@ -7,6 +7,7 @@ public class DialogueCloser : MonoBehaviour
     [Header ("Basics")]
     [SerializeField] private GameObject dialogue;
     [SerializeField] private GameObject abilityTut;
+    public TypewriterEffect typeOut;
 
     [Header("Drops")]
     [SerializeField] private bool isSilver = false;
@@ -32,11 +33,12 @@ public class DialogueCloser : MonoBehaviour
 
         playerController = FindObjectOfType<PlayerController>();
         unit = FindObjectOfType<Unit>();
+        typeOut = FindObjectOfType<TypewriterEffect>();
     }
 
     void Update()
     {
-        if (InputManager.isInteractTriggered)
+        if (InputManager.isInteractTriggered && typeOut.isSpeedUp)
         {
             Time.timeScale = 1;
 

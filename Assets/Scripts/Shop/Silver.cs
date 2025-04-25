@@ -6,6 +6,7 @@ using UnityEngine;
 public class Silver : MonoBehaviour
 {
     private bool hasCollected = false;
+    [SerializeField] private AudioClip pickup;
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
@@ -13,6 +14,8 @@ public class Silver : MonoBehaviour
         {
             hasCollected = true;
             Destroy(gameObject);
+
+            SoundFXManager.instance.PlaySoundClip(pickup, transform, 1f);
 
             Collected.currencyValue += 1;
         }

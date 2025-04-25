@@ -100,6 +100,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 0
   loadEffect: 0
+  infoUI: {fileID: 0}
+  canPurchase: 0
+  item: {fileID: 0}
+  purchase: {fileID: 8300000, guid: 7cc057bed53baf34799f52aab3c84800, type: 3}
 --- !u!61 &7203306312412015889
 BoxCollider2D:
   m_ObjectHideFlags: 0

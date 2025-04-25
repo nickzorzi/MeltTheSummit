@@ -12,9 +12,19 @@ public class TypewriterEffect : MonoBehaviour
     [SerializeField] private bool isDropping;
     [SerializeField] private GameObject dropVisual;
 
+    public bool isSpeedUp = false;
+
     private void Start()
     {
         Run(dialogueToSay, textElement);
+    }
+
+    private void Update()
+    {
+        if (!isSpeedUp && InputManager.isInteractTriggered)
+        {
+            speed = 50;
+        }
     }
 
     public void Run(string textToType, TMP_Text textLabel)
@@ -39,6 +49,8 @@ public class TypewriterEffect : MonoBehaviour
         }
 
         textLabel.text = textToType;
+
+        isSpeedUp = true;
 
         if (isDropping)
         {
