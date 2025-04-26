@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _isBurning = false;
     [SerializeField] private bool _died = false;
     public bool _inDialogue = false;
+    public bool _inPause = false;
+    public bool _inBossRoom = false;
 
     private bool _inCoroutine = false;
 
@@ -127,6 +129,12 @@ public class PlayerController : MonoBehaviour
         if (_died)
         {
             RevertEnemies();
+
+            if (_inBossRoom)
+            {
+                MusicManager.instance.SetMusicTrack(9);
+            }
+
             return;
         }
 
@@ -148,7 +156,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (_inDialogue)
+        if (_inDialogue || _inPause)
         {
             return;
         }

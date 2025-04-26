@@ -9,10 +9,19 @@ public class BossEntrance : MonoBehaviour
     [SerializeField] private GameObject entranceBox;
     [SerializeField] private GameObject backtrackBox;
 
+    public PlayerController player;
+
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerController>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            player._inBossRoom = true;
+
             Destroy(entranceBox);
 
             backtrackBox.SetActive(false);

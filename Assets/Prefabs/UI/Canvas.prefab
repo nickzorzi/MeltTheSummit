@@ -2285,7 +2285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 16
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1280, y: 960}
@@ -2349,6 +2349,7 @@ MonoBehaviour:
   otherMenuFirst: {fileID: 0}
   pauseMenu: {fileID: 2058433417895574075}
   playerController: {fileID: 0}
+  player: {fileID: 0}
   masterSlider: {fileID: 8655417162990700615}
   sfxSlider: {fileID: 6548154212887860856}
   musicSlider: {fileID: 7968097625719068462}

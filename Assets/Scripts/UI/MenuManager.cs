@@ -22,8 +22,9 @@ public class MenuManager : MonoBehaviour
     [Header("Menu")]
     [SerializeField] private GameObject pauseMenu;
 
-    [Header("GameObject Finder")]
+    [Header("Finder")]
     [SerializeField] private GameObject playerController;
+    public PlayerController player;
 
     [Header("Volume Sliders")]
     [SerializeField] private Slider masterSlider;
@@ -35,6 +36,7 @@ public class MenuManager : MonoBehaviour
         if (!inMainMenu && !inCreditsMenu && !inOtherMenu)
         {
             playerController = GameObject.FindGameObjectWithTag("Player");
+            player = FindObjectOfType<PlayerController>();
 
             masterSlider.value = VolumeData.instance.masterLevel;
             sfxSlider.value = VolumeData.instance.sfxLevel;
@@ -71,17 +73,19 @@ public class MenuManager : MonoBehaviour
             if (!inPauseMenu)
             {
                 OpenPause();
+                player._inPause = true;
             }
             else
             {
                 ClosePause();
+                player._inPause = false;
             }
         }
 
-        if (Input.GetKey(KeyCode.Alpha1) && Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Keypad1) && Input.GetKey(KeyCode.Keypad2))
-        {
-            Application.Quit();
-        }
+        //if (Input.GetKey(KeyCode.Alpha1) && Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Keypad1) && Input.GetKey(KeyCode.Keypad2))
+        //{
+           //Application.Quit();
+        //}
     }
 
     public void OpenPause()
