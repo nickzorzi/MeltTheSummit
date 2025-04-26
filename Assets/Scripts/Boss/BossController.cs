@@ -204,6 +204,7 @@ public class BossController : MonoBehaviour
         SoundFXManager.instance.PlaySoundClip(hitDMG, transform, 1f);
         yield return new WaitForSeconds(0.5f);
         SoundFXManager.instance.PlaySoundClip(deathFX, transform, 1f);
+        MusicManager.instance.SetMusicTrack(4);
         yield return null;
     }
 

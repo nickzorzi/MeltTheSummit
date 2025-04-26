@@ -3477,9 +3477,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0020833334
-    width: 1.1671876
-    height: 0.25
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -7811,6 +7811,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4061623488836492875, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: musicClips.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061623488836492875, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
       propertyPath: musicClips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 03f29e4a865762a4597808c570ba716b, type: 3}
@@ -7830,6 +7834,26 @@ PrefabInstance:
       propertyPath: musicClips.Array.data[4]
       value: 
       objectReference: {fileID: 8300000, guid: 45005d31859569f429d6f051ff582c70, type: 3}
+    - target: {fileID: 4061623488836492875, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: musicClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 70c1ff6b4b380e24db30d57f870c6eda, type: 3}
+    - target: {fileID: 4061623488836492875, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: musicClips.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 38397ced6449af346acd01ef9e22c75f, type: 3}
+    - target: {fileID: 4061623488836492875, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: musicClips.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 461940f5708c12344bdfdfba157ef6a0, type: 3}
+    - target: {fileID: 4061623488836492875, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: musicClips.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: dc8f368504065de4c9936e8b26103f7b, type: 3}
+    - target: {fileID: 4061623488836492875, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: musicClips.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: b524a40e0bfc07f48b45ba8f5629bd79, type: 3}
     - target: {fileID: 7314647133624505832, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
       propertyPath: m_audioClip
       value: 
