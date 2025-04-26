@@ -3477,9 +3477,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0020833334
-    width: 1.1671876
-    height: 0.25
+    y: -0.25
+    width: 0
+    height: 0.5
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -6743,78 +6743,6 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 2105209423}
-    - target: {fileID: 2046943313697449489, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2046943313697449489, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2046943313697449489, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2046943313697449489, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2046943313697449489, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2046943313697449489, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854884735125100141, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854884735125100141, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854884735125100141, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854884735125100141, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854884735125100141, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854884735125100141, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4142314604901190432, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4142314604901190432, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4142314604901190432, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4142314604901190432, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4142314604901190432, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4142314604901190432, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4454286124810728945, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
       propertyPath: playerController
       value: 
@@ -6915,30 +6843,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 6041554016346931041, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6041554016346931041, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6041554016346931041, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6041554016346931041, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6041554016346931041, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6041554016346931041, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7483410325018960471, guid: ca80056d0ccddb241909be731e69d9d5, type: 3}
       propertyPath: playerController
       value: 
