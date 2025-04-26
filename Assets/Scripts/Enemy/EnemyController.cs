@@ -92,6 +92,11 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
         if (hasRange && canAttack && typeMelee && !hasHesitate && unit.startChase)
         {
             if (fireTime <= 0)

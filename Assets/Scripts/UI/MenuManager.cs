@@ -45,7 +45,7 @@ public class MenuManager : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(mainMenuFirst);
 
-            Destroy(GameObject.Find("DontDestroy"));
+            //Destroy(GameObject.Find("DontDestroy"));
         }
 
         if (inCreditsMenu)
@@ -108,6 +108,7 @@ public class MenuManager : MonoBehaviour
 
     public void PlayGame()
     {
+        Destroy(GameObject.Find("DontDestroy"));
         if (SpawnData.Instance != null)
         {
             SpawnData.Instance.enemies.Clear();
@@ -130,7 +131,16 @@ public class MenuManager : MonoBehaviour
     public void ReturnToMenu()
     {
         SceneManager.LoadScene("MainMenu");
-        Destroy(GameObject.Find("DontDestroy"));
+        //Destroy(GameObject.Find("DontDestroy"));
+
+        foreach (GameObject obj in FindObjectsOfType<GameObject>())
+        {
+            if (obj.name == "DontDestroy")
+            {
+                Destroy(obj);
+            }
+        }
+
         Time.timeScale = 1;
     }
 }

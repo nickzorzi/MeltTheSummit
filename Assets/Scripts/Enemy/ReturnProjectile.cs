@@ -20,35 +20,29 @@ public class ReturnProjectile : MonoBehaviour
 
     private void Update()
     {
-        foreach (GameObject target in targets)
+        if (!foundEnemy)
         {
-            if (target != null)
+            foreach (GameObject target in targets)
             {
-                RaycastHit2D ray = Physics2D.Raycast(transform.position, target.transform.position - transform.position, raycastDistance);
-
-                if (ray.collider.gameObject.CompareTag("Enemy"))
+                if (target != null)
                 {
-                    foundEnemy = true;
-                    enemy = target;
-                    break;
+                    RaycastHit2D ray = Physics2D.Raycast(transform.position, target.transform.position - transform.position, raycastDistance);
+                    if (ray.collider != null && ray.collider.CompareTag("Enemy"))
+                    {
+                        foundEnemy = true;
+                        enemy = target;
+                        break;
+                    }
                 }
             }
         }
 
-        if (foundEnemy)
+        if (foundEnemy && enemy != null)
         {
-            if (enemy != null)
-            {
-                Vector2 offsetTargetPosition = new Vector2(enemy.transform.position.x, enemy.transform.position.y + 0.75f);
-                transform.position = Vector2.MoveTowards(transform.position, offsetTargetPosition, speed * Time.deltaTime);
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
+            Vector2 offsetTargetPosition = new Vector2(enemy.transform.position.x, enemy.transform.position.y + 0.75f);
+            transform.position = Vector2.MoveTowards(transform.position, offsetTargetPosition, speed * Time.deltaTime);
         }
-
-        if (!foundEnemy)
+        else if (foundEnemy && enemy == null)
         {
             Destroy(this.gameObject);
         }
