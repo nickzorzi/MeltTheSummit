@@ -7039,7 +7039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430d147cbefca9f4489a4e431814e6a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1211772591
+--- !u!1001 &1381665993
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -7051,13 +7051,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonsterMelee
       objectReference: {fileID: 0}
-    - target: {fileID: 4386630610933452135, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 5267018275227031516}
     - target: {fileID: 7105782751504017679, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7105782751504017679, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7095,10 +7091,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8171851228021764757, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 5267018275227031516}
     - target: {fileID: 8171851228021764757, guid: 698f57f88b388a84b8fa34de7439d71a, type: 3}
       propertyPath: enemyId
       value: 59
@@ -7438,7 +7430,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5948762412314751540, guid: c3be22882635dfd489d61f9205af4976, type: 3}
   m_PrefabInstance: {fileID: 5267018275227031515}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5267018275227031516}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4acb7cab756bfdf4fa4ebe8d99796833, type: 3}
@@ -7586,11 +7578,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3be22882635dfd489d61f9205af4976, type: 3}
---- !u!1 &5267018275227031516 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1848036292710758, guid: c3be22882635dfd489d61f9205af4976, type: 3}
-  m_PrefabInstance: {fileID: 5267018275227031515}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6480086832522954088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7770,7 +7757,7 @@ SceneRoots:
   - {fileID: 8929498616840878464}
   - {fileID: 6480086832522954088}
   - {fileID: 1387358316}
-  - {fileID: 1211772591}
+  - {fileID: 1381665993}
   - {fileID: 2103875535}
   - {fileID: 1975984702}
   - {fileID: 406232044}

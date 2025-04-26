@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _isTransformed = false;
     [SerializeField] private bool _isBurning = false;
     [SerializeField] private bool _died = false;
+    public bool _inDialogue = false;
 
     private bool _inCoroutine = false;
 
@@ -147,6 +148,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (_inDialogue)
+        {
+            return;
+        }
+
         _movement.Set(InputManager.Movement.x, InputManager.Movement.y);
 
         if (_canSlide)

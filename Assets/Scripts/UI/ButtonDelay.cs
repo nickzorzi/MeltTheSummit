@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ButtonDelay : MonoBehaviour
 {
@@ -15,5 +17,7 @@ public class ButtonDelay : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         button.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(button.transform.GetChild(0).gameObject);
     }
 }

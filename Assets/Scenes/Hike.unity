@@ -7699,11 +7699,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2252903473395342661, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2252903473395342661, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 3261179049724396820, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7751,7 +7751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3511625848631072262, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6483228444272246004, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: player
@@ -7779,7 +7779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6483228444272246004, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: positions.Array.data[0].comingFrom
-      value: Mountain8
+      value: SummitRuins
       objectReference: {fileID: 0}
     - target: {fileID: 6483228444272246004, guid: f807ced2b426ecb4e9ad40c95e47c24e, type: 3}
       propertyPath: positions.Array.data[1].comingFrom

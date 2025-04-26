@@ -2521,6 +2521,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 553494878747554282, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2425249905479341317, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
       propertyPath: m_Name
       value: DontDestroy
@@ -2585,11 +2589,16 @@ PrefabInstance:
       propertyPath: musicClips.Array.data[4]
       value: 
       objectReference: {fileID: 8300000, guid: 45005d31859569f429d6f051ff582c70, type: 3}
+    - target: {fileID: 7314647133624505832, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3177592722293138929, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
     - {fileID: 4762683146828448682, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
     - {fileID: 2375590759282557853, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
+    - {fileID: 553494878747554282, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7d3360cb7f7d1743b51a647244b58c6, type: 3}

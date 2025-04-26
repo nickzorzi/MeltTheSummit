@@ -66,7 +66,7 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (InputManager.isPauseTriggered)
+        if (InputManager.isPauseTriggered && !inMainMenu && !inOtherMenu && !inCreditsMenu)
         {
             if (!inPauseMenu)
             {
@@ -117,7 +117,7 @@ public class MenuManager : MonoBehaviour
         Collected.currencyValue = 0;
         Collected.flowerValue = 0;
         SceneManager.LoadScene("Tutorial");
-        MusicManager.instance.SetMusicTrack(1);
+        //MusicManager.instance.SetMusicTrack(1);
         Time.timeScale = 1;
     }
 
@@ -130,6 +130,7 @@ public class MenuManager : MonoBehaviour
     public void ReturnToMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Destroy(GameObject.Find("DontDestroy"));
         Time.timeScale = 1;
     }
 }

@@ -34,6 +34,8 @@ public class DialogueCloser : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         unit = FindObjectOfType<Unit>();
         typeOut = FindObjectOfType<TypewriterEffect>();
+
+        playerController._inDialogue = true;
     }
 
     void Update()
@@ -41,6 +43,8 @@ public class DialogueCloser : MonoBehaviour
         if (InputManager.isInteractTriggered && typeOut.isSpeedUp)
         {
             Time.timeScale = 1;
+
+            playerController._inDialogue = false;
 
             SoundFXManager.instance.PlaySoundClip(closeFX, transform, 1f);
 
