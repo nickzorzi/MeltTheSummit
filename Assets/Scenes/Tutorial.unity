@@ -7575,23 +7575,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 415054788999914448, guid: 262848847bb908947adddeb690eddb38, type: 3}
-      propertyPath: isDropping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 415054788999914448, guid: 262848847bb908947adddeb690eddb38, type: 3}
-      propertyPath: dialogueToSay
-      value: Save the kingdom! Make sure you learn how to use that sword properly...
-        Take some silver for your journey!
-      objectReference: {fileID: 0}
-    - target: {fileID: 702456598127889649, guid: 262848847bb908947adddeb690eddb38, type: 3}
-      propertyPath: isSilver
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2217359680902953708, guid: 262848847bb908947adddeb690eddb38, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 271700033, guid: c47b964ea6ce49742b6d9623ec94025f, type: 3}
     - target: {fileID: 2237010771030992494, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7672,14 +7655,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5116698750772353366, guid: 262848847bb908947adddeb690eddb38, type: 3}
-      propertyPath: m_text
-      value: x04
-      objectReference: {fileID: 0}
-    - target: {fileID: 7485812191645311794, guid: 262848847bb908947adddeb690eddb38, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1395719357, guid: 720521c1a32bc1245afa7f0d857f0351, type: 3}
     - target: {fileID: 8291250391155618099, guid: 262848847bb908947adddeb690eddb38, type: 3}
       propertyPath: m_Name
       value: DialogueTest

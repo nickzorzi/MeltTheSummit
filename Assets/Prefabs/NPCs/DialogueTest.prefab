@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1395719357, guid: 720521c1a32bc1245afa7f0d857f0351, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x00
+  m_text: x04
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb5f6b679e89bbe4b8e7f1e6a4e929ba, type: 2}
   m_sharedMaterial: {fileID: -3032760886571426190, guid: eb5f6b679e89bbe4b8e7f1e6a4e929ba, type: 2}
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 271700033, guid: c47b964ea6ce49742b6d9623ec94025f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -679,11 +679,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2068316e0f18dd448a19c231537edb73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueToSay: You spoke to me?! Heres 4 Silver...
+  dialogueToSay: Save the kingdom! Make sure you learn how to use that sword properly...
+    Take some silver for your journey!
   textElement: {fileID: 5238081890482805806}
   speed: 20
   isDropping: 1
   dropVisual: {fileID: 619109478148182248}
+  isSpeedUp: 0
 --- !u!114 &702456598127889649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -698,10 +700,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 8373434438897369733}
   abilityTut: {fileID: 0}
+  typeOut: {fileID: 0}
   isSilver: 1
   isFlower: 0
   isAbility: 0
   dropAmount: 4
+  isBossEntrance: 0
+  unit: {fileID: 0}
+  bossHPBar: {fileID: 0}
+  isBossPreFight: 0
   playerController: {fileID: 0}
   closeFX: {fileID: 8300000, guid: 78ad99fd0a0a5144280b07bbdba84815, type: 3}
 --- !u!1 &8291250391155618099
@@ -778,7 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 16
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1280, y: 960}

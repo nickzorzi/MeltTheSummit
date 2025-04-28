@@ -3806,6 +3806,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 976583660}
     - target: {fileID: 532040971427841913, guid: 2766476b4b767fd43add82acca6034b8, type: 3}
+      propertyPath: itemId
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 532040971427841913, guid: 2766476b4b767fd43add82acca6034b8, type: 3}
       propertyPath: loadEffect
       value: 2
       objectReference: {fileID: 0}
@@ -8789,6 +8793,10 @@ PrefabInstance:
       propertyPath: infoUI
       value: 
       objectReference: {fileID: 66717613}
+    - target: {fileID: 532040971427841913, guid: 2766476b4b767fd43add82acca6034b8, type: 3}
+      propertyPath: itemId
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 532040971427841913, guid: 2766476b4b767fd43add82acca6034b8, type: 3}
       propertyPath: loadEffect
       value: 1

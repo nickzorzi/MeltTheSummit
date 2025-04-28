@@ -87,7 +87,7 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        checkForPlayer();
+        //checkForPlayer();
     }
 
     private void Update()
@@ -96,6 +96,8 @@ public class EnemyController : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
+
+        checkForPlayer();
 
         if (hasRange && canAttack && typeMelee && !hasHesitate && unit.startChase)
         {
@@ -223,11 +225,13 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position, distance, ~colliders);
+        LayerMask layerMask = LayerMask.GetMask("Obstacle", "Colliders", "Attacks");
+
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position, distance, layerMask);
 
         if (ray.collider != null)
         {
-            hasLineOfSight = ray.collider.CompareTag("Player") && ray.collider.isTrigger;
+            hasLineOfSight = ray.collider.CompareTag("Player");
 
             if (hasLineOfSight)
             {

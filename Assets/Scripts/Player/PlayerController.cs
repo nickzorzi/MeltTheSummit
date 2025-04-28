@@ -108,6 +108,7 @@ public class PlayerController : MonoBehaviour
         {
             _died = false;
 
+            _moveSpeed = PlayerData.Instance._moveSpeed;
             health = PlayerData.Instance.health;
             coolCost = PlayerData.Instance.coolCost;
             heatCost = PlayerData.Instance.heatCost;
@@ -138,6 +139,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        PlayerData.Instance._moveSpeed = _moveSpeed;
         PlayerData.Instance.health = health;
         PlayerData.Instance.coolCost = coolCost;
         PlayerData.Instance.heatCost = heatCost;

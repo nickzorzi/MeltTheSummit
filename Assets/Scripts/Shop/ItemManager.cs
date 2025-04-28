@@ -22,7 +22,26 @@ public class ItemManager : MonoBehaviour
 
     PlayerController playerController;
 
+    [Header("Data Track")]
+    [SerializeField] private int itemId;
+
+    [Header("SFX")]
     [SerializeField] private AudioClip purchase;
+
+    private void OnEnable()
+    {
+        if (loadEffect == ItemEffects.CoolCost || loadEffect == ItemEffects.HeatResistance)
+        {
+            if (SpawnData.Instance != null && SpawnData.Instance.items != null)
+            {
+                var item = SpawnData.Instance.items.Find(e => e.id == itemId);
+                if (item != null && item.dead == true)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -33,6 +52,14 @@ public class ItemManager : MonoBehaviour
     private void Start()
     {
         PlayerController.OnPlayerDamaged += HandleHealthPurchase;
+
+        if (loadEffect == ItemEffects.CoolCost || loadEffect == ItemEffects.HeatResistance)
+        {
+            if (SpawnData.Instance != null && SpawnData.Instance.items.Find(e => e.id == itemId) == null)
+            {
+                SpawnData.Instance.AddItem(gameObject, itemId, false);
+            }
+        }
     }
 
     private void OnDestroy()
@@ -66,6 +93,7 @@ public class ItemManager : MonoBehaviour
                     {
                         playerController.coolCost = -2;
                         Collected.currencyValue = Collected.currencyValue - price;
+                        SpawnData.Instance.items.Find(e => e.id == itemId).dead = true;
                         Destroy(item);
                     }
                     break;
@@ -75,6 +103,7 @@ public class ItemManager : MonoBehaviour
                     {
                         playerController.heatCost = 0.75f;
                         Collected.currencyValue = Collected.currencyValue - price;
+                        SpawnData.Instance.items.Find(e => e.id == itemId).dead = true;
                         Destroy(item);
                     }
                     break;

@@ -68,7 +68,12 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (InputManager.isPauseTriggered && !inMainMenu && !inOtherMenu && !inCreditsMenu)
+        if (InputManager.isPauseTriggered && inMainMenu)
+        {
+            EventSystem.current.SetSelectedGameObject(mainMenuFirst);
+        }
+
+        if (InputManager.isPauseTriggered && !inMainMenu && !inOtherMenu && !inCreditsMenu && !player._inDialogue)
         {
             if (!inPauseMenu)
             {
@@ -105,14 +110,22 @@ public class MenuManager : MonoBehaviour
 
         Time.timeScale = 1;
         playerController.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(null);
 
         pauseMenu.SetActive(false);
     }
 
     public void PlayGame()
     {
-        Destroy(GameObject.Find("DontDestroy"));
+        //Destroy(GameObject.Find("DontDestroy"));
+
+        foreach (GameObject obj in FindObjectsOfType<GameObject>())
+        {
+            if (obj.name == "DontDestroy")
+            {
+                Destroy(obj);
+            }
+        }
+
         if (SpawnData.Instance != null)
         {
             SpawnData.Instance.enemies.Clear();

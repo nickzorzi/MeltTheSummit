@@ -13,7 +13,7 @@ public class PlayerData : MonoBehaviour
 
     [Header("Player Info")]
     public bool _firstLoad;
-    //public float _moveSpeed;
+    public float _moveSpeed;
     public float health;
     public float temp;
     public float heatCost;
