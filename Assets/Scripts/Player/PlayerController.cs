@@ -312,12 +312,13 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Transform(string mode)
     {
+        float _currentSpeed = _moveSpeed;
         _animator.SetTrigger("Transform-" + mode);
         _isAttacking = true;
         _moveSpeed = 0f;
         yield return new WaitForSeconds(0.5f);
         _isAttacking = false;
-        _moveSpeed = 5f;
+        _moveSpeed = _currentSpeed;
     }
 
     private void HandleHealth()
