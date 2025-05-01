@@ -78,12 +78,10 @@ public class MenuManager : MonoBehaviour
             if (!inPauseMenu)
             {
                 OpenPause();
-                player._inPause = true;
             }
             else
             {
                 ClosePause();
-                player._inPause = false;
             }
         }
 
@@ -97,6 +95,8 @@ public class MenuManager : MonoBehaviour
     {
         inPauseMenu = true;
 
+        player._inPause = true;
+
         Time.timeScale = 0;
         playerController.SetActive(false);
         EventSystem.current.SetSelectedGameObject(pauseMenuFirst);
@@ -107,6 +107,8 @@ public class MenuManager : MonoBehaviour
     public void ClosePause()
     {
         inPauseMenu = false;
+
+        player._inPause = false;
 
         Time.timeScale = 1;
         playerController.SetActive(true);
