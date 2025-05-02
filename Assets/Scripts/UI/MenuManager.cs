@@ -85,10 +85,10 @@ public class MenuManager : MonoBehaviour
             }
         }
 
-        //if (Input.GetKey(KeyCode.Alpha1) && Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Keypad1) && Input.GetKey(KeyCode.Keypad2))
-        //{
-           //Application.Quit();
-        //}
+        if (Input.GetKey(KeyCode.Alpha1) && Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Keypad1) && Input.GetKey(KeyCode.Keypad2))
+        {
+           Application.Quit();
+        }
     }
 
     public void OpenPause()
